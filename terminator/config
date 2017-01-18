@@ -1,0 +1,30 @@
+[global_config]
+  borderless = True
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  tab_position = hidden
+  title_font = Source Code Pro Medium
+  title_use_system_font = False
+  window_state = fullscreen
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    background_image = None
+    cursor_blink = False
+    cursor_color = "#ccb18b"
+    font = Source Code Pro 16
+    foreground_color = "#ccb18b"
+    palette = "#353535:#ae4747:#556b2f:#daa520:#6f99b4:#8b7b8b:#a7a15e:#dddddd:#666666:#ee6363:#9acd32:#ffc125:#7c96b0:#d8bfd8:#f0e68c:#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

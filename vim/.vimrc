@@ -12,6 +12,9 @@ set smartindent
 " Fix backspacing to allow deleting past insert
 set backspace=start
 
+" We need our fancy shmancy ruler
+set ruler
+
 " Change the leader to semicolon
 " WARNING: makes you a master programmer
 let mapleader=";"
@@ -30,7 +33,7 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Just edit a file in a new tab
-map t :tabe
+map t :tabe 
 
 " Explore and choose a new file to edit
 map <silent> ,T :Texplore <CR>
@@ -86,6 +89,8 @@ source ~/.vim/a.vim
 nnoremap <C-T> :AT<CR>
 
 " Include tabline.vim to define our custom tabline
+" Similar to (https://github.com/mkitt/tabline.vim).
+" I do not recall where I got this from.
 source ~/.vim/tabline.vim
 
 " This is like something a superhero named Code Hero would say.
