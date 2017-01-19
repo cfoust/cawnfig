@@ -15,6 +15,9 @@ set backspace=start
 " We need our fancy shmancy ruler
 set ruler
 
+" Makes line endings and whitespace easier to see
+set list
+
 " Change the leader to semicolon
 " WARNING: makes you a master programmer
 let mapleader=";"
@@ -92,6 +95,9 @@ nnoremap <C-T> :AT<CR>
 " Similar to (https://github.com/mkitt/tabline.vim).
 " I do not recall where I got this from.
 source ~/.vim/tabline.vim
+
+" Google's Python indenter.
+source ~/.vim/google_python_style.vim
 
 " This is like something a superhero named Code Hero would say.
 syntax on
