@@ -15,6 +15,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 " Handy dandy snippet plugin.
 Plugin 'SirVer/ultisnips'
+" Snippets for ultisnips
+Plugin 'honza/vim-snippets'
 " All of the colors of the vimbow.
 Plugin 'flazz/vim-colorschemes'
 " Makes jumping around to words much faster.
@@ -25,6 +27,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'heavenshell/vim-jsdoc'
 " Beautiful plugin for golang integration.
 Plugin 'fatih/vim-go'
+" Git integration.
+Plugin 'tpope/vim-fugitive'
+" CoffeeScript syntax
+Plugin 'kchmck/vim-coffee-script'
 
 " Initialize Vundle plugins
 call vundle#end()            " required
@@ -35,6 +41,30 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+" Map keybindings to <Leader>g for git.
+""""""""""""""""""""""""""""""""""""""""
+" <leader>gs does git status
+nnoremap <leader>gs :Gstatus <CR>
+" <leader>gc does git commit
+nnoremap <leader>gc :Gcommit <CR>
+set statusline+=%{fugitive#statusline()}
+
+" eclim
+""""""""""""""""""""""""""""""""""""""""
+" Run the current java program
+nnoremap <leader>jr :Java <CR>
+" Comment the identifier under the cursor 
+nnoremap <leader>jc :JavaDocComment <CR>
+" Hook up Eclim to YCM
+let g:EclimCompletionMethod = 'omnifunc'
+
+" UltiSnips
+""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=["sniplets"]
 
 " The best and only color scheme
 colorscheme vividchalk

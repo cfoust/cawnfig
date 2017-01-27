@@ -44,6 +44,9 @@ map <silent> ,T :Texplore <CR>
 " Edit a file in the current file's directory in a new split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
+" Reload .vimrc with leader r
+nnoremap <leader>r :source ~/.vimrc <CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 " Some of this is taken from Stephen Sturdevant (sturdevant2@wisc.edu)
@@ -61,6 +64,12 @@ if has("autocmd")
 
    " Forces 8 space tabs to be consistent with gofmt
    autocmd BufReadPost *.go  setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
+   " Enforce AkitaBox coding style
+   autocmd BufReadPost *.js  setlocal tabstop=4 shiftwidth=4 expandtab
+
+   " UW-Madison CS Java setup 
+   autocmd BufReadPost *.java  setlocal tabstop=4 shiftwidth=4 expandtab
 endif
 
 " Remove all trailing whitespace with Shift-S
