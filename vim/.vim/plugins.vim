@@ -7,8 +7,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" All of our plugins
-"""""""""""""""""""""
+" All of our global plugins
+""""""""""""""""""""""""""""
 " Offers slick autocomplete functionality.
 Plugin 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
@@ -23,49 +23,24 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'easymotion/vim-easymotion'
 " Handy file opener with fuzzy search.
 Plugin 'kien/ctrlp.vim'
-" Documentation generator for JavaScript.
-Plugin 'heavenshell/vim-jsdoc'
-" Beautiful plugin for golang integration.
-Plugin 'fatih/vim-go'
 " Git integration.
 Plugin 'tpope/vim-fugitive'
-" CoffeeScript syntax
-Plugin 'kchmck/vim-coffee-script'
+
+" Language-specific plugins
+""""""""""""""""""""""""""""
+call Src('lang/c/plugins.vim')
+call Src('lang/js/plugins.vim')
+call Src('lang/go/plugins.vim')
 
 " Initialize Vundle plugins
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Use ag (the silver searcher) with ctrlp
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-" Map keybindings to <Leader>g for git.
-""""""""""""""""""""""""""""""""""""""""
-" <leader>gs does git status
-nnoremap <leader>gs :Gstatus <CR>
-" <leader>gc does git commit
-nnoremap <leader>gc :Gcommit <CR>
-set statusline+=%{fugitive#statusline()}
-
-" eclim
-""""""""""""""""""""""""""""""""""""""""
-" Run the current java program
-nnoremap <leader>jr :Java <CR>
-" Comment the identifier under the cursor 
-nnoremap <leader>jc :JavaDocComment <CR>
-" Hook up Eclim to YCM
-let g:EclimCompletionMethod = 'omnifunc'
-
-" UltiSnips
-""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetDirectories=["sniplets"]
+" plugin-specific settings
+call Src('plugrc/ctrlp.vim')
+call Src('plugrc/vim-fugitive.vim')
+call Src('plugrc/eclim.vim')
+call Src('plugrc/ultisnips.vim')
 
 " The best and only color scheme
 colorscheme vividchalk
-
