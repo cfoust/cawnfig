@@ -80,7 +80,7 @@ if has("autocmd")
    autocmd BufReadPost *.go  setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
    " Enforce AkitaBox coding style
-   autocmd BufReadPost *.js  setlocal tabstop=4 shiftwidth=4 expandtab
+   autocmd BufReadPost *.js call Src('lang/js/settings.vim')
 
    " UW-Madison CS Java setup 
    autocmd BufReadPost *.java  setlocal tabstop=4 shiftwidth=4 expandtab
