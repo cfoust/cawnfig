@@ -25,6 +25,9 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
 " Git integration.
 Plugin 'tpope/vim-fugitive'
+" Nice-looking status line
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
@@ -37,10 +40,12 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " plugin-specific settings
+""""""""""""""""""""""""""""
 call Src('plugrc/ctrlp.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/eclim.vim')
 call Src('plugrc/ultisnips.vim')
+call Src('plugrc/airline.vim')
 
 " The best and only color scheme
 colorscheme vividchalk

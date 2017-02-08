@@ -4,6 +4,11 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" Allow searching of current directory with ;p
-nnoremap <leader>p :CtrlPBuffer <CR>
-nnoremap <leader><leader>p :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>
+" Search through current buffers with ;i
+nnoremap <leader>i :CtrlPBuffer <CR>
+
+" Open files in directory of current file
+nnoremap <leader>p :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>
+
+" Quick opening of files in .vim
+nnoremap <leader>R :CtrlP ~/.vim/<CR>
