@@ -19,6 +19,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " All of the colors of the vimbow.
 Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
 " Makes jumping around to words much faster.
 Plugin 'easymotion/vim-easymotion'
 " Handy file opener with fuzzy search.
@@ -28,6 +29,8 @@ Plugin 'tpope/vim-fugitive'
 " Nice-looking status line
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" Simplenote is bae
+Plugin 'mrtazz/simplenote.vim'
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
@@ -46,6 +49,7 @@ call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/eclim.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/airline.vim')
+call Src('plugrc/youcompleteme.vim')
 
 " The best and only color scheme
 colorscheme vividchalk
