@@ -47,6 +47,7 @@ filetype plugin indent on    " required
 call Src('plugrc/ctrlp.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/eclim.vim')
+call Src('plugrc/easymotion.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/airline.vim')
 call Src('plugrc/youcompleteme.vim')

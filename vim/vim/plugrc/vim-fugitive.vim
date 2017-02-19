@@ -4,5 +4,6 @@
 nnoremap <leader>gs :Gstatus <CR>
 " <leader>gc does git commit
 nnoremap <leader>gc :Gcommit <CR>
+
 set statusline+=%{fugitive#statusline()}
 
