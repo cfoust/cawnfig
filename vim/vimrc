@@ -19,10 +19,17 @@ let g:CawnLang = g:CawnHome . 'lang/'
 set tabstop=2 expandtab shiftwidth=2
 set autoindent
 set smartindent
+" Jump around automatically while we search
 set incsearch
-
+" Allow for buffers to be hidden without saving
+set hidden 
 " Fix backspacing to allow deleting past insert
 set backspace=start
+" Highlight lines that go over 80 characters
+augroup vimrc_autocmds
+autocmd BufEnter * highlight OverLength ctermbg=red guibg=#111111
+  autocmd BufEnter * match OverLength /\%80v.*/
+augroup END
 
 " We need our fancy shmancy ruler
 set ruler
@@ -30,9 +37,9 @@ set ruler
 " Makes line endings and whitespace easier to see
 set list
 
-" Change the leader to semicolon
+" Change the leader to space
 " WARNING: makes you a master programmer
-let mapleader=";"
+let mapleader = "\<Space>"
 
 " Source file that includes all plugins from Vundle and their
 " configuration.
