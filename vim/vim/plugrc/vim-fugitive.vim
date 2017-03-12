@@ -1,9 +1,13 @@
 " Map keybindings to <Leader>g for git.
 """"""""""""""""""""""""""""""""""""""""
-" <leader>gs does git status
 nnoremap <leader>gs :Gstatus <CR>
-" <leader>gc does git commit
 nnoremap <leader>gc :Gcommit <CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gp :Gpush origin HEAD<CR>
+" Using Gmerge puts conflicts in the quickfix list.
+" This means you can use :cn to go to the next problem.
+nnoremap <leader>gm :Gmerge<CR>
 
 set statusline+=%{fugitive#statusline()}
 

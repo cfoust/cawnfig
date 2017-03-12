@@ -5,10 +5,15 @@ if executable('ag')
 endif
 
 " Search through current buffers
+" `Buffer` searches by buffer name
 nnoremap <leader>; :CtrlPBuffer <CR>
+" `Line` searches line by line in all buffers
+nnoremap <leader>: :CtrlPLine <CR>
 
 " Open files in directory of current file
-nnoremap <leader>p :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>
+nnoremap <leader>l :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>
+" Open files in cwd
+nnoremap <leader>k :CtrlP <CR><CR>
 
 " Quick opening of files in .vim
 nnoremap <leader>R :CtrlP ~/.vim/<CR>

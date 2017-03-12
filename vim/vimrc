@@ -7,24 +7,36 @@ set directory^=$HOME/.vim/tmp//
 " The home directory for vim
 let g:CawnHome = $HOME . '/.vim/'
 
-" Useful for sourcing the path in variables
+" Useful for sourcing the path in variables.
 function Src(path)
   exec 'source ' . g:CawnHome . a:path
 endfunction
 
-" The languages home for language-specific settings
+" The directory for language-specific settings
 let g:CawnLang = g:CawnHome . 'lang/'
 
-" 2 spaces master race
+"================================================
+" GENERAL CONFIGURATION SETTINGS
+"================================================
+" Only my grandma uses four spaces.
 set tabstop=2 expandtab shiftwidth=2
 set autoindent
 set smartindent
-" Jump around automatically while we search
+
+" Jump around and show matches as we search with /.
+" Useful when you want to look to see if something's in
+" the file but don't want to commit to jumping to it.
 set incsearch
-" Allow for buffers to be hidden without saving
-set hidden 
-" Fix backspacing to allow deleting past insert
+
+" Allow for buffers to be hidden without saving. Vim
+" still warns you if you try to quit without saving changes
+" to disk.
+set hidden
+
+" Fix backspacing to allow backspacing past the point of
+" insert.
 set backspace=start
+
 " Highlight lines that go over 80 characters
 augroup vimrc_autocmds
 autocmd BufEnter * highlight OverLength ctermbg=red guibg=#111111
@@ -34,20 +46,21 @@ augroup END
 " We need our fancy shmancy ruler
 set ruler
 
-" Makes line endings and whitespace easier to see
+" Makes line endings and whitespace easier to see.
 set list
 
 " Change the leader to space
 " WARNING: makes you a master programmer
 let mapleader = "\<Space>"
+"================================================
 
 " Source file that includes all plugins from Vundle and their
 " configuration.
 call Src('plugins.vim')
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
-" Some handy commands for opening files
-
+"================================================
+" FILE OPEN COMMANDS
+"================================================
 " Edit a file in the current file's directory in the current pane
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -55,7 +68,12 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Just edit a file in a new tab
-map t :tabe 
+map t :tabe
+
+" Allows you to use Ctrl+H or Ctrl+L to navigate tabs
+" Super useful if you have Capslock bound to Ctrl
+nnoremap <C-H> :tabprevious<CR>
+nnoremap <C-L> :tabnext<CR>
 
 " Explore and choose a new file to edit
 map <silent> ,T :Texplore <CR>
@@ -63,12 +81,21 @@ map <silent> ,T :Texplore <CR>
 " Edit a file in the current file's directory in a new split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
+" Include tabline.vim to define our custom tabline
+" Similar to (https://github.com/mkitt/tabline.vim).
+" I do not recall where I got this from.
+call Src('/tabline.vim')
+
 " Reload .vimrc with leader r
 nnoremap <leader>r :source ~/.vimrc <CR>
+"================================================
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Some of this is taken from Stephen Sturdevant (sturdevant2@wisc.edu)
+"================================================
+" AUTOCMD COMMANDS FOR SYNTAX AND PROFIT
+"================================================
+" Some of this is taken from a TA of mine's .vimrc that
+" he distributed to my Introduction to Operating systems class back
+" in the fall of 2016.
 if has("autocmd")
    " When editing a file, always jump to the last cursor position
    autocmd BufReadPost * if line("'\"") | exe "normal '\"" | endif
@@ -90,22 +117,41 @@ if has("autocmd")
    " Enforce AkitaBox coding style
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
 
-   " UW-Madison CS Java setup 
+   " UW-Madison CS Java setup
    autocmd BufReadPost *.java  setlocal tabstop=4 shiftwidth=4 expandtab
 endif
+"================================================
 
+"================================================
+" MISCELLANEOUS BINDINGS AND SUCH
+"================================================
 " Remove all trailing whitespace with Shift-S
 nnoremap <silent> <S-S> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Allows you to use Ctrl+H or Ctrl+L to navigate tabs
-" Super useful if you have Capslock bound to Ctrl
-nnoremap <C-H> :tabprevious<CR>
-nnoremap <C-L> :tabnext<CR>
+" Whenever you replace a word, it is copied, too. Useful for jumping to the
+" next occurrence.
+nnoremap <silent> ciw yiwciw
+" Jump to the next occurrence of the text in register 0. Use in tandem with
+" the command above to make replacements quickly.
+nnoremap <silent> <leader>n /<C-r>0 <CR>
 
-" Include tabline.vim to define our custom tabline
-" Similar to (https://github.com/mkitt/tabline.vim).
-" I do not recall where I got this from.
-call Src('/tabline.vim')
+" Normally in vim if you paste over text in virtual mode
+" it puts it into your paste buffer. Annoying if you're
+" jumping around and replacing text with gn. This little
+" script fixes that.
+"
+" Taken from:
+" https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+"================================================
 
 " This is like something a superhero named Code Hero would say.
 syntax on

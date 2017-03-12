@@ -31,6 +31,8 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Simplenote is bae
 Plugin 'mrtazz/simplenote.vim'
+" Plugin for autowrapping writing
+Plugin 'reedes/vim-pencil'
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
