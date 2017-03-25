@@ -9,24 +9,12 @@ Below are some notes on the individual configurations.
 
 ## vim
 Too much of this is taken from random sources for me to attribute each
-individual change. The setup doesn't deviate too much from vim's defaults
-other than a higher emphasis on tabs as opposed to buffers:
+individual change. I wouldn't recommend trying to use my vimrc, but
+take a look through it if you want some sweet tips.
 
-`t` Opens a new tab.
+## crosh
 
-`,t` Lets you open a file relative to the current directory in a new tab.
-
-`,e` Same thing, but in the current tab. 
-
-`,T` Does a :Texplore.
-
-You can also move between tabs with `C-h` and `C-l`.
-
-## terminator
-
-This (along with the colors for `tmux`) were taken from 
-[this Reddit post](https://www.reddit.com/r/unixporn/comments/3cn5gi/tmux_is_my_wm_on_os_x/).
-It reminded me a lot of the computer terminals in the Portal series.
+A number of themes and preferences for Chrome OS's crosh developer shell.
 
 ## tmux
 

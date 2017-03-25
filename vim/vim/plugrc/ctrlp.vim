@@ -16,4 +16,4 @@ nnoremap <leader>l :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>
 nnoremap <leader>k :CtrlP <CR><CR>
 
 " Quick opening of files in .vim
-nnoremap <leader>R :CtrlP ~/.vim/<CR>
+nnoremap <leader>vE :CtrlP ~/.vim/<CR>

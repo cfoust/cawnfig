@@ -40,7 +40,7 @@ set backspace=start
 " Highlight lines that go over 80 characters
 augroup vimrc_autocmds
 autocmd BufEnter * highlight OverLength ctermbg=red guibg=#111111
-  autocmd BufEnter * match OverLength /\%80v.*/
+  autocmd BufEnter * match OverLength /\%120v.*/
 augroup END
 
 " We need our fancy shmancy ruler
@@ -59,24 +59,20 @@ let mapleader = "\<Space>"
 call Src('plugins.vim')
 
 "================================================
+" SPLIT COMMANDS
+"================================================
+" Make the default split behavior to be more logical
+set splitbelow
+set splitright
+
+" Use tmux-like split commands
+"================================================
+"
+"================================================
 " FILE OPEN COMMANDS
 "================================================
 " Edit a file in the current file's directory in the current pane
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Edit a file in the current file's directory in a new tab
-map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Just edit a file in a new tab
-map t :tabe
-
-" Allows you to use Ctrl+H or Ctrl+L to navigate tabs
-" Super useful if you have Capslock bound to Ctrl
-nnoremap <C-H> :tabprevious<CR>
-nnoremap <C-L> :tabnext<CR>
-
-" Explore and choose a new file to edit
-map <silent> ,T :Texplore <CR>
 
 " Edit a file in the current file's directory in a new split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
@@ -85,9 +81,13 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 " Similar to (https://github.com/mkitt/tabline.vim).
 " I do not recall where I got this from.
 call Src('/tabline.vim')
+" Useful running of shell commands.
+call Src('/shell.vim')
 
-" Reload .vimrc with leader r
-nnoremap <leader>r :source ~/.vimrc <CR>
+" Easy editing of vimrc
+nnoremap <leader>ve :e ~/.vimrc <CR>
+" Reload .vimrc with leader + vr
+nnoremap <leader>vr :source ~/.vimrc <CR>
 "================================================
 
 "================================================
@@ -107,6 +107,7 @@ if has("autocmd")
    autocmd BufReadPost *.py  setlocal tabstop=4 shiftwidth=4
    autocmd BufNewFile,BufRead *.jlex set syntax=java
    autocmd BufNewFile,BufRead *.cup set syntax=java
+   autocmd BufNewFile,BufRead *.hbs set syntax=html
 
    " C family languages
    autocmd BufReadPost *.m,*.h,*.c,*.mm,*.cpp,*.hpp source &lang . 'c/settings.vim'
@@ -133,7 +134,19 @@ nnoremap <silent> <S-S> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <silent> ciw yiwciw
 " Jump to the next occurrence of the text in register 0. Use in tandem with
 " the command above to make replacements quickly.
-nnoremap <silent> <leader>n /<C-r>0 <CR>
+nnoremap <silent> <leader>n /<C-r>0<CR>
+
+" Delete line below with <leader>d and above with <leader>D
+nnoremap <silent> <leader>d :+d <CR>
+nnoremap <silent> <leader>D :-d <CR>
+ 
+" Same, but add whitespace with <leader>s
+" Pretty similar to unimpaired.vim's implementation
+nnoremap <silent> <leader>s :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
+nnoremap <silent> <leader>S :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
+
+" Select the last pasted text with gp
+nnoremap gp `[v`]
 
 " Normally in vim if you paste over text in virtual mode
 " it puts it into your paste buffer. Annoying if you're
