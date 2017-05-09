@@ -38,10 +38,10 @@ set hidden
 set backspace=start
 
 " Highlight lines that go over 80 characters
-augroup vimrc_autocmds
-autocmd BufEnter * highlight OverLength ctermbg=red guibg=#111111
-  autocmd BufEnter * match OverLength /\%120v.*/
-augroup END
+"augroup vimrc_autocmds
+"autocmd BufEnter * highlight OverLength ctermbg=red guibg=#111111
+  "autocmd BufEnter * match OverLength /\%120v.*/
+"augroup END
 
 " We need our fancy shmancy ruler
 set ruler
@@ -111,15 +111,13 @@ if has("autocmd")
 
    " C family languages
    autocmd BufReadPost *.m,*.h,*.c,*.mm,*.cpp,*.hpp source &lang . 'c/settings.vim'
+   "autocmd BufReadPost *.cf, *.moo set syntax=c
 
    " Forces 8 space tabs to be consistent with gofmt
    autocmd BufReadPost *.go  setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
    " Enforce AkitaBox coding style
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
-
-   " UW-Madison CS Java setup
-   autocmd BufReadPost *.java  setlocal tabstop=4 shiftwidth=4 expandtab
 endif
 "================================================
 
@@ -139,7 +137,7 @@ nnoremap <silent> <leader>n /<C-r>0<CR>
 " Delete line below with <leader>d and above with <leader>D
 nnoremap <silent> <leader>d :+d <CR>
 nnoremap <silent> <leader>D :-d <CR>
- 
+
 " Same, but add whitespace with <leader>s
 " Pretty similar to unimpaired.vim's implementation
 nnoremap <silent> <leader>s :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>

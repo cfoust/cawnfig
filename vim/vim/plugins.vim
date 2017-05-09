@@ -39,6 +39,8 @@ Plugin 'Two-Finger/hardmode'
 call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/go/plugins.vim')
+call Src('lang/html/plugins.vim')
+call Src('lang/rust/plugins.vim')
 
 " Initialize Vundle plugins
 call vundle#end()            " required
@@ -49,6 +51,7 @@ filetype plugin indent on    " required
 call Src('plugrc/ctrlp.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
+call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/eclim.vim')
 call Src('plugrc/easymotion.vim')
 call Src('plugrc/ultisnips.vim')
@@ -57,4 +60,5 @@ call Src('plugrc/youcompleteme.vim')
 call Src('plugrc/hardmode.vim')
 
 " The best and only color scheme
-colorscheme vividchalk
+" colorscheme vividchalk
+colorscheme blackboard
