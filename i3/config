@@ -1,4 +1,6 @@
 # Caleb Foust's (cfoust@sqweebloid.com) i3 Config
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
 
 set $mod Mod1
 
@@ -17,8 +19,21 @@ bindsym Ctrl+Return exec terminator -e tmux
 # Screenshot function
 bindsym Ctrl+Shift+4 exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
 
-# Lets you lock the computer
-bindsym $mod+Control+l exec i3lock -i ~/Pictures/Backgrounds/tetons-at-night.png -p default -d -n
+# Adjust volume with the built-in media keys
+bindcode 121 exec pactl -- set-sink-mute 0 toggle
+bindcode 122 exec pactl -- set-sink-volume 0 -3%
+bindcode 123 exec pactl -- set-sink-volume 0 +3%
+
+# Start up Spotify or our voice blocker with the "play" and "stop" keys
+# I only realized the irony of putting these specific bindings on those
+# keys afterwards.
+bindcode 172 exec google-chrome play.spotify.com
+bindcode 174 exec google-chrome https://mynoise.net/NoiseMachines/whiteNoiseGenerator.php?c=0&l=0001687981938527060000
+
+# Mess with redshift with the skip forward key.
+bindcode 173 exec redshift -O 3000 # Diminished color mode
+bindcode Shift+173 exec redshift -O 1000 # Red color mode
+bindcode Ctrl+173 exec redshift -O 6500 # Resets to default
 
 bindsym Ctrl+j mode "vimlike"
 mode "vimlike" {
@@ -47,6 +62,9 @@ mode "vimlike" {
   # Lets you run programs that have .desktop links with Ctrl+S.
   bindsym Ctrl+s exec --no-startup-id i3-dmenu-desktop; mode "default"
 
+  # enter fullscreen mode for the focused container
+  bindsym f fullscreen; mode "default";
+
   # reload the configuration file
   bindsym r reload; mode "default"
 
@@ -56,9 +74,13 @@ mode "vimlike" {
   # exit i3 (logs you out of your X session)
   bindsym q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; mode "default"
 
+  # Lets you lock the computer
+  bindsym Shift+l exec i3lock -i ~/Backgrounds/Hydrogen_Remixed.png -p default -d -n
+
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
   bindsym Esc mode "default"
+  bindsym Ctrl+j mode "default";
 }
 
 # Allow floating windows for applications of specific classes
@@ -94,8 +116,6 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -142,3 +162,6 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3status
 }
+
+exec xrandr -s 1680x1050
+exec xmodmap ~/.Xmodmap
