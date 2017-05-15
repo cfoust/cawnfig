@@ -60,5 +60,5 @@ call Src('plugrc/youcompleteme.vim')
 call Src('plugrc/hardmode.vim')
 
 " The best and only color scheme
-" colorscheme vividchalk
-colorscheme blackboard
+colorscheme vividchalk
+"colorscheme blackboard

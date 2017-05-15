@@ -85,9 +85,9 @@ call Src('/tabline.vim')
 call Src('/shell.vim')
 
 " Easy editing of vimrc
-nnoremap <leader>ve :e ~/.vimrc <CR>
+nnoremap <leader>ve :e ~/.vim/vimrc <CR>
 " Reload .vimrc with leader + vr
-nnoremap <leader>vr :source ~/.vimrc <CR>
+nnoremap <leader>vr :source ~/.vim/vimrc <CR>
 "================================================
 
 "================================================
