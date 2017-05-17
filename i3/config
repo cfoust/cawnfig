@@ -50,12 +50,20 @@ mode "vimlike" {
   bindsym k workspace 2; mode "default"
   bindsym l workspace 3; mode "default"
   bindcode 47 workspace 4; mode "default"
+  bindsym u workspace 5; mode "default"
+  bindsym i workspace 6; mode "default"
+  bindsym o workspace 7; mode "default"
+  bindsym p workspace 8; mode "default"
 
   # Moves the focused window to the specified workspace
   bindsym Ctrl+Shift+j move container to workspace 1; mode "default"
   bindsym Ctrl+Shift+k move container to workspace 2; mode "default"
   bindsym Ctrl+Shift+l move container to workspace 3; mode "default"
   bindcode Ctrl+Shift+47 move container to workspace 4; mode "default"
+  bindsym Ctrl+Shift+u move container to workspace 5; mode "default"
+  bindsym Ctrl+Shift+i move container to workspace 6; mode "default"
+  bindsym Ctrl+Shift+o move container to workspace 7; mode "default"
+  bindsym Ctrl+Shift+p move container to workspace 8; mode "default"
 
   # Lets you run programs in the PATH with S
   bindsym s exec dmenu_run; mode "default"
@@ -160,8 +168,12 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+  mode hide
   status_command i3status
+  modifier Mod1
 }
 
-exec xrandr -s 1680x1050
+workspace 1 output DP-1
+workspace 5 output HDMI-1
+exec ~/.screenlayout/sbs.sh
 exec xmodmap ~/.Xmodmap

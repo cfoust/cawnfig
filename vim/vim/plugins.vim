@@ -33,6 +33,9 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'reedes/vim-pencil'
 " Makes vim harder to use. For good.
 Plugin 'Two-Finger/hardmode'
+" Integration with simplenote.
+" This is life-changing.
+Plugin 'mrtazz/simplenote.vim'
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
@@ -48,16 +51,17 @@ filetype plugin indent on    " required
 
 " plugin-specific settings
 """"""""""""""""""""""""""""
+call Src('plugrc/airline.vim')
 call Src('plugrc/ctrlp.vim')
+call Src('plugrc/easymotion.vim')
+call Src('plugrc/eclim.vim')
+call Src('plugrc/hardmode.vim')
+call Src('plugrc/simplenote.vim')
+call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
-call Src('plugrc/eclim.vim')
-call Src('plugrc/easymotion.vim')
-call Src('plugrc/ultisnips.vim')
-call Src('plugrc/airline.vim')
 call Src('plugrc/youcompleteme.vim')
-call Src('plugrc/hardmode.vim')
 
 " The best and only color scheme
 colorscheme vividchalk

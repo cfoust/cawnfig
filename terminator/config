@@ -18,6 +18,18 @@
 [plugins]
 [profiles]
   [[default]]
+    background_image = None
+    copy_on_selection = True
+    cursor_blink = False
+    font = Iosevka Term Slab 17
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+    palette = "#000000:#b84131:#7da900:#c4a500:#62a3c4:#ba8acc:#207383:#a1a1a1:#7a7a7a:#d6837c:#c4f137:#fee14d:#8dcff0:#f79aff:#6ad9cf:#f7f7f7"
+    foreground_color = "#f7f7f7"
+    background_color = "#0a2b42"
+    cursor_color = "#f7f7f7"
+  [[aperture]]
     background_color = "#282828"
     background_image = None
     copy_on_selection = True
@@ -29,7 +41,7 @@
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
-  [[Less]]
+  [[less]]
     background_image = None
     copy_on_selection = True
     cursor_blink = False
@@ -40,15 +52,15 @@
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
-  [[Ollie]]
+  [[ollie]]
+    background_color = "#222125"
     background_image = None
     copy_on_selection = True
     cursor_blink = False
-    font = Iosevka Term Slab 17
-    palette = "#000000:#ac2e31:#31ac61:#ac4300:#2d57ac:#b08528:#1fa6ac:#8a8eac:#5b3725:#ff3d48:#3bff99:#ff5e1e:#4488ff:#ffc21d:#1ffaff:#5b6ea7"
-    foreground_color = "#8a8dae"
-    background_color = "#222125"
     cursor_color = "#8a8dae"
+    font = Iosevka Term Slab 17
+    foreground_color = "#8a8dae"
+    palette = "#000000:#ac2e31:#31ac61:#ac4300:#2d57ac:#b08528:#1fa6ac:#8a8eac:#5b3725:#ff3d48:#3bff99:#ff5e1e:#4488ff:#ffc21d:#1ffaff:#5b6ea7"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
