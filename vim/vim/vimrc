@@ -19,6 +19,7 @@ let g:CawnLang = g:CawnHome . 'lang/'
 " GENERAL CONFIGURATION SETTINGS
 "================================================
 " Only my grandma uses four spaces.
+" JK now I do too, thanks grandma
 set tabstop=2 expandtab shiftwidth=2
 set autoindent
 set smartindent
@@ -108,6 +109,7 @@ if has("autocmd")
    autocmd BufNewFile,BufRead *.jlex set syntax=java
    autocmd BufNewFile,BufRead *.cup set syntax=java
    autocmd BufNewFile,BufRead *.hbs set syntax=html
+   autocmd BufNewFile,BufRead *.vim set tw=0
 
    " C family languages
    autocmd BufReadPost *.m,*.h,*.c,*.mm,*.cpp,*.hpp source &lang . 'c/settings.vim'
@@ -119,6 +121,12 @@ if has("autocmd")
    " Enforce AkitaBox coding style
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
 endif
+"================================================
+
+"================================================
+" GVIM OPTIONS
+"================================================
+set go=i
 "================================================
 
 "================================================
@@ -145,6 +153,15 @@ nnoremap <silent> <leader>S :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "
 
 " Select the last pasted text with gp
 nnoremap gp `[v`]
+
+" Remap j and k to scroll up and down
+nnoremap j <C-D>
+nnoremap k <C-U>
+nnoremap s ]}
+nnoremap S [{
+
+" Quick jumps in quick list
+map <c-n> :cn <CR>
 
 " Normally in vim if you paste over text in virtual mode
 " it puts it into your paste buffer. Annoying if you're

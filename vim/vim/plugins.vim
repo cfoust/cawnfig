@@ -20,8 +20,6 @@ Plugin 'honza/vim-snippets'
 " All of the colors of the vimbow.
 Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/base16-vim'
-" Makes jumping around to words much faster.
-Plugin 'easymotion/vim-easymotion'
 " Handy file opener with fuzzy search.
 Plugin 'kien/ctrlp.vim'
 " Git integration.
@@ -36,6 +34,8 @@ Plugin 'Two-Finger/hardmode'
 " Integration with simplenote.
 " This is life-changing.
 Plugin 'mrtazz/simplenote.vim'
+" Lets you run commands in adjacent tmux panes.
+Plugin 'benmills/vimux'
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
@@ -53,7 +53,6 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""
 call Src('plugrc/airline.vim')
 call Src('plugrc/ctrlp.vim')
-call Src('plugrc/easymotion.vim')
 call Src('plugrc/eclim.vim')
 call Src('plugrc/hardmode.vim')
 call Src('plugrc/simplenote.vim')
@@ -61,6 +60,7 @@ call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
+call Src('plugrc/vimux.vim')
 call Src('plugrc/youcompleteme.vim')
 
 " The best and only color scheme

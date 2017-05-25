@@ -40,4 +40,3 @@ if command -v fzf>/dev/null; then
       git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
   }
 fi
-

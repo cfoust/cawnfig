@@ -1,7 +1,7 @@
 set conceallevel=1
 
 " Toggle concealing with <leader>jst
-map <leader>jst :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
+"map <leader>jst :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 
 " This is kind of cool, taken from this plugin's
 " github page
