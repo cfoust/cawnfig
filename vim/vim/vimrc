@@ -132,8 +132,8 @@ set go=i
 "================================================
 " MISCELLANEOUS BINDINGS AND SUCH
 "================================================
-" Remove all trailing whitespace with Shift-S
-nnoremap <silent> <S-S> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" Remove all trailing whitespace with Ctrl-/
+nnoremap <silent> <c-\> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Whenever you replace a word, it is copied, too. Useful for jumping to the
 " next occurrence.

@@ -63,6 +63,5 @@ call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/vimux.vim')
 call Src('plugrc/youcompleteme.vim')
 
-" The best and only color scheme
-colorscheme vividchalk
+colorscheme colorzone
 "colorscheme blackboard
