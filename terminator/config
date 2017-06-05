@@ -18,14 +18,14 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#222125"
+    allow_bold = False
+    background_color = "#2d2d2d"
     background_image = None
     copy_on_selection = True
-    cursor_blink = False
-    cursor_color = "#2d57ac"
-    font = Space Mono 17
-    foreground_color = "#8a8dae"
-    palette = "#000000:#ac2e31:#31ac61:#ac4300:#2d57ac:#b08528:#1fa6ac:#8a8eac:#5b3725:#ff3d48:#3bff99:#ff5e1e:#4488ff:#ffc21d:#1ffaff:#5b6ea7"
+    cursor_color = "#d3d0c8"
+    font = Space Mono 13
+    foreground_color = "#d3d0c8"
+    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
@@ -61,6 +61,18 @@
     font = Iosevka Term Slab 17
     foreground_color = "#ffffff"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[ollie]]
+    background_color = "#222125"
+    background_image = None
+    copy_on_selection = True
+    cursor_blink = False
+    cursor_color = "#2d57ac"
+    font = Space Mono 17
+    foreground_color = "#8a8dae"
+    palette = "#000000:#ac2e31:#31ac61:#ac4300:#2d57ac:#b08528:#1fa6ac:#8a8eac:#5b3725:#ff3d48:#3bff99:#ff5e1e:#4488ff:#ffc21d:#1ffaff:#5b6ea7"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

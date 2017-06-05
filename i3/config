@@ -68,6 +68,7 @@ mode "vimlike" {
   bindsym Ctrl+s exec --no-startup-id i3-dmenu-desktop; mode "default"
   # Start programs with 1-0
   bindsym 1 exec google-chrome --new-window; mode "default"
+  bindsym 2 exec emacs; mode "default"
 
   # enter fullscreen mode for the focused container
   bindsym f fullscreen; mode "default";

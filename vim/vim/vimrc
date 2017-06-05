@@ -132,6 +132,9 @@ set go=i
 "================================================
 " MISCELLANEOUS BINDINGS AND SUCH
 "================================================
+" Easy file write
+nnoremap <silent> <leader>w :w<CR>
+
 " Remove all trailing whitespace with Ctrl-/
 nnoremap <silent> <c-\> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
@@ -154,11 +157,20 @@ nnoremap <silent> <leader>S :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "
 " Select the last pasted text with gp
 nnoremap gp `[v`]
 
+" Duplicate and jump to beginning of paste
+vnoremap <leader>h y`>p
+
 " Remap j and k to scroll up and down
 nnoremap j <C-D>
 nnoremap k <C-U>
+
+imap jk <Esc>
+
+" Jump around curly blocks with s
 nnoremap s ]}
 nnoremap S [{
+vmap s ]}
+vmap S [{
 
 " Quick jumps in quick list
 map <c-n> :cn <CR>

@@ -22,20 +22,35 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/base16-vim'
 " Handy file opener with fuzzy search.
 Plugin 'kien/ctrlp.vim'
+Bundle 'imkmf/ctrlp-branches'
+Bundle 'hara/ctrlp-colorscheme'
 " Git integration.
 Plugin 'tpope/vim-fugitive'
 " Nice-looking status line
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin for autowrapping writing
-Plugin 'reedes/vim-pencil'
-" Makes vim harder to use. For good.
-Plugin 'Two-Finger/hardmode'
 " Integration with simplenote.
 " This is life-changing.
 Plugin 'mrtazz/simplenote.vim'
 " Lets you run commands in adjacent tmux panes.
 Plugin 'benmills/vimux'
+" Adds the `a` text object for manipulating function
+" arguments.
+Plugin 'gaving/vim-textobj-argument'
+" Handy plugin for highlighting long lines.
+" This isn't that hard to do manually, but this way
+" we can toggle on and off.
+Plugin 'whatyouhide/vim-lengthmatters'
+Plugin 'vim-scripts/sokoban.vim'
+
+" Writing plugins
+""""""""""""""""""
+" Plugin for autowrapping writing
+Plugin 'reedes/vim-pencil'
+" Highlights the section you're working on.
+Plugin 'junegunn/limelight.vim'
+" Distraction-free writing
+Plugin 'junegunn/goyo.vim'
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
@@ -52,16 +67,19 @@ filetype plugin indent on    " required
 " plugin-specific settings
 """"""""""""""""""""""""""""
 call Src('plugrc/airline.vim')
+call Src('plugrc/ctrlp-branches.vim')
+call Src('plugrc/ctrlp-colorscheme.vim')
 call Src('plugrc/ctrlp.vim')
-call Src('plugrc/eclim.vim')
-call Src('plugrc/hardmode.vim')
+call Src('plugrc/goyo.vim')
+call Src('plugrc/limelight.vim')
 call Src('plugrc/simplenote.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
+call Src('plugrc/vim-lengthmatters.vim')
 call Src('plugrc/vimux.vim')
+call Src('plugrc/vundle.vim')
 call Src('plugrc/youcompleteme.vim')
 
-colorscheme colorzone
-"colorscheme blackboard
+colorscheme vividchalk
