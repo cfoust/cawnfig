@@ -1,0 +1,7 @@
+#!/bin/bash
+# Installs tmux and sets up its configuration.
+#
+# Caleb Foust
+source common.sh
+$APT tmux
+ln ~/cawnfig/tmux/main.conf ~/.tmux.conf

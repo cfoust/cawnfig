@@ -1,0 +1,8 @@
+#!/bin/bash
+# Installs a tidy vim setup with Vundle and YouCompleteMe.
+#
+# Caleb Foust
+
+./install_vim
+./install_vim_vundle
+./install_vim_ycm

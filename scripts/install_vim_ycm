@@ -1,0 +1,11 @@
+#!/bin/bash
+# Installs YouCompleteMe, which Vundle can't handle on its own.
+#
+# Caleb Foust
+source common.sh
+cd ~/.vim/bundle/YouCompleteMe
+$APT build-essential cmake python-dev python3-dev
+
+# I'm not a fan of most of the completers as I really just look
+# to YCM for fuzzy identifier matching.
+./install.py --clang-completer

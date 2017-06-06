@@ -1,0 +1,19 @@
+#!/bin/bash
+# Installs the following:
+# - vim from source
+# - tmux
+#
+# Caleb Foust
+
+cd ~
+
+# Clone this repo if it doesn't exist
+if [ ! -d ~/cawnfig ] ; then
+  git clone https://github.com/cfoust/cawnfig.git ~/cawnfig
+fi
+
+cd /cawnfig/scripts
+
+# Install vim and all necessary plugins
+./install_vim_all
+./install_tmux
