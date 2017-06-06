@@ -16,4 +16,8 @@ cd /cawnfig/scripts
 
 # Install vim and all necessary plugins
 ./install_vim_all
+# Same with tmux
 ./install_tmux
+
+# Create our lovely Developer directory
+mkdir -p ~/Developer

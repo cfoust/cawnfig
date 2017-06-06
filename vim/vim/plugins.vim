@@ -82,4 +82,4 @@ call Src('plugrc/vimux.vim')
 call Src('plugrc/vundle.vim')
 call Src('plugrc/youcompleteme.vim')
 
-colorscheme vividchalk
+silent! colorscheme vividchalk

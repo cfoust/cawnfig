@@ -4,4 +4,7 @@
 # Caleb Foust
 source common.sh
 $APT tmux
-ln ~/cawnfig/tmux/main.conf ~/.tmux.conf
+
+if [ ! -f ~/.tmux.conf ] ; then
+  ln ~/cawnfig/tmux/main.conf ~/.tmux.conf
+fi
