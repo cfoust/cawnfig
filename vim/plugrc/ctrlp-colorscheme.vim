@@ -1,2 +1,2 @@
 " Change the color scheme easily
-nnoremap <leader>s; :CtrlPColorscheme<CR>
+nnoremap <leader>a; :CtrlPColorscheme<CR>

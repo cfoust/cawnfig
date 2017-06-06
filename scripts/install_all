@@ -4,6 +4,13 @@
 # - tmux
 #
 # Caleb Foust
+source common.sh
+
+# Update apt sources
+sudo apt-get update
+
+# We need git from the git-go
+$APT git
 
 cd ~
 

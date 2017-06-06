@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
   # Use a basic Ubuntu install
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "bento/ubuntu-16.04"
 
   # Share our dev folder to the VM.
   # Note: This won't work, of course, if you're running Vagrant on Windows.

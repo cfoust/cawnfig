@@ -4,4 +4,4 @@ let g:ctrlp_extensions = [
 \ ]
 
 " Fuzzy branch changer for git. 
-nnoremap <leader>sf :CtrlPBranches<CR>
+nnoremap <leader>af :CtrlPBranches<CR>

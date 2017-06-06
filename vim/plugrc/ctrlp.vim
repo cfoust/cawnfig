@@ -16,7 +16,7 @@ nnoremap <leader>l :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>
 nnoremap <leader>k :CtrlP <CR><CR>
 
 " Search through recently opened files
-nnoremap <leader>sr :CtrlPMRU <CR>
+nnoremap <leader>ar :CtrlPMRU <CR>
 
 " Quick opening of files in .vim
 nnoremap <leader>vE :CtrlP ~/.vim/<CR>
