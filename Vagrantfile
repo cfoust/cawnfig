@@ -19,5 +19,5 @@ Vagrant.configure("2") do |config|
 
   # Install vim from source
   config.vm.provision "shell",
-    inline: "cd /cawnfig/scripts && ./install_all"
+    inline: "echo 'cd /cawnfig/scripts && ./install_all' >> /home/vagrant/install"
 end
