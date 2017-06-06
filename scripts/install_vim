@@ -10,7 +10,8 @@ touch ~/.vimprivate
 
 # Symlink our vim config
 if [ ! -d ~/.vim ] ; then
-  ln -s ~/cawnfig/vim/vim ~/.vim
+  echo 'Symlinked vimrc.'
+  ln -s ~/cawnfig/vim ~/.vim
 fi
 
 # Only install if the version is below 8
@@ -28,7 +29,6 @@ VIM_DEPS+="git"
 # Make sure we have all of vim's dependencies
 $APT $VIM_DEPS
 
-mkdir -p ~/Developer
 cd /tmp
 git clone https://github.com/vim/vim.git
 cd vim

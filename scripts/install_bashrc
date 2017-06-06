@@ -1,0 +1,14 @@
+#!/bin/bash
+# Adds our bash config to bashrc if it
+# isn't already included.
+#
+# Caleb Foust
+
+CF_BASH_CONF="~/cawnfig/bash/config.sh"
+
+if cat ~/.bashrc | grep -q "$CF_BASH_CONF"; then
+  echo 'bashrc already includes special config.'
+  exit
+fi
+
+echo "source $CF_BASH_CONF" >> ~/.bashrc

@@ -3,9 +3,13 @@
 #
 # Caleb Foust
 source common.sh
-cd ~/.vim/bundle/YouCompleteMe
+
+YCMDIR=~/.vim/bundle/YouCompleteMe
+cd $YCMDIR
 $APT build-essential cmake python-dev python3-dev
 
-# I'm not a fan of most of the completers as I really just look
-# to YCM for fuzzy identifier matching.
-./install.py --clang-completer
+if [ ! -f $YCMDIR/third_party/ycmd/ycm_core.so ] ; then
+  # I'm not a fan of most of the completers as I really just look
+  # to YCM for fuzzy identifier matching.
+  ./install.py --clang-completer
+fi

@@ -18,6 +18,8 @@ cd /cawnfig/scripts
 ./install_vim_all
 # Same with tmux
 ./install_tmux
+# Make sure bashrc has our changes
+./install_bashrc
 
 # Create our lovely Developer directory
 mkdir -p ~/Developer
