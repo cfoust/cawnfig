@@ -78,12 +78,8 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Edit a file in the current file's directory in a new split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
-" Include tabline.vim to define our custom tabline
-" Similar to (https://github.com/mkitt/tabline.vim).
-" I do not recall where I got this from.
-call Src('/tabline.vim')
-" Useful running of shell commands.
-call Src('/shell.vim')
+" Useful `find` wrapper
+call Src('/findfiles.vim')
 
 " Easy editing of vimrc
 nnoremap <leader>ve :e ~/.vim/vimrc <CR>
