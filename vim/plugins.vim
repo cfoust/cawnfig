@@ -22,8 +22,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/base16-vim'
 " Handy file opener with fuzzy search.
 Plugin 'kien/ctrlp.vim'
-Bundle 'imkmf/ctrlp-branches'
-Bundle 'hara/ctrlp-colorscheme'
+Plugin 'imkmf/ctrlp-branches'
+Plugin 'hara/ctrlp-colorscheme'
 " Git integration.
 Plugin 'tpope/vim-fugitive'
 " Nice-looking status line
@@ -51,6 +51,10 @@ Plugin 'reedes/vim-pencil'
 Plugin 'junegunn/limelight.vim'
 " Distraction-free writing
 Plugin 'junegunn/goyo.vim'
+" Use my own local plugin, ctrlp-bindings, which
+" reads my binding docstrings and lets me fuzzy search
+" through them.
+set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 
 " Language-specific plugins
 """"""""""""""""""""""""""""

@@ -15,6 +15,12 @@ endfunction
 " The directory for language-specific settings
 let g:CawnLang = g:CawnHome . 'lang/'
 
+" Docstring lets you add documentation strings for
+" any and all <leader> bindings. Since I have so many,
+" it'd be nice to be able to search through them with
+" fzf or ctrlp.
+call Src('docstring.vim')
+
 "================================================
 " GENERAL CONFIGURATION SETTINGS
 "================================================
@@ -81,9 +87,11 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 " Useful `find` wrapper
 call Src('/findfiles.vim')
 
-" Easy editing of vimrc
+" `Doc` adds documentation to a keybinding that starts with <leader>.
+" See docstring.vim for more information.
+Doc ve "Open .vimrc"
 nnoremap <leader>ve :e ~/.vim/vimrc <CR>
-" Reload .vimrc with leader + vr
+Doc vr "Reload .vimrc"
 nnoremap <leader>vr :source ~/.vim/vimrc <CR>
 "================================================
 

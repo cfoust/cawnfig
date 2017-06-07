@@ -20,3 +20,5 @@ nnoremap <leader>ar :CtrlPMRU <CR>
 
 " Quick opening of files in .vim
 nnoremap <leader>vE :CtrlP ~/.vim/<CR>
+
+let g:ctrlp_extensions = ['bindings']
