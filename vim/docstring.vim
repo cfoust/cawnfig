@@ -29,6 +29,7 @@ let g:loaded_docstring = 1
 "
 function Docstring(bind, ...)
   " Join the rest of the arguments together to make the description.
+  " This is dirty A.F. but I barely know vimscript.
   let desc = join(a:000)
   let desc = strpart(desc, 1, len(desc) - 2)
   call add(g:docstring_bindings, a:bind . ' ' . desc)

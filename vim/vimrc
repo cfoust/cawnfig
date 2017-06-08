@@ -155,6 +155,7 @@ nnoremap <silent> <leader>D :-d <CR>
 
 " Same, but add whitespace with <leader>s
 " Pretty similar to unimpaired.vim's implementation
+Doc s "Add whitespace below"
 nnoremap <silent> <leader>s :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
 nnoremap <silent> <leader>S :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 

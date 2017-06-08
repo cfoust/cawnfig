@@ -77,7 +77,6 @@ function! ctrlp#bindings#init()
   return g:docstring_bindings
 endfunction
 
-
 " The action to perform on the selected string
 "
 " Arguments:
@@ -86,8 +85,13 @@ endfunction
 "  a:str    the selected string
 "
 function! ctrlp#bindings#accept(mode, str)
-  " For this example, just exit ctrlp and run help
+  let binding = split(a:str)[0]
   call ctrlp#exit()
+  " The underscore after the normal here is something else, I tell you.
+  " It turns out that :normal will put a "." before your command if it
+  " starts with "1 ", the recommended way of "escaping" a space. This
+  " only occurs if you have <Space> as your leader.
+  exec "normal _" . get(g:,"mapleader","\\") . binding
 endfunction
 
 
