@@ -3,26 +3,12 @@
 " Description:   Example extension for ctrlp.vim
 " =============================================================================
 
-" To load this extension into ctrlp, add this to your vimrc:
-"
-"     let g:ctrlp_extensions = ['bindings']
-"
-" Where 'bindings' is the name of the file 'bindings.vim'
-"
-" For multiple extensions:
-"
-"     let g:ctrlp_extensions = [
-"         \ 'my_extension',
-"         \ 'my_other_extension',
-"         \ ]
-
 " Load guard
 if ( exists('g:loaded_ctrlp_bindings') && g:loaded_ctrlp_bindings )
   \ || v:version < 700 || &cp
   finish
 endif
 let g:loaded_ctrlp_bindings = 1
-
 
 " Add this extension's settings to g:ctrlp_ext_vars
 "
@@ -117,12 +103,3 @@ let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
 function! ctrlp#bindings#id()
   return s:id
 endfunction
-
-
-" Create a command to directly call the new search type
-"
-" Put this in vimrc or plugin/bindings.vim
-" command! CtrlPSample call ctrlp#init(ctrlp#bindings#id())
-
-
-" vim:nofen:fdl=0:ts=2:sw=2:sts=2

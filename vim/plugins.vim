@@ -7,7 +7,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" All of our global plugins
+" Global Plugins
 """"""""""""""""""""""""""""
 " Offers slick autocomplete functionality.
 Plugin 'Valloric/YouCompleteMe'
@@ -43,7 +43,7 @@ Plugin 'gaving/vim-textobj-argument'
 Plugin 'whatyouhide/vim-lengthmatters'
 Plugin 'vim-scripts/sokoban.vim'
 
-" Writing plugins
+" Writing Plugins
 """"""""""""""""""
 " Plugin for autowrapping writing
 Plugin 'reedes/vim-pencil'
@@ -51,9 +51,13 @@ Plugin 'reedes/vim-pencil'
 Plugin 'junegunn/limelight.vim'
 " Distraction-free writing
 Plugin 'junegunn/goyo.vim'
-" Use my own local plugin, ctrlp-bindings, which
-" reads my binding docstrings and lets me fuzzy search
-" through them.
+
+" Plugins I Wrote That Really Only I Can Use
+" (PIWTROICU)
+""""""""""""""""""""""""""""""""""""""""""""
+" Creates command :CtrlPBindings, which lets me search
+" through all of my <leader> bindings and their
+" documentation.
 set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 
 " Language-specific plugins
@@ -72,6 +76,7 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""
 call Src('plugrc/airline.vim')
 call Src('plugrc/ctrlp-branches.vim')
+call Src('plugrc/ctrlp-bindings.vim')
 call Src('plugrc/ctrlp-colorscheme.vim')
 call Src('plugrc/ctrlp.vim')
 call Src('plugrc/goyo.vim')

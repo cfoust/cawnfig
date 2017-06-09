@@ -4,21 +4,22 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" Search through current buffers
-" `Buffer` searches by buffer name
+Doc ; "CtrlP: Current buffers"
 nnoremap <leader>; :CtrlPBuffer <CR>
-" `Line` searches line by line in all buffers
+
+Doc : "CtrlP: Lines in current buffers"
 nnoremap <leader>: :CtrlPLine <CR>
 
-" Open files in directory of current file
+Doc l "CtrlP: Files in directory of current file"
 nnoremap <leader>l :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>
-" Open files in cwd
+
+Doc k "CtrlP: Files in current working directory"
 nnoremap <leader>k :CtrlP <CR><CR>
 
-" Search through recently opened files
+Doc ar "CtrlP: Recently modified files"
 nnoremap <leader>ar :CtrlPMRU <CR>
 
-" Quick opening of files in .vim
+Doc vE "CtrlP: Files in .vim"
 nnoremap <leader>vE :CtrlP ~/.vim/<CR>
 
 let g:ctrlp_extensions = ['bindings']
