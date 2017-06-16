@@ -34,14 +34,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mrtazz/simplenote.vim'
 " Lets you run commands in adjacent tmux panes.
 Plugin 'benmills/vimux'
-" Adds the `a` text object for manipulating function
-" arguments.
-Plugin 'gaving/vim-textobj-argument'
 " Handy plugin for highlighting long lines.
 " This isn't that hard to do manually, but this way
 " we can toggle on and off.
 Plugin 'whatyouhide/vim-lengthmatters'
-Plugin 'vim-scripts/sokoban.vim'
 
 " Writing Plugins
 """"""""""""""""""
@@ -64,8 +60,8 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 """"""""""""""""""""""""""""
 call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
-call Src('lang/go/plugins.vim')
-call Src('lang/html/plugins.vim')
+"call Src('lang/go/plugins.vim')
+"call Src('lang/html/plugins.vim')
 call Src('lang/rust/plugins.vim')
 
 " Initialize Vundle plugins
@@ -82,6 +78,7 @@ call Src('plugrc/ctrlp.vim')
 call Src('plugrc/goyo.vim')
 call Src('plugrc/limelight.vim')
 call Src('plugrc/simplenote.vim')
+call Src('plugrc/tabular.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')

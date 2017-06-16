@@ -1,6 +1,5 @@
-set conceallevel=1
-
 " Toggle concealing with <leader>jst
+Doc tjs "JS: Toggle concealing of keywords"
 nnoremap <leader>tjs :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 
 " This is kind of cool, taken from this plugin's

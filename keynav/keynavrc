@@ -42,9 +42,9 @@ ctrl+n cut-right,cut-down
 # Make firefox the active window
 f sh "xdotool windowactivate $(xdotool search -title -- '- Mozilla Firefox')", end
 # Make a new tab in google chrome:
-t sh "xdotool windowactivate $(xdotool search --title -- '- Google Chrome' | head -1); xdotool key ctrl+t",end
+y sh "xdotool windowactivate $(xdotool search --name -- '- Google Chrome' | head -1); xdotool key ctrl+t",end
 # Paste
-v sh "xdotool key shift+Insert"
+#v sh "xdotool key shift+Insert"
 
 ### History
 a history-back

@@ -4,4 +4,5 @@
 let g:lengthmatters_on_by_default = 0
 
 " Toggle long line highlighting
+Doc tk "LengthMatters: Toggle long line highlighting"
 nnoremap <silent> <leader>tk :LengthmattersToggle <CR>

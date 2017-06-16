@@ -32,7 +32,7 @@ function Docstring(bind, ...)
   " This is dirty A.F. but I barely know vimscript.
   let desc = join(a:000)
   let desc = strpart(desc, 1, len(desc) - 2)
-  call add(g:docstring_bindings, a:bind . ' ' . desc)
+  call add(g:docstring_bindings, [a:bind, desc])
 endfunction
 
 com! -nargs=* Doc :call Docstring(<f-args>)

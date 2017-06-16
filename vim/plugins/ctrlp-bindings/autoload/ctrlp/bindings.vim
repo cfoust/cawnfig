@@ -12,33 +12,6 @@ let g:loaded_ctrlp_bindings = 1
 
 " Add this extension's settings to g:ctrlp_ext_vars
 "
-" Required:
-"
-" + init: the name of the input function including the brackets and any
-"         arguments
-"
-" + accept: the name of the action function (only the name)
-"
-" + lname & sname: the long and short names to use for the statusline
-"
-" + type: the matching type
-"   - line : match full line
-"   - path : match full line like a file or a directory path
-"   - tabs : match until first tab character
-"   - tabe : match until last tab character
-"
-" Optional:
-"
-" + enter: the name of the function to be called before starting ctrlp
-"
-" + exit: the name of the function to be called after closing ctrlp
-"
-" + opts: the name of the option handling function called when initialize
-"
-" + sort: disable sorting (enabled by default when omitted)
-"
-" + specinput: enable special inputs '..' and '@cd' (disabled by default)
-"
 call add(g:ctrlp_ext_vars, {
   \ 'init': 'ctrlp#bindings#init()',
   \ 'accept': 'ctrlp#bindings#accept',
@@ -48,8 +21,6 @@ call add(g:ctrlp_ext_vars, {
   \ 'enter': 'ctrlp#bindings#enter()',
   \ 'exit': 'ctrlp#bindings#exit()',
   \ 'opts': 'ctrlp#bindings#opts()',
-  \ 'sort': 0,
-  \ 'specinput': 0,
   \ })
 
 
@@ -59,8 +30,24 @@ call add(g:ctrlp_ext_vars, {
 "
 function! ctrlp#bindings#init()
   cal ctrlp#hicheck('CtrlPBinding', 'Todo')
-  sy match CtrlPBinding '> [A-Za-z]\+'
-  return g:docstring_bindings
+  sy match CtrlPBinding '>\s\[\s[A-z;:,.]\+\s\+\]'
+
+  " Change the array of bindings and their documentation
+  " into strings searchable by CtrlP.
+  let transformed = []
+  for binding in g:docstring_bindings
+    let keys = binding[0]
+    let description = binding[1]
+
+    " Pad the keybinding
+    while len(keys) < 5
+      let keys = keys . ' '
+    endwhile
+
+    call add(transformed, '[ ' . keys . '] ' . description)
+  endfor
+
+  return transformed
 endfunction
 
 " The action to perform on the selected string
@@ -71,8 +58,15 @@ endfunction
 "  a:str    the selected string
 "
 function! ctrlp#bindings#accept(mode, str)
-  let binding = split(a:str)[0]
+  " Extract the binding from the string returned by CtrlP.
+  " Unfortunately CtrlP doesn't let you assign arbitrary data to
+  " an entry; you have to parse the string even though you just
+  " generated it.
+  " I guess it wasn't made for applications like this.
+  let innerRegex = '\[\s\([A-z;:,.]\+\)\s\+\]'
+  let binding = matchlist(a:str, innerRegex)[1]
   call ctrlp#exit()
+
   " The underscore after the normal here is something else, I tell you.
   " It turns out that :normal will put a "." before your command if it
   " starts with "1 ", the recommended way of "escaping" a space. This

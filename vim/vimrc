@@ -34,6 +34,7 @@ set smartindent
 " Useful when you want to look to see if something's in
 " the file but don't want to commit to jumping to it.
 set incsearch
+set gdefault
 
 " Allow for buffers to be hidden without saving. Vim
 " still warns you if you try to quit without saving changes
@@ -173,6 +174,14 @@ nnoremap s ]}
 nnoremap S [{
 vmap s ]}
 vmap S [{
+
+set splitbelow
+set splitright
+" Move splits with double leader
+nnoremap <leader><leader>h <C-W><C-H>
+nnoremap <leader><leader>j <C-W><C-J>
+nnoremap <leader><leader>k <C-W><C-K>
+nnoremap <leader><leader>l <C-W><C-L>
 
 " Quick jumps in quick list
 map <c-n> :cn <CR>
