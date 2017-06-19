@@ -55,6 +55,7 @@ Plugin 'junegunn/goyo.vim'
 " through all of my <leader> bindings and their
 " documentation.
 set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
+call Src('plugrc/writing.vim')
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
