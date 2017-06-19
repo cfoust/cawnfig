@@ -13,14 +13,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
 Plugin 'scrooloose/nerdcommenter'
-" Handy dandy snippet plugin.
 Plugin 'SirVer/ultisnips'
 " Snippets for ultisnips
 Plugin 'honza/vim-snippets'
 " All of the colors of the vimbow.
 Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/base16-vim'
-" Handy file opener with fuzzy search.
+" File opener with fuzzy search.
 Plugin 'kien/ctrlp.vim'
 Plugin 'imkmf/ctrlp-branches'
 Plugin 'hara/ctrlp-colorscheme'
@@ -34,7 +33,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mrtazz/simplenote.vim'
 " Lets you run commands in adjacent tmux panes.
 Plugin 'benmills/vimux'
-" Handy plugin for highlighting long lines.
+" Highlights long lines.
 " This isn't that hard to do manually, but this way
 " we can toggle on and off.
 Plugin 'whatyouhide/vim-lengthmatters'
@@ -55,14 +54,11 @@ Plugin 'junegunn/goyo.vim'
 " through all of my <leader> bindings and their
 " documentation.
 set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
-call Src('plugrc/writing.vim')
 
 " Language-specific plugins
 """"""""""""""""""""""""""""
 call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
-"call Src('lang/go/plugins.vim')
-"call Src('lang/html/plugins.vim')
 call Src('lang/rust/plugins.vim')
 
 " Initialize Vundle plugins
@@ -85,8 +81,13 @@ call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/vim-lengthmatters.vim')
+call Src('plugrc/vim-pencil.vim')
 call Src('plugrc/vimux.vim')
 call Src('plugrc/vundle.vim')
 call Src('plugrc/youcompleteme.vim')
+
+" cross-plugin settings
+"""""""""""""""""""""""
+call Src('plugrc/writing.vim')
 
 silent! colorscheme vividchalk

@@ -1,4 +1,4 @@
-" Handy automatic tag closing for editing html
+" Automatic tag closing for editing html
 Plugin 'alvan/vim-closetag'
 " Cool tag creation script
 Plugin 'mattn/emmet-vim'
