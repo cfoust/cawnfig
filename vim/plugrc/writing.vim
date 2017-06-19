@@ -5,6 +5,7 @@ function! EnterWriteMode()
   Goyo
   Limelight
   SoftPencil
+  set spell
 endfunction
 
 command! WriteMode call EnterWriteMode()
