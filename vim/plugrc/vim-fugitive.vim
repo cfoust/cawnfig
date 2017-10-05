@@ -4,7 +4,7 @@ Doc gs "Git: status"
 nnoremap <leader>gs :Gstatus <CR>
 Doc gc "Git: commit"
 nnoremap <leader>gc :Gcommit <CR>
-Doc gc "Git: show git blame for current file"
+Doc gb "Git: show git blame for current file"
 nnoremap <leader>gb :Gblame<CR>
 Doc gd "Git: show diff for current file"
 nnoremap <leader>gd :Gdiff<CR>

@@ -67,9 +67,7 @@ mode "vimlike" {
   # Lets you run programs that have .desktop links with Ctrl+S.
   bindsym Ctrl+s exec --no-startup-id i3-dmenu-desktop; mode "default"
   # Start programs with 1-0
-  bindsym 1 exec google-chrome --new-window; mode "default"
-  bindsym 2 exec emacs; mode "default"
-  bindsym 3 exec "i3-msg echo ${xdotool getwindowfocus}"; mode "default"
+  bindsym a exec google-chrome --new-window; mode "default"
 
   # enter fullscreen mode for the focused container
   bindsym f fullscreen; mode "default";
