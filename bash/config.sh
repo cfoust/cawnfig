@@ -3,7 +3,7 @@ stty -ixon
 
 # Assume color prompt support. I can't imagine I'll ever work on a
 # terminal without it.
-PS1='\[\e[30;47m\] \[\033[01;233m\]$(basename \w) \[\e[0m\] \[\033[00m\]'
+PS1=' \[\e[30;47m\] \[\033[01;233m\]$(basename \w) \[\e[0m\] \[\033[00m\]'
 
 # Like there's any other editor.
 export VISUAL=vim
@@ -57,5 +57,4 @@ if command -v fzf > /dev/null; then
       [ -f "${line/\~/$HOME}" ] && echo "$line"
     done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
   }
-
 fi

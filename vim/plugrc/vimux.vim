@@ -11,3 +11,7 @@ map <leader>fc :call VimuxInterruptRunner() <CR>
 " Run a command stored in a register.
 Doc ff "Vimux: Run a command from a register"
 map <leader>ff :execute "call VimuxRunCommand(@" . nr2char(getchar()) . ")" <CR>
+
+if exists('$TMUX')
+  nnoremap <leader>fn :call system("tmux new-window\\; send-keys 'cd " . expand("%:p:h") . "' Enter C-l") <CR>
+endif
