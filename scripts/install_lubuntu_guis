@@ -1,0 +1,25 @@
+#!/bin/bash
+# Installs terminator from the main repo
+# and i3.
+#
+# Caleb Foust
+source common.sh
+
+# Install i3
+if ! [ -x "$(command -v i3)" ]; then
+  $APT i3
+  mkdir -p ~/.config/i3
+  ln -s ~/cawnfig/i3/config ~/.config/i3/config
+fi
+
+# Install terminator
+if ! [ -x "$(command -v terminator)" ]; then
+  sudo add-apt-repository -y ppa:gnome-terminator/ppa
+  sudo apt-get update
+  $APT terminator
+  mkdir -p ~/.config/terminator
+  ln -s ~/cawnfig/terminator/config ~/.config/terminator/config
+fi
+
+# Keynav to navigate with the keyboard
+$APT keynav
