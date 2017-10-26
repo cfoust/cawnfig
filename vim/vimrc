@@ -54,9 +54,6 @@ set backspace=start
 " We need our fancy shmancy ruler
 set ruler
 
-" Makes line endings and whitespace easier to see.
-set list
-
 " Change the leader to space
 " WARNING: makes you a master programmer
 let mapleader = "\<Space>"
@@ -154,6 +151,9 @@ nnoremap <silent> <leader>n /<C-r>0<CR>
 nnoremap <silent> <leader>d :+d <CR>
 nnoremap <silent> <leader>D :-d <CR>
 
+" Delete the current file
+nnoremap <silent> <leader>~ :call delete(expand('%')) \| bdelete!<CR>
+
 " Same, but add whitespace with <leader>s
 " Pretty similar to unimpaired.vim's implementation
 nnoremap <silent> <leader>s :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
@@ -206,6 +206,10 @@ vmap <silent> <expr> p <sid>Repl()
 
 " This is like something a superhero named Code Hero would say.
 syntax on
+
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set termguicolors
 
 " HAHAHAHA I bet there's silly stuff in here
 source ~/.vimprivate

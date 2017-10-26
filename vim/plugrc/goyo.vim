@@ -10,16 +10,18 @@ function! s:goyo_enter()
   if exists('$TMUX')
     silent !tmux set status off
   endif
-  "LengthmattersEnable
-  "Limelight
+  set nolist
+  LengthmattersEnable
+  setlocal statusline=%M
+  hi StatusLine ctermfg=red guifg=red cterm=NONE gui=NONE
 endfunction
 
 function! s:goyo_leave()
   if exists('$TMUX')
     silent !tmux set status on
   endif
-  "LengthmattersDisable
-  "Limelight!
+  set list
+  LengthmattersDisable
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()

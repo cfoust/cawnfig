@@ -1,2 +1,2 @@
-" Change the color scheme easily
+Doc k "CtrlP: Search through color schemes"
 nnoremap <leader>a; :CtrlPColorscheme<CR>

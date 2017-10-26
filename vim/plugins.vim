@@ -20,7 +20,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/base16-vim'
 " File opener with fuzzy search.
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'imkmf/ctrlp-branches'
 Plugin 'hara/ctrlp-colorscheme'
 " Git integration.
@@ -37,6 +37,8 @@ Plugin 'benmills/vimux'
 " This isn't that hard to do manually, but this way
 " we can toggle on and off.
 Plugin 'whatyouhide/vim-lengthmatters'
+" Lets you make codebase-wide changes after a grep.
+Plugin 'yegappan/greplace'
 
 " Writing Plugins
 """"""""""""""""""
@@ -88,6 +90,6 @@ call Src('plugrc/youcompleteme.vim')
 
 " cross-plugin settings
 """""""""""""""""""""""
-call Src('plugrc/writing.vim')
+"call Src('plugrc/writing.vim')
 
-silent! colorscheme vividchalk
+silent! colorscheme MountainDew
