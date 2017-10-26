@@ -4,6 +4,12 @@
 #
 # Caleb Foust
 
+
+if ! [ -x "$(command -v fzf)" ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --key-bindings --completion --update-rc
+fi
+
 CF_BASH_CONF="~/cawnfig/bash/config.sh"
 
 if cat ~/.bashrc | grep -q "$CF_BASH_CONF"; then

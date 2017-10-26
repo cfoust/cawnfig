@@ -8,11 +8,7 @@ if [ ! -f ~/.tmux.conf ] ; then
   ln ~/cawnfig/tmux/main.conf ~/.tmux.conf
 fi
 
-# Only install if the version is below 8
-if vim --version | grep -q "Vi IMproved 8."; then
-  echo 'Vim already above 8.0, not installing.'
-  exit
-fi
+$APT libevent-dev
 
 # The release for tmux 2.5
 RELEASE_URL="https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"

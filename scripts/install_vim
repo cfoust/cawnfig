@@ -12,12 +12,12 @@ touch ~/.vimprivate
 if [ ! -d ~/.vim ] ; then
   echo 'Symlinked vimrc.'
   ln -s ~/cawnfig/vim ~/.vim
+  mkdir ~/.vim/tmp
 fi
 
 # Only install if the version is below 8
 if vim --version | grep -q "Vi IMproved 8."; then
   echo 'Vim already above 8.0, not installing.'
-  exit
 fi
 
 VIM_DEPS="libncurses5-dev libgnome2-dev libgnomeui-dev "
