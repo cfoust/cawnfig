@@ -1,6 +1,6 @@
 " Documentation generator for JavaScript.
-Plugin 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc'
 " Nice JS integration
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 " Alignment of colons or equals
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'

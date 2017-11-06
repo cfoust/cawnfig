@@ -1,55 +1,56 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/addons')
 
-" Global Plugins
+" Global Plugs
 """"""""""""""""""""""""""""
 " Offers slick autocomplete functionality.
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'SirVer/ultisnips'
+Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
 " Snippets for ultisnips
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " All of the colors of the vimbow.
-Plugin 'flazz/vim-colorschemes'
-Plugin 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
 " File opener with fuzzy search.
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'imkmf/ctrlp-branches'
-Plugin 'hara/ctrlp-colorscheme'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'imkmf/ctrlp-branches'
+Plug 'hara/ctrlp-colorscheme'
 " Git integration.
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Nice-looking status line
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Integration with simplenote.
 " This is life-changing.
-Plugin 'mrtazz/simplenote.vim'
+Plug 'mrtazz/simplenote.vim'
 " Lets you run commands in adjacent tmux panes.
-Plugin 'benmills/vimux'
+Plug 'benmills/vimux'
 " Highlights long lines.
 " This isn't that hard to do manually, but this way
 " we can toggle on and off.
-Plugin 'whatyouhide/vim-lengthmatters'
+Plug 'whatyouhide/vim-lengthmatters'
 " Lets you make codebase-wide changes after a grep.
-Plugin 'yegappan/greplace'
+Plug 'yegappan/greplace'
 
-" Writing Plugins
+" Use fzf for fuzzy finding instead of CtrlP.
+" It's faster and a bit more easily extensible.
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Writing Plugs
 """"""""""""""""""
-" Plugin for autowrapping writing
-Plugin 'reedes/vim-pencil'
+" Plug for autowrapping writing
+Plug 'reedes/vim-pencil'
 " Highlights the section you're working on.
-Plugin 'junegunn/limelight.vim'
+Plug 'junegunn/limelight.vim'
 " Distraction-free writing
-Plugin 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 
-" Plugins I Wrote That Really Only I Can Use
+" Plugs I Wrote That Really Only I Can Use
 " (PIWTROICU)
 """"""""""""""""""""""""""""""""""""""""""""
 " Creates command :CtrlPBindings, which lets me search
@@ -65,19 +66,20 @@ call Src('lang/rust/plugins.vim')
 
 " Pretty tmux status line that matches your vim-airline
 " scheme.
-Bundle 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 
-" Initialize Vundle plugins
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Initialize Plug plugins
+call plug#end()
+filetype plugin indent on
 
-" plugin-specific settings
+" Plugin-specific settings
 """"""""""""""""""""""""""""
 call Src('plugrc/airline.vim')
 call Src('plugrc/ctrlp-branches.vim')
 call Src('plugrc/ctrlp-bindings.vim')
 call Src('plugrc/ctrlp-colorscheme.vim')
 call Src('plugrc/ctrlp.vim')
+call Src('plugrc/fzf.vim')
 call Src('plugrc/goyo.vim')
 call Src('plugrc/limelight.vim')
 call Src('plugrc/simplenote.vim')
@@ -88,9 +90,9 @@ call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/vim-lengthmatters.vim')
-"call Src('plugrc/vim-pencil.vim')
+call Src('plugrc/vim-pencil.vim')
 call Src('plugrc/vimux.vim')
-call Src('plugrc/vundle.vim')
+call Src('plugrc/plug.vim')
 call Src('plugrc/youcompleteme.vim')
 
 " cross-plugin settings

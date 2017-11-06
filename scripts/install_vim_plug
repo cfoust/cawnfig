@@ -1,0 +1,16 @@
+#!/bin/bash
+# Installs Vundle, the plugin manager for vim.
+#
+# Caleb Foust
+source common.sh
+
+if [ ! -d ~/.vim/autoload/plug.vim ] ; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Need ag for CtrlP
+$APT silversearcher-ag
+
+# Install all of our plugins
+vim -c :PlugInstall -c :qa
