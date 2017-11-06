@@ -1,0 +1,44 @@
+snippet abmod
+// =================
+//   M O D U L E S
+// =================
+endsnippet
+
+snippet ablib
+// =================
+// L I B R A R I E S
+// =================
+endsnippet
+
+snippet abhelp
+// =================
+//   H E L P E R S
+// =================
+endsnippet
+
+snippet abvalid
+// =================
+// L I B R A R I E S
+// =================
+const ABC         = require('@akitabox/constants');
+const _           = require('underscore');
+const async       = require('async');
+const createError = require('http-errors');
+
+// =================
+//   H E L P E R S
+// =================
+const validate = include('src/utils/validator');
+
+validate.path('')
+    .using()
+    .message('');
+
+module.exports = validate;
+endsnippet
+
+snippet abtor
+validate.path('')
+    .using()
+    .message('');
+endsnippet

@@ -63,6 +63,10 @@ call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/rust/plugins.vim')
 
+" Pretty tmux status line that matches your vim-airline
+" scheme.
+Bundle 'edkolev/tmuxline.vim'
+
 " Initialize Vundle plugins
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -78,6 +82,7 @@ call Src('plugrc/goyo.vim')
 call Src('plugrc/limelight.vim')
 call Src('plugrc/simplenote.vim')
 call Src('plugrc/tabular.vim')
+call Src('plugrc/tmuxline.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
@@ -92,4 +97,4 @@ call Src('plugrc/youcompleteme.vim')
 """""""""""""""""""""""
 "call Src('plugrc/writing.vim')
 
-silent! colorscheme MountainDew
+silent! colorscheme BlackSea

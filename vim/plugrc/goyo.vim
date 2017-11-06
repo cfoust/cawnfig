@@ -7,9 +7,9 @@ nnoremap <leader>tg :Goyo<CR>
 " If tmux is running, hide the status bar and
 " restore it when goyo quits.
 function! s:goyo_enter()
-  if exists('$TMUX')
-    silent !tmux set status off
-  endif
+  "if exists('$TMUX')
+    "silent !tmux set status off
+  "endif
   set nolist
   LengthmattersEnable
   setlocal statusline=%M
@@ -17,9 +17,9 @@ function! s:goyo_enter()
 endfunction
 
 function! s:goyo_leave()
-  if exists('$TMUX')
-    silent !tmux set status on
-  endif
+  "if exists('$TMUX')
+    "silent !tmux set status on
+  "endif
   set list
   LengthmattersDisable
 endfunction
