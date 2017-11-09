@@ -1,0 +1,34 @@
+* Caleb Foust's Kinesis Advantage 2 - World of Warcraft
+
+[rwin]>[ralt]
+[kp-rwin]>[kp-ralt]
+
+[end]>[space]
+
+* Make alt tabbing easy
+{lalt}>{-lalt}{tab}{+lalt}
+
+* Add a boatload of bindings to the keypad layer on the left side
+[delete]>[kpshift]
+[kp-delete]>[kpshift]
+
+* Top row
+[kp-Q]>[Y]
+[kp-W]>[U]
+[kp-E]>[I]
+[kp-R]>[O]
+[kp-T]>[P]
+
+* Home row
+[kp-A]>[H]
+[kp-S]>[J]
+[kp-D]>[K]
+[kp-F]>[L]
+[kp-G]>[;]
+
+* Lower row
+[kp-Z]>[N]
+[kp-X]>[M]
+[kp-C]>[,]
+[kp-V]>[.]
+[kp-B]>[/]

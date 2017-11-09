@@ -1,0 +1,50 @@
+* Caleb Foust's Kinesis Advantage 2 - Developer Layout
+* This file contains handy bindings for software
+* development. Any bindings below the line of asterisks
+* will be useless to anyone else.
+
+* Move Windows-specific bindings
+[rwin]>[ralt]
+[kp-rwin]>[kp-ralt]
+[delete]>[kpshift]
+[kp-delete]>[kpshift]
+
+[caps]>[lctrl]
+
+* Allow for easy Chrome tab movement
+{kp-right}>{speed9}{-lctrl}{tab}{+lctrl}
+{kp-left}>{speed9}{-lctrl}{-lshift}{tab}{+lshift}{+lctrl}
+{kp-down}>{speed9}{-lctrl}{tab}{+lctrl}
+{kp-up}>{speed9}{-lctrl}{-lshift}{tab}{+lshift}{+lctrl}
+
+* Right-hand developer keybinds
+{kp3}>{speed9}{-lshift}{9}{+lshift}
+{kpenter}>{speed9}{-lshift}{0}{+lshift}
+{kp4}>{speed9}{-lshift}{obrack}{+lshift}
+{kp5}>{speed9}{-lshift}{cbrack}{+lshift}
+[kp6]>[obrack]
+[kpplus]>[cbrack]
+[kp7]>[=]
+[kp8]>[hyphen]
+[kp9]>[`]
+
+* Quick vim keybinds
+{end}>{speed9}{-lctrl}{C}{+lctrl}
+{home}>{speed9}{-lctrl}{C}{+lctrl}{-lshift}{;}{+lshift}{W}{enter}
+
+************************************
+
+* Let me switch through tmux panes quickly
+{kp-E}>{speed9}{-lctrl}{A}{+lctrl}{P}
+{kp-R}>{speed9}{-lctrl}{A}{+lctrl}{N}
+{pdown}>{speed9}{-lctrl}{A}{+lctrl}
+
+* Switch i3 desktops
+{kp-F}>{speed7}{-lctrl}{J}{+lctrl}{J}
+{kp-D}>{speed7}{-lctrl}{J}{+lctrl}{K}
+{kp-S}>{speed7}{-lctrl}{J}{+lctrl}{L}
+{kp-A}>{speed7}{-lctrl}{J}{+lctrl}{;}
+{kp-V}>{speed7}{-lctrl}{J}{+lctrl}{U}
+{kp-C}>{speed7}{-lctrl}{J}{+lctrl}{I}
+{kp-X}>{speed7}{-lctrl}{J}{+lctrl}{O}
+{kp-Z}>{speed7}{-lctrl}{J}{+lctrl}{P}
