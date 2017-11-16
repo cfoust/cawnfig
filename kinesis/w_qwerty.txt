@@ -3,10 +3,16 @@
 [rwin]>[ralt]
 [kp-rwin]>[kp-ralt]
 
+* Allow for easy Chrome tab movement
+{kp-right}>{speed9}{-lctrl}{tab}{+lctrl}
+{kp-left}>{speed9}{-lctrl}{-lshift}{tab}{+lshift}{+lctrl}
+{kp-down}>{speed9}{-lctrl}{tab}{+lctrl}
+{kp-up}>{speed9}{-lctrl}{-lshift}{tab}{+lshift}{+lctrl}
+
 [end]>[space]
 
 * Make alt tabbing easy
-{lalt}>{-lalt}{tab}{+lalt}
+{home}>{speed3}{-lalt}{tab}{+lalt}
 
 * Add a boatload of bindings to the keypad layer on the left side
 [delete]>[kpshift]

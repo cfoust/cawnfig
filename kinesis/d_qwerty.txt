@@ -9,6 +9,10 @@
 [delete]>[kpshift]
 [kp-delete]>[kpshift]
 
+* Make alt tabbing easy. Really only useful
+* on ChromeOS and Windows, but still nice to have
+{pup}>{speed3}{-lalt}{tab}{+lalt}
+
 [caps]>[lctrl]
 
 * Allow for easy Chrome tab movement
@@ -18,15 +22,20 @@
 {kp-up}>{speed9}{-lctrl}{-lshift}{tab}{+lshift}{+lctrl}
 
 * Right-hand developer keybinds
-{kp3}>{speed9}{-lshift}{9}{+lshift}
-{kpenter}>{speed9}{-lshift}{0}{+lshift}
-{kp4}>{speed9}{-lshift}{obrack}{+lshift}
-{kp5}>{speed9}{-lshift}{cbrack}{+lshift}
-[kp6]>[obrack]
-[kpplus]>[cbrack]
-[kp7]>[=]
-[kp8]>[hyphen]
-[kp9]>[`]
+*******************************
+[kp7]>[=]                                   * u to =
+[kp8]>[hyphen]                              * i to -
+[kp9]>[`]                                   * o to `
+
+
+{kp-H}>{speed9}{-lshift}{hyphen}{+lshift}   * h to _
+{kp4}>{speed9}{-lshift}{obrack}{+lshift}    * j to {
+{kp5}>{speed9}{-lshift}{cbrack}{+lshift}    * k to }
+[kp6]>[obrack]                              * l to [
+[kpplus]>[cbrack]                           * ; to ]
+
+{kp1}>{speed9}{-lshift}{9}{+lshift}         * m to (
+{kp2}>{speed9}{-lshift}{0}{+lshift}         * , to )
 
 * Quick vim keybinds
 {end}>{speed9}{-lctrl}{C}{+lctrl}
@@ -34,9 +43,12 @@
 
 ************************************
 
-* Let me switch through tmux panes quickly
+* A bunch of handy tmux bindings that reduces awkward hand positions.
+{kp-Q}>{speed9}{-lctrl}{A}{+lctrl}{X}{Y}
+{kp-W}>{speed9}{-lctrl}{A}{+lctrl}{C}
 {kp-E}>{speed9}{-lctrl}{A}{+lctrl}{P}
 {kp-R}>{speed9}{-lctrl}{A}{+lctrl}{N}
+{kp-T}>{speed9}{-lctrl}{A}{+lctrl}{obrack}
 {pdown}>{speed9}{-lctrl}{A}{+lctrl}
 
 * Switch i3 desktops
