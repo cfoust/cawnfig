@@ -89,6 +89,8 @@ call Src('/findfiles.vim')
 " See docstring.vim for more information.
 Doc ve "Open .vimrc"
 nnoremap <leader>ve :e ~/.vim/vimrc <CR>
+Doc vb "Open .bashrc"
+nnoremap <leader>vb :e ~/.bashrc <CR>
 Doc vr "Reload .vimrc"
 nnoremap <leader>vr :source ~/.vim/vimrc <CR>
 "================================================
@@ -136,9 +138,12 @@ set go=i
 "================================================
 " Easy file write
 nnoremap <silent> <leader>w :w<CR>
+" Easy write quit
+nnoremap <silent> <leader>q :wq<CR>
+nnoremap <silent> <leader>Q :q!<CR>
 
 " Remove all trailing whitespace with Ctrl-/
-nnoremap <silent> <c-\> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <leader>t<space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Whenever you replace a word, it is copied, too. Useful for jumping to the
 " next occurrence.

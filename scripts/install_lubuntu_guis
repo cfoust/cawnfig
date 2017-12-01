@@ -1,18 +1,15 @@
 #!/bin/bash
-# Installs terminator from the main repo
-# and i3.
-#
+# All of the fun stuff I use on Lubuntu. Probably would work
+# just fine on Ubuntu too.
 # Caleb Foust
 source common.sh
 
-# Install i3
 if ! [ -x "$(command -v i3)" ]; then
   $APT i3
   mkdir -p ~/.config/i3
   ln -s ~/cawnfig/i3/config ~/.config/i3/config
 fi
 
-# Install terminator
 if ! [ -x "$(command -v terminator)" ]; then
   sudo add-apt-repository -y ppa:gnome-terminator/ppa
   sudo apt-get update
@@ -22,4 +19,7 @@ if ! [ -x "$(command -v terminator)" ]; then
 fi
 
 # Keynav to navigate with the keyboard
-$APT keynav
+if ! [ -x "$(command -v keynav)" ]; then
+  $APT keynav
+  ln ~/cawnfig/keynav/keynavrc ~/.keynavrc
+fi

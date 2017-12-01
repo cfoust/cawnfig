@@ -1,5 +1,5 @@
 # Most of this is from the default keynavrc
-ctrl+semicolon start
+ctrl+apostrophe start
 Escape end
 ctrl+c end
 h cut-left
@@ -29,22 +29,14 @@ q drag 1
 3 click 3
 
 # Handy for holding ctrl while using keynav:
-ctrl+h cut-left
-ctrl+j cut-down
-ctrl+k cut-up
-ctrl+l cut-right
-ctrl+y cut-left,cut-up
-ctrl+u cut-right,cut-up
-ctrl+b cut-left,cut-down
-ctrl+n cut-right,cut-down
-
-### Example using the 'sh' command.
-# Make firefox the active window
-f sh "xdotool windowactivate $(xdotool search -title -- '- Mozilla Firefox')", end
-# Make a new tab in google chrome:
-y sh "xdotool windowactivate $(xdotool search --name -- '- Google Chrome' | head -1); xdotool key ctrl+t",end
-# Paste
-#v sh "xdotool key shift+Insert"
+#ctrl+h cut-left
+#ctrl+j cut-down
+#ctrl+k cut-up
+#ctrl+l cut-right
+#ctrl+y cut-left,cut-up
+#ctrl+u cut-right,cut-up
+#ctrl+b cut-left,cut-down
+#ctrl+n cut-right,cut-down
 
 ### History
 a history-back

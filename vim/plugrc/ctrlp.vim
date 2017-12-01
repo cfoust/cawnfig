@@ -12,7 +12,6 @@ nnoremap <leader>: :CtrlPLine <CR>
 
 Doc k "CtrlP: Files in current working directory"
 nnoremap <leader>k :CtrlP <CR><CR>
-nnoremap <enter> :CtrlP <CR><CR>
 
 Doc l "CtrlP: Files in directory of current file"
 nnoremap <leader>l :CtrlP <C-R>=expand("%:p:h") . "/" <CR><CR>

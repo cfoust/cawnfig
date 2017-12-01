@@ -21,7 +21,6 @@
     allow_bold = False
     background_color = "#1c1c1c"
     background_darkness = 0.4
-    background_image = None
     copy_on_selection = True
     cursor_color = "#ddeedd"
     custom_command = TERM=xterm-256color bash -l
@@ -34,7 +33,6 @@
     use_system_font = False
   [[Smyck]]
     background_color = "#0a2b42"
-    background_image = None
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#f7f7f7"
@@ -46,7 +44,6 @@
     use_system_font = False
   [[aperture]]
     background_color = "#282828"
-    background_image = None
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#ccb18b"
@@ -59,7 +56,6 @@
   [[base16eighties]]
     allow_bold = False
     background_color = "#2d2d2d"
-    background_image = None
     copy_on_selection = True
     cursor_color = "#d3d0c8"
     font = Space Mono 13
@@ -69,7 +65,6 @@
     show_titlebar = False
     use_system_font = False
   [[less]]
-    background_image = None
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#ccb18b"
@@ -81,7 +76,6 @@
     use_system_font = False
   [[ollie]]
     background_color = "#222125"
-    background_image = None
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#2d57ac"
@@ -93,9 +87,7 @@
     use_system_font = False
   [[vividchalk]]
     allow_bold = False
-    background_color = "#000000"
     background_darkness = 0.4
-    background_image = None
     copy_on_selection = True
     cursor_color = "#ffffff"
     custom_command = TERM=xterm-256color bash -l

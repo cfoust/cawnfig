@@ -1,14 +1,9 @@
 # Caleb Foust's (cfoust@sqweebloid.com) i3 Config
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
-set $mod Mod1
 new_window none
 
 # Use Adobe's nice Source Code font for window titles.
 font pango:Source Code Pro 10
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 # Start terminator and execute tmux
 bindsym Ctrl+Return exec terminator -e tmux
@@ -21,18 +16,12 @@ bindcode 121 exec pactl -- set-sink-mute 0 toggle
 bindcode 122 exec pactl -- set-sink-volume 0 -3%
 bindcode 123 exec pactl -- set-sink-volume 0 +3%
 
-# Start up Spotify or our voice blocker with the "play" and "stop" keys
-# I only realized the irony of putting these specific bindings on those
-# keys afterwards.
-bindcode 172 exec google-chrome play.spotify.com
-bindcode 174 exec google-chrome https://mynoise.net/NoiseMachines/whiteNoiseGenerator.php?c=0&l=0001687981938527060000
-
 # Mess with redshift with the skip forward key.
 bindcode 173 exec redshift -O 3000 # Diminished color mode
 bindcode Shift+173 exec redshift -O 1000 # Red color mode
 bindcode Ctrl+173 exec redshift -O 6500 # Resets to default
 
-bindsym Ctrl+j mode "vimlike"
+bindsym Ctrl+space mode "vimlike"
 mode "vimlike" {
   # Everything in here needs the 'mode "default"' at the end
   # because modes in i3 are sticky by default -- running a binding
@@ -88,79 +77,6 @@ mode "vimlike" {
   bindsym Ctrl+j mode "default";
 }
 
-# Allow floating windows for applications of specific classes
-for_window [class="cppquat"] floating enable
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-  # These bindings trigger as soon as you enter the resize mode
-
-  # Pressing left will shrink the window’s width.
-  # Pressing right will grow the window’s width.
-  # Pressing up will shrink the window’s height.
-  # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
-  bindsym semicolon resize grow width 10 px or 10 ppt
-
-  # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
-
-  # back to normal: Enter or Escape
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -168,9 +84,6 @@ bar {
   status_command i3status
   modifier Mod1
 }
-
-workspace 1 output DP-1
-workspace 5 output HDMI-1
 
 # Enable our rebinding of Caps Lock to Control.
 exec xmodmap ~/.Xmodmap

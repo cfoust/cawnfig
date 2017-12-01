@@ -13,12 +13,17 @@ export EDITOR="$VISUAL"
 # A L I A S E S
 ################
 # Borrow some `ls` aliases.
-alias ll='ls -alF'
+alias ll='ls -alF --color=auto'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -CF --color=auto'
 
 # Easy directory changes.
 alias c='cd ..'
+
+function cawn() {
+  cd ~/cawnfig
+  vim
+}
 
 ##################
 # B I N D I N G S
