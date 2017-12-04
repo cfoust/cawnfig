@@ -9,7 +9,7 @@ font pango:Source Code Pro 10
 bindsym Ctrl+Return exec terminator -e tmux
 
 # Screenshot function
-bindsym Ctrl+Shift+4 exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
+bindsym Ctrl+Shift+4 --release exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
 
 # Adjust volume with the built-in media keys
 bindcode 121 exec pactl -- set-sink-mute 0 toggle
