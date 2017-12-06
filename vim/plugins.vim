@@ -36,6 +36,8 @@ Plug 'whatyouhide/vim-lengthmatters'
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace'
 
+Plug 'wakatime/vim-wakatime'
+
 " Use fzf for fuzzy finding instead of CtrlP.
 " It's faster and a bit more easily extensible.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -62,6 +64,7 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 """"""""""""""""""""""""""""
 call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
+call Src('lang/ts/plugins.vim')
 call Src('lang/rust/plugins.vim')
 
 " External API's

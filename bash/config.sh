@@ -22,7 +22,7 @@ alias c='cd ..'
 
 function cawn() {
   cd ~/cawnfig
-  vim
+  vim -c :CtrlP
 }
 
 ##################

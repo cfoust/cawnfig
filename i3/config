@@ -42,14 +42,14 @@ mode "vimlike" {
   bindsym p workspace 8; mode "default"
 
   # Moves the focused window to the specified workspace
-  bindsym Ctrl+Shift+j move container to workspace 1; mode "default"
-  bindsym Ctrl+Shift+k move container to workspace 2; mode "default"
-  bindsym Ctrl+Shift+l move container to workspace 3; mode "default"
-  bindcode Ctrl+Shift+47 move container to workspace 4; mode "default"
-  bindsym Ctrl+Shift+u move container to workspace 5; mode "default"
-  bindsym Ctrl+Shift+i move container to workspace 6; mode "default"
-  bindsym Ctrl+Shift+o move container to workspace 7; mode "default"
-  bindsym Ctrl+Shift+p move container to workspace 8; mode "default"
+  bindsym Ctrl+j move container to workspace 1; mode "default"
+  bindsym Ctrl+k move container to workspace 2; mode "default"
+  bindsym Ctrl+l move container to workspace 3; mode "default"
+  bindcode Ctrl+47 move container to workspace 4; mode "default"
+  bindsym Ctrl+u move container to workspace 5; mode "default"
+  bindsym Ctrl+i move container to workspace 6; mode "default"
+  bindsym Ctrl+o move container to workspace 7; mode "default"
+  bindsym Ctrl+p move container to workspace 8; mode "default"
 
   # Lets you run programs in the PATH with S
   bindsym s exec dmenu_run; mode "default"
@@ -74,7 +74,7 @@ mode "vimlike" {
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
   bindsym Esc mode "default"
-  bindsym Ctrl+j mode "default";
+  bindsym Ctrl+space mode "default";
 }
 
 # Start i3bar to display a workspace bar (plus the system information i3status
