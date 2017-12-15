@@ -6,7 +6,7 @@ new_window none
 font pango:Source Code Pro 10
 
 # Start terminator and execute tmux
-bindsym Ctrl+Return exec terminator -e tmux
+bindsym Ctrl+Return exec konsole
 
 # Screenshot function
 bindsym Ctrl+Shift+4 --release exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
@@ -42,14 +42,14 @@ mode "vimlike" {
   bindsym p workspace 8; mode "default"
 
   # Moves the focused window to the specified workspace
-  bindsym Ctrl+j move container to workspace 1; mode "default"
-  bindsym Ctrl+k move container to workspace 2; mode "default"
-  bindsym Ctrl+l move container to workspace 3; mode "default"
-  bindcode Ctrl+47 move container to workspace 4; mode "default"
-  bindsym Ctrl+u move container to workspace 5; mode "default"
-  bindsym Ctrl+i move container to workspace 6; mode "default"
-  bindsym Ctrl+o move container to workspace 7; mode "default"
-  bindsym Ctrl+p move container to workspace 8; mode "default"
+  bindsym Shift+j move container to workspace 1; mode "default"
+  bindsym Shift+k move container to workspace 2; mode "default"
+  bindsym Shift+l move container to workspace 3; mode "default"
+  bindcode Shift+47 move container to workspace 4; mode "default"
+  bindsym Shift+u move container to workspace 5; mode "default"
+  bindsym Shift+i move container to workspace 6; mode "default"
+  bindsym Shift+o move container to workspace 7; mode "default"
+  bindsym Shift+p move container to workspace 8; mode "default"
 
   # Lets you run programs in the PATH with S
   bindsym s exec dmenu_run; mode "default"
@@ -69,7 +69,7 @@ mode "vimlike" {
   # exit i3 (logs you out of your X session)
   bindsym q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; mode "default"
   # Lets you lock the computer
-  bindsym Shift+l exec i3lock -i ~/Backgrounds/Hydrogen_Remixed.png -p default -d -n
+  bindsym Ctrl+t exec i3lock -i ~/Backgrounds/jakub-rozalski-1920-togawa01s.png -p default -d -n
 
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
