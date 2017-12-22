@@ -35,13 +35,15 @@ Plug 'benmills/vimux'
 Plug 'whatyouhide/vim-lengthmatters'
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace'
-
+" Records what you do in projects (but not keystrokes).
 Plug 'wakatime/vim-wakatime'
-
-" Use fzf for fuzzy finding instead of CtrlP.
-" It's faster and a bit more easily extensible.
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Bridges the gap between terminal and GUI vim by setting the cursor properly.
+Plug 'wincent/terminus'
+" Highlight text according to its indent level.
+Plug 'thiagoalessio/rainbow_levels.vim'
+" Pretty tmux status line that matches your vim-airline
+" scheme.
+Plug 'edkolev/tmuxline.vim'
 
 " Writing Plugs
 """"""""""""""""""
@@ -67,32 +69,24 @@ call Src('lang/js/plugins.vim')
 call Src('lang/ts/plugins.vim')
 call Src('lang/rust/plugins.vim')
 
-" External API's
-"""""""""""""""""
-" This suite of plugins lets you manage JIRA tasks within vim.
-call Src('apis/jira.vim')
-
-" Pretty tmux status line that matches your vim-airline
-" scheme.
-Plug 'edkolev/tmuxline.vim'
-
 " Initialize Plug plugins
 call plug#end()
 filetype plugin indent on
 
 " Plugin-specific settings
 """"""""""""""""""""""""""""
+"call Src('plugrc/vim-pencil.vim')
 call Src('plugrc/airline.vim')
 call Src('plugrc/company.vim')
 call Src('plugrc/ctrlp-bindings.vim')
 call Src('plugrc/ctrlp-branches.vim')
 call Src('plugrc/ctrlp-colorscheme.vim')
 call Src('plugrc/ctrlp.vim')
-call Src('plugrc/fzf.vim')
 call Src('plugrc/goyo.vim')
 call Src('plugrc/jira.vim')
 call Src('plugrc/limelight.vim')
 call Src('plugrc/plug.vim')
+call Src('plugrc/rainbow_levels.vim')
 call Src('plugrc/simplenote.vim')
 call Src('plugrc/tabular.vim')
 call Src('plugrc/tmuxline.vim')
@@ -101,7 +95,7 @@ call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/vim-lengthmatters.vim')
-"call Src('plugrc/vim-pencil.vim')
+call Src('plugrc/vim-prettier.vim')
 call Src('plugrc/vimux.vim')
 call Src('plugrc/youcompleteme.vim')
 
@@ -109,4 +103,4 @@ call Src('plugrc/youcompleteme.vim')
 """""""""""""""""""""""
 "call Src('plugrc/writing.vim')
 
-silent! colorscheme Tomorrow-Night-Eighties
+silent! colorscheme SlateDark

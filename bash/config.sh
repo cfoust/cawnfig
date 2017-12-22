@@ -3,7 +3,7 @@ stty -ixon
 
 # Assume color prompt support. I can't imagine I'll ever work on a
 # terminal without it.
-PS1=' \[\e[30;47m\] \[\033[01;233m\]$(basename \w) \[\e[0m\] \[\033[00m\]'
+PS1=' \[\e[30;47m\] \[\033[01;233m\]$(basename \w)$(tmux rename-window $(basename \w)) \[\e[0m\] \[\033[00m\]'
 
 # Like there's any other editor.
 export VISUAL=vim

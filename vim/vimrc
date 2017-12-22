@@ -45,18 +45,18 @@ set hidden
 " insert.
 set backspace=start
 
-" Highlight lines that go over 80 characters
-"augroup vimrc_autocmds
-"autocmd BufEnter * highlight OverLength ctermbg=red guibg=#111111
-  "autocmd BufEnter * match OverLength /\%120v.*/
-"augroup END
-
 " We need our fancy shmancy ruler
 set ruler
 
 " Change the leader to space
 " WARNING: makes you a master programmer
 let mapleader = "\<Space>"
+
+" Makes it so joins over comments work correctly.
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j
+endif
+
 "================================================
 
 " Source file that includes all plugins from Vundle and their

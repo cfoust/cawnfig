@@ -4,3 +4,8 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'pangloss/vim-javascript'
 " Alignment of colons or equals
 Plug 'godlygeek/tabular'
+
+" Automatic formatting
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'npm install',
+      \ 'for': ['javascript', 'typescript', 'markdown'] }
