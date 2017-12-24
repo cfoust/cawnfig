@@ -65,4 +65,17 @@ if command -v fzf > /dev/null; then
       [ -f "${line/\~/$HOME}" ] && echo "$line"
     done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
   }
+
+  # Change to a recent Git repository and open vim.
+  f() {
+    local files
+    files=$(grep '^>' ~/.viminfo | cut -c3- |
+    while read line; do
+      local repo
+      repo=$(dirname ${line/\~/$HOME})
+      [ -d "$repo/.git" ] && echo "$repo"
+    done |
+    sort -u |
+    fzf-tmux -d -m -q "$*" -1) && cd ${files//\~/$HOME} && vim
+  }
 fi
