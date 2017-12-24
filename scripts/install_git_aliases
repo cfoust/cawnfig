@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Make everything tidy and pretty so we don't have to type as much.
+git config --global --replace-all alias.s status
+git config --global --replace-all alias.b branch
+git config --global --replace-all alias.l branch
+git config --global --replace-all alias.r 'reset --hard HEAD'

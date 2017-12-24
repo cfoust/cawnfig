@@ -77,13 +77,11 @@ filetype plugin indent on
 """"""""""""""""""""""""""""
 "call Src('plugrc/vim-pencil.vim')
 call Src('plugrc/airline.vim')
-call Src('plugrc/company.vim')
 call Src('plugrc/ctrlp-bindings.vim')
 call Src('plugrc/ctrlp-branches.vim')
 call Src('plugrc/ctrlp-colorscheme.vim')
 call Src('plugrc/ctrlp.vim')
 call Src('plugrc/goyo.vim')
-call Src('plugrc/jira.vim')
 call Src('plugrc/limelight.vim')
 call Src('plugrc/plug.vim')
 call Src('plugrc/rainbow_levels.vim')

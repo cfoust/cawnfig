@@ -20,6 +20,9 @@ alias l='ls -CF --color=auto'
 # Easy directory changes.
 alias c='cd ..'
 
+# Faster
+alias g='git'
+
 function cawn() {
   cd ~/cawnfig
   vim -c :CtrlP
