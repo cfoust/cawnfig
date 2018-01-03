@@ -1,9 +1,11 @@
-# Includes things like my PS1 and simple aliases that I use often.
+# Includes things like my PS2 and simple aliases that I use often.
 stty -ixon
 
 # Assume color prompt support. I can't imagine I'll ever work on a
 # terminal without it.
 PS1=' \[\e[30;47m\] \[\033[01;233m\]$(basename \w)$(tmux rename-window $(basename \w)) \[\e[0m\] \[\033[00m\]'
+
+export TERM='xterm-256color'
 
 # Like there's any other editor.
 export VISUAL=vim
@@ -22,6 +24,11 @@ alias c='cd ..'
 
 # Faster
 alias g='git'
+alias v='vim'
+
+rs() {
+  source ~/.bashrc
+}
 
 function cawn() {
   cd ~/cawnfig
@@ -58,7 +65,7 @@ if command -v fzf > /dev/null; then
   }
 
   # v - open files in ~/.viminfo
-  v() {
+  fv() {
     local files
     files=$(grep '^>' ~/.viminfo | cut -c3- |
     while read line; do
@@ -76,6 +83,6 @@ if command -v fzf > /dev/null; then
       [ -d "$repo/.git" ] && echo "$repo"
     done |
     sort -u |
-    fzf-tmux -d -m -q "$*" -1) && cd ${files//\~/$HOME} && vim
+    fzf-tmux -d -m -q "$*" -1) && cd ${files//\~/$HOME}
   }
 fi
