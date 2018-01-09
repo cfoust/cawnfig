@@ -89,6 +89,8 @@ call Src('/findfiles.vim')
 " See docstring.vim for more information.
 Doc ve "Open .vimrc"
 nnoremap <leader>ve :e ~/.vim/vimrc <CR>
+Doc vp "Open plugins.vim"
+nnoremap <leader>vp :e ~/.vim/plugins.vim <CR>
 Doc vb "Open .bashrc"
 nnoremap <leader>vb :e ~/.bashrc <CR>
 Doc vr "Reload .vimrc"

@@ -5,7 +5,7 @@ stty -ixon
 # terminal without it.
 PS1=' \[\e[30;47m\] \[\033[01;233m\]$(basename \w)$(tmux rename-window $(basename \w)) \[\e[0m\] \[\033[00m\]'
 
-export TERM='xterm-256color'
+#export TERM='xterm-256color'
 
 # Like there's any other editor.
 export VISUAL=vim
@@ -17,13 +17,17 @@ export EDITOR="$VISUAL"
 # Borrow some `ls` aliases.
 alias ll='ls -alF --color=auto'
 alias la='ls -A'
-alias l='ls -CF --color=auto'
+alias l='ll'
 
 # Easy directory changes.
 alias c='cd ..'
 
 # Faster
 alias g='git'
+alias gs='git status'
+alias gb='git branch'
+alias gc='git commit'
+alias gp='git push origin HEAD'
 alias v='vim'
 
 rs() {
@@ -83,6 +87,16 @@ if command -v fzf > /dev/null; then
       [ -d "$repo/.git" ] && echo "$repo"
     done |
     sort -u |
-    fzf-tmux -d -m -q "$*" -1) && cd ${files//\~/$HOME}
+    fzf-tmux -d -m -q "$*" -1) && cd ${files//\~/$HOME} && clear
+  }
+
+  # Fuzzy find tmux windows
+  w() {
+    local files
+    files=$(tmux list-windows | sort -u |
+    fzf-tmux -d -m -q "$*" -1)
+    files=$(echo "$files" | perl -n -e '/^(\d+)/ && print $1;')
+    echo $files
+    tmux select-window -t $files
   }
 fi
