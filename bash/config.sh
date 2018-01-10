@@ -1,9 +1,9 @@
 # Includes things like my PS2 and simple aliases that I use often.
 stty -ixon
 
-# Assume color prompt support. I can't imagine I'll ever work on a
+# Assume ANSI color support. I can't imagine I'll ever work on a
 # terminal without it.
-PS1=' \[\e[30;47m\] \[\033[01;233m\]$(basename \w)$(tmux rename-window $(basename \w)) \[\e[0m\] \[\033[00m\]'
+PS1=' \[\e[0;31m\]➞\[\e[0m\] \[\e[0;31m\]$(basename \w)$(tmux rename-window $(basename \w)) \[\e[0m\]\[\033[00m\]'
 
 #export TERM='xterm-256color'
 

@@ -169,6 +169,9 @@ nnoremap <silent> <leader>S :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "
 " Select the last pasted text with gp
 nnoremap gp `[v`]
 
+" Quickly sort lines
+vnoremap gs :sort<CR>
+
 " Duplicate and jump to beginning of paste"
 vnoremap <leader>h y`>p
 
@@ -184,7 +187,7 @@ vmap S [{
 
 set splitbelow
 set splitright
-" Move splits with double leader
+" Move between splits with double leader
 nnoremap <leader><leader>h <C-W><C-H>
 nnoremap <leader><leader>j <C-W><C-J>
 nnoremap <leader><leader>k <C-W><C-K>
