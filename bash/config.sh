@@ -1,9 +1,14 @@
 # Includes things like my PS2 and simple aliases that I use often.
 stty -ixon
 
-# Assume ANSI color support. I can't imagine I'll ever work on a
-# terminal without it.
-PS1=' \[\e[0;31m\]➞\[\e[0m\] \[\e[0;31m\]$(basename \w)$(tmux rename-window $(basename \w)) \[\e[0m\]\[\033[00m\]'
+# Include the basename of the current path by default
+PS1_CWD="$(basename $(pwd))"
+# If we're in tmux, we don't need to put the basename
+# in the PS1. Just drop it on the tmux window.
+if [ -n "$TMUX" ]; then
+  PS1_CWD="♥$(tmux rename-window $PS1_CWD)"
+fi
+PS1=' \[\e[0;31m\]~═$PS1_CWD═~\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
 #export TERM='xterm-256color'
 
@@ -37,6 +42,11 @@ rs() {
 function cawn() {
   cd ~/cawnfig
   vim -c :CtrlP
+}
+
+# Convert all .heic images to jpg
+function tifig-transform() {
+  find *.heic -exec tifig -i {} -o {}.jpg \;
 }
 
 ##################
