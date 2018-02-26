@@ -1,14 +1,13 @@
 # Includes things like my PS2 and simple aliases that I use often.
 stty -ixon
 
-# Include the basename of the current path by default
-PS1_CWD="$(basename $(pwd))"
+PS1=' \[\e[0;31m\]▸▸$(basename $(pwd))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
+
 # If we're in tmux, we don't need to put the basename
 # in the PS1. Just drop it on the tmux window.
 if [ -n "$TMUX" ]; then
-  PS1_CWD="♥$(tmux rename-window $PS1_CWD)"
+  PS1=' \[\e[0;31m\]▸▸$(tmux rename-window $(basename $(pwd)))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 fi
-PS1=' \[\e[0;31m\]~═$PS1_CWD═~\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
 #export TERM='xterm-256color'
 
@@ -20,12 +19,15 @@ export EDITOR="$VISUAL"
 # A L I A S E S
 ################
 # Borrow some `ls` aliases.
-alias ll='ls -alF --color=auto'
+alias ll='ls -alhF --color=auto'
 alias la='ls -A'
 alias l='ll'
 
 # Easy directory changes.
 alias c='cd ..'
+md() {
+  mkdir $1; cd $1
+}
 
 # Faster
 alias g='git'
@@ -87,6 +89,7 @@ if command -v fzf > /dev/null; then
     done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
   }
 
+
   # Change to a recent Git repository and open vim.
   f() {
     local files
@@ -98,6 +101,14 @@ if command -v fzf > /dev/null; then
     done |
     sort -u |
     fzf-tmux -d -m -q "$*" -1) && cd ${files//\~/$HOME} && clear
+  }
+
+  # Change to development dir
+  d() {
+    local dirs
+    dirs=$(ls -p1 ~/Developer/ |
+    sort -u |
+    fzf-tmux -d -m -q "$*" -1) && cd ~/Developer/${dirs} && clear
   }
 
   # Fuzzy find tmux windows

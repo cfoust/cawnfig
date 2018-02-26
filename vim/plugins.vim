@@ -47,6 +47,7 @@ Plug 'edkolev/tmuxline.vim'
 " Cycle through color schemes.
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
+Plug 'nightsense/vimspectr'
 
 " Writing Plugs
 """"""""""""""""""
@@ -68,6 +69,7 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 " Language-specific plugins
 """"""""""""""""""""""""""""
 call Src('lang/c/plugins.vim')
+call Src('lang/gluon/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/ts/plugins.vim')
 call Src('lang/rust/plugins.vim')
