@@ -1,4 +1,5 @@
-bundle
-autoload
 addons
+autoload
+bundle
+plugged
 tmp

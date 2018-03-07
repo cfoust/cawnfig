@@ -1,2 +1,2 @@
-Doc k "CtrlP: Search through color schemes"
+Doc a; "CtrlP: Search through color schemes"
 nnoremap <leader>a; :CtrlPColorscheme<CR>
