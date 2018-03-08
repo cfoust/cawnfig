@@ -17,8 +17,8 @@ window  = session.attached_window
 path = wrapper.display_message('#{pane_current_path}')
 basename = os.path.basename(path)
 
-editor_name = basename + '-editor'
-shell_name  = basename + '-shell'
+editor_name = basename + OAKTHREE_EDITOR_SUFFIX
+shell_name  = basename + OAKTHREE_SHELL_SUFFIX
 
 # Kill any windows that already exist there with these names
 remove_window(ot, editor_name)

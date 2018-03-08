@@ -4,7 +4,9 @@ Handy utilities that might be useful across oakthree scripts.
 
 import libtmux
 
-OAKTHREE_SESSION_NAME = 'ot'
+OAKTHREE_SESSION_NAME  = 'ot'
+OAKTHREE_EDITOR_SUFFIX = ''
+OAKTHREE_SHELL_SUFFIX  = '~'
 
 def remove_window(session, name):
     """
