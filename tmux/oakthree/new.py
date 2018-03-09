@@ -31,6 +31,6 @@ ot.new_window(start_directory=path,
 ot.new_window(start_directory=path,
               attach=True,
               window_name=editor_name,
-              window_shell="bash -c '$EDITOR'")
+              window_shell="bash -c 'while :; do $EDITOR; done'")
 
 server.switch_client(OAKTHREE_SESSION_NAME)
