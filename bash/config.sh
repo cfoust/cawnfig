@@ -147,3 +147,5 @@ if command -v fzf > /dev/null; then
     tmux select-window -t $files
   }
 fi
+
+#source ~/cawnfig/tmux/oakthree/ps1.sh
