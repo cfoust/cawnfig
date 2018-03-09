@@ -5,9 +5,9 @@ PS1=' \[\e[0;31m\]▸▸$(basename $(pwd))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\0
 
 # If we're in tmux, we don't need to put the basename
 # in the PS1. Just drop it on the tmux window.
-if [ -n "$TMUX" ]; then
-  PS1=' \[\e[0;31m\]▸▸$(tmux rename-window $(basename $(pwd)))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
-fi
+#if [ -n "$TMUX" ]; then
+  #PS1=' \[\e[0;31m\]▸▸$(tmux rename-window $(basename $(pwd)))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
+#fi
 
 #export TERM='xterm-256color'
 
@@ -24,30 +24,56 @@ alias la='ls -A'
 alias l='ll'
 
 # Easy directory changes.
-alias c='cd ..'
+alias c='cd .. && pwd && ls'
 md() {
   mkdir $1; cd $1
 }
 
-# Faster
+###################
+# G I T  S T U F F
+###################
+# Ultrafast git aliases
 alias g='git'
 alias gs='git status'
 alias gb='git branch'
+alias ga='git add'
+alias gn='git checkout -b'
 alias gc='git commit'
 alias gp='git push origin HEAD'
 alias v='vim'
 
+# Pretty git log
+gl() {
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+}
+
+# Quickly clone new git repos to ~/Developer
+gg() {
+  CURRENT=$(pwd)
+  cd ~/Developer
+  git clone ${1}
+  cd $CURRENT
+}
+
+#####################
+# B A S H  T R A S H
+#####################
+
+alias grab='sudo apt-get install'
+
+# Re-source bashrc
 rs() {
   source ~/.bashrc
 }
 
-function cawn() {
+# Jump to dotfiles and start a fuzzy search
+cawn() {
   cd ~/cawnfig
   vim -c :CtrlP
 }
 
 # Convert all .heic images to jpg
-function tifig-transform() {
+tifig-transform() {
   find *.heic -exec tifig -i {} -o {}.jpg \;
 }
 

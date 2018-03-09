@@ -5,7 +5,7 @@ new_window none
 # Use Adobe's nice Source Code font for window titles.
 font pango:Source Code Pro 10
 
-# Start terminator and execute tmux
+# Start konsole and execute tmux
 bindsym Ctrl+Return exec konsole
 
 # Screenshot function
@@ -43,7 +43,7 @@ mode "vimlike" {
 
   # Moves the focused window to the specified workspace
   bindsym Shift+j move container to workspace 1; mode "default"
-  bindsym Shift+k move container to workspace 2; mode "default"
+  bindsym Shift+k move container to workspace 3; mode "default"
   bindsym Shift+l move container to workspace 3; mode "default"
   bindcode Shift+47 move container to workspace 4; mode "default"
   bindsym Shift+u move container to workspace 5; mode "default"
@@ -56,7 +56,7 @@ mode "vimlike" {
   # Lets you run programs that have .desktop links with Ctrl+S.
   bindsym Ctrl+s exec --no-startup-id i3-dmenu-desktop; mode "default"
   # Start programs with 1-0
-  bindsym a exec google-chrome --new-window; mode "default"
+  bindsym a exec chromium-browser --new-window; mode "default"
 
   # enter fullscreen mode for the focused container
   bindsym f fullscreen; mode "default";
@@ -69,7 +69,7 @@ mode "vimlike" {
   # exit i3 (logs you out of your X session)
   bindsym q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; mode "default"
   # Lets you lock the computer
-  bindsym Ctrl+t exec i3lock -i ~/Backgrounds/jakub-rozalski-1920-togawa01s.png -p default -d -n
+  bindsym Ctrl+t exec i3lock -i ~/Backgrounds/by_mound.png -p default -d -n
 
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
@@ -86,10 +86,10 @@ bar {
 }
 
 # Enable our rebinding of Caps Lock to Control.
-exec xmodmap ~/.Xmodmap
+#exec xmodmap ~/.Xmodmap
 # Control the mouse with the keyboard.
 exec keynav
 # Restore screen preferences.
-exec ~/.screenlayout/sbs.sh
+#exec ~/.screenlayout/sbs.sh
 # Restore screen wallpapers.
 exec nitrogen --restore
