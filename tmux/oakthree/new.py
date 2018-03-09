@@ -24,14 +24,13 @@ shell_name  = basename + OAKTHREE_SHELL_SUFFIX
 remove_window(ot, editor_name)
 remove_window(ot, shell_name)
 
-# Move this window to the ot session and use it as a shell there
-window.move_window(session=OAKTHREE_SESSION_NAME)
-window.rename_window(shell_name)
+ot.new_window(start_directory=path,
+              attach=False,
+              window_name=shell_name)
 
 ot.new_window(start_directory=path,
               attach=True,
               window_name=editor_name,
-              window_shell="$EDITOR")
+              window_shell="bash -c '$EDITOR'")
 
-window.select_window()
 server.switch_client(OAKTHREE_SESSION_NAME)

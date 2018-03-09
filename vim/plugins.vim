@@ -43,7 +43,7 @@ Plug 'wincent/terminus'
 Plug 'thiagoalessio/rainbow_levels.vim'
 " Pretty tmux status line that matches your vim-airline
 " scheme.
-Plug 'edkolev/tmuxline.vim'
+"Plug 'edkolev/tmuxline.vim'
 " Cycle through color schemes.
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
