@@ -10,10 +10,15 @@ ot_make_header() {
   echo "$OT_HEADER_PRE$1$OT_HEADER_POST"
 }
 
-TM="tmux"
+TM=/usr/local/bin/tmux
 FZF="fzf --margin 40%,30% --border"
 
 tmux_get_session() {
   # Get the current tmux session.
   echo "$($TM display-message -p '#S')"
+}
+
+tmux_get_window() {
+  # Get the current tmux window.
+  echo "$($TM display-message -p '#W')"
 }
