@@ -18,8 +18,8 @@ bindcode 123 exec pactl -- set-sink-volume 0 +3%
 
 # Mess with redshift with the skip forward key.
 bindcode 173 exec redshift -O 3000 # Diminished color mode
-bindcode Shift+173 exec redshift -O 1000 # Red color mode
-bindcode Ctrl+173 exec redshift -O 6500 # Resets to default
+bindsym Shift+F11 exec redshift -O 6500 # Resets to default
+bindsym Shift+F12 exec redshift -O 1000 # Red color mode
 
 bindsym Ctrl+space mode "vimlike"
 mode "vimlike" {
