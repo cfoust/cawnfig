@@ -118,13 +118,12 @@ if has("autocmd")
    autocmd BufNewFile,BufRead *.vim set tw=0
 
    " C family languages
-   autocmd BufReadPost *.m,*.h,*.c,*.mm,*.cpp,*.hpp source &lang . 'c/settings.vim'
-   "autocmd BufReadPost *.cf, *.moo set syntax=c
+   autocmd BufReadPost *.m,*.h,*.c,*.mm,*.cpp,*.hpp setlocal tabstop=4 shiftwidth=4
 
    " Forces 8 space tabs to be consistent with gofmt
    autocmd BufReadPost *.go  setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
-   " Enforce AkitaBox coding style
+   " Enforce JS coding style
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
 endif
 "================================================
@@ -198,7 +197,7 @@ nnoremap <leader><leader>k <C-W><C-K>
 nnoremap <leader><leader>l <C-W><C-L>
 
 " Quick jumps in quick list
-map <c-n> :cn <CR>
+map <c-n> :cn <CR>zz
 
 " Normally in vim if you paste over text in virtual mode
 " it puts it into your paste buffer. Annoying if you're

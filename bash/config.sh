@@ -1,6 +1,8 @@
 # Includes things like my PS2 and simple aliases that I use often.
 stty -ixon
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 PS1=' \[\e[0;31m\]▸▸$(basename $(pwd))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
 # If we're in tmux, we don't need to put the basename
@@ -137,6 +139,18 @@ if command -v fzf > /dev/null; then
     fzf-tmux -d -m -q "$*" -1) && cd ~/Developer/${dirs} && clear
   }
 
+  # Handy cloning utility.
+  dolly() {
+    target=$(bash "$SCRIPT_DIR/dolly")
+
+    if [ -z "$target" ]; then
+      return 0
+    fi
+
+    cd "$target"
+  }
+  alias d="dolly"
+
   # Fuzzy find tmux windows
   w() {
     local files
@@ -148,4 +162,10 @@ if command -v fzf > /dev/null; then
   }
 fi
 
-#source ~/cawnfig/tmux/oakthree/ps1.sh
+BASH_PRIVATE="$HOME/.bash-private"
+
+if [ ! -f "$BASH_PRIVATE" ]; then
+  touch "$BASH_PRIVATE"
+fi
+
+source "$BASH_PRIVATE"
