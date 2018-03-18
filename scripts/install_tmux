@@ -8,14 +8,24 @@ if [ ! -f ~/.tmux.conf ] ; then
   ln ~/cawnfig/tmux/main.conf ~/.tmux.conf
 fi
 
-$APT libevent-dev
+install_tmux() {
+  $APT libevent-dev
 
-# The release for tmux 2.5
-RELEASE_URL="https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"
+  # The release for tmux 2.5
+  RELEASE_URL="https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"
 
-cd /tmp
-wget $RELEASE_URL
-tar xf tmux-2.5.tar.gz
-cd tmux-2.5
-./configure && make
-sudo make install
+  cd /tmp
+  wget $RELEASE_URL
+  tar xf tmux-2.5.tar.gz
+  cd tmux-2.5
+  ./configure && make
+  sudo make install
+}
+
+if ! [ -x "$(command -v tmux)" ]; then
+  install_tmux
+else
+  if ! tmux -V | grep -q "2.5"; then
+    install_tmux
+  fi
+fi

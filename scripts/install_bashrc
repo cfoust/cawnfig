@@ -13,7 +13,6 @@ CF_BASH_CONF="~/cawnfig/bash/config.sh"
 
 if cat ~/.bashrc | grep -q "$CF_BASH_CONF"; then
   echo 'bashrc already includes special config.'
-  exit
+else
+  echo "source $CF_BASH_CONF" >> ~/.bashrc
 fi
-
-echo "source $CF_BASH_CONF" >> ~/.bashrc
