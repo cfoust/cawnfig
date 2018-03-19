@@ -4,9 +4,8 @@
 # Caleb Foust
 source common.sh
 
-if [ ! -f ~/.tmux.conf ] ; then
-  ln ~/cawnfig/tmux/main.conf ~/.tmux.conf
-fi
+rm ~/.tmux.conf
+ln -s ~/cawnfig/tmux/main.conf ~/.tmux.conf
 
 install_tmux() {
   $APT libevent-dev
@@ -21,6 +20,12 @@ install_tmux() {
   ./configure && make
   sudo make install
 }
+
+if [ ! -d ~/.tmux ]; then
+  # Install the TMUX plugin manager.
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins
+fi
 
 if ! [ -x "$(command -v tmux)" ]; then
   install_tmux
