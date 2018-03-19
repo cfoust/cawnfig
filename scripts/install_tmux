@@ -4,9 +4,8 @@
 # Caleb Foust
 source common.sh
 
-if [ ! -f ~/.tmux.conf ] ; then
-  ln ~/cawnfig/tmux/main.conf ~/.tmux.conf
-fi
+rm ~/.tmux.conf
+ln -s ~/cawnfig/tmux/main.conf ~/.tmux.conf
 
 $APT libevent-dev
 
@@ -19,3 +18,10 @@ tar xf tmux-2.5.tar.gz
 cd tmux-2.5
 ./configure && make
 sudo make install
+
+# Install tpm if necessary
+if [ ! -d "$HOME/.tmux" ]; then
+  # Install the TMUX plugin manager.
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins
+fi

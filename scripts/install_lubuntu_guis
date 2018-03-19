@@ -10,16 +10,13 @@ if ! [ -x "$(command -v i3)" ]; then
   ln -s ~/cawnfig/i3/config ~/.config/i3/config
 fi
 
-if ! [ -x "$(command -v terminator)" ]; then
-  sudo add-apt-repository -y ppa:gnome-terminator/ppa
+if ! [ -x "$(command -v konsole)" ]; then
   sudo apt-get update
-  $APT terminator
-  mkdir -p ~/.config/terminator
-  ln -s ~/cawnfig/terminator/config ~/.config/terminator/config
+  $APT konsole
 fi
 
 # Keynav to navigate with the keyboard
 if ! [ -x "$(command -v keynav)" ]; then
   $APT keynav
-  ln ~/cawnfig/keynav/keynavrc ~/.keynavrc
+  ln -s ~/cawnfig/keynav/keynavrc ~/.keynavrc
 fi

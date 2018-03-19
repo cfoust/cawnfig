@@ -4,5 +4,5 @@
 # Caleb Foust
 
 ./install_vim
-./install_vim_vundle
+./install_vim_plug
 ./install_vim_ycm
