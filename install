@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# Detects what is missing and installs it for everything in my dev environment.
+
+BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$BASE_DIR/scripts/common.sh"
+
+# Update apt sources
+$apt update
+
+# We need git from the git-go
+if ! [ -x "$(command -v git)" ]; then
+  $grab git
+fi
+
+# Clone this repo if it doesn't exist
+if [ ! -d ~/cawnfig ]; then
+  git clone https://github.com/cfoust/cawnfig.git ~/cawnfig
+fi
+
+cd ~/cawnfig/scripts
+
+# Install vim and all necessary plugins
+./install_vim_all
+# Same with tmux
+./install_tmux
+# Make sure bashrc has our changes
+./install_bashrc
+
+# Create our lovely Developer directory
+if [ ! -d ~/Developer ]; then
+  # -p does the if check already but I want to be explicit
+  mkdir -p ~/Developer
+fi
