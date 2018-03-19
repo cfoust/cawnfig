@@ -78,6 +78,14 @@ tifig-transform() {
   find *.heic -exec tifig -i {} -o {}.jpg \;
 }
 
+BASH_PRIVATE="$HOME/.bash-private"
+
+if [ ! -f "$BASH_PRIVATE" ]; then
+  cp "$SCRIPT_DIR/private-blank.sh" "$BASH_PRIVATE"
+fi
+
+source "$BASH_PRIVATE"
+
 ##################
 # B I N D I N G S
 ##################
@@ -107,23 +115,6 @@ if command -v fzf > /dev/null; then
       git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
   }
 
-  # v - open files in ~/.viminfo
-  fv() {
-    local files
-    files=$(grep '^>' ~/.viminfo | cut -c3- |
-    while read line; do
-      [ -f "${line/\~/$HOME}" ] && echo "$line"
-    done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
-  }
+  source "$HOME/.dolly/source.sh"
+  alias d="dolly"
 fi
-
-source "$SCRIPT_DIR/dolly.sh"
-alias d="dolly"
-
-BASH_PRIVATE="$HOME/.bash-private"
-
-if [ ! -f "$BASH_PRIVATE" ]; then
-  touch "$BASH_PRIVATE"
-fi
-
-source "$BASH_PRIVATE"

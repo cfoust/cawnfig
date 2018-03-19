@@ -4,9 +4,16 @@
 #
 # Caleb Foust
 
+mkdir -p ~/Developer/cfoust
+
 if ! [ -x "$(command -v fzf)" ]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install --key-bindings --completion --update-rc
+fi
+
+if [ ! -d "$HOME/.dolly" ]; then
+  git clone git@github.com:cfoust/dolly.git ~/Developer/cfoust/dolly
+  ln -s ~/Developer/cfoust/dolly ~/.dolly
 fi
 
 CF_BASH_CONF="~/cawnfig/bash/config.sh"
