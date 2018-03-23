@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+oakthree=$(tmux show-option -gv @ot-base-directory 2>/dev/null)
+new_project="$oakthree/lib/tmux/new-project"
+dolly="$HOME/.dolly/bin/dolly"
+
+choice=$(bash $dolly)
+
+repo=$(echo "$choice" | awk '{ print $1; }')
+repo_dir="$DOLLY_REPO_DIR/$repo"
+clone_url=$(echo "$choice" | awk '{ print $2; }')
+
+if [ ! -d "$repo_dir" ]; then
+  git clone "$clone_url" "$repo_dir"
+fi
+
+(bash $new_project $repo_dir)

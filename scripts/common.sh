@@ -4,3 +4,7 @@
 
 export apt="sudo apt-get -qqy"
 export grab="$apt install"
+
+no_need() {
+  echo "No need to $1."
+}

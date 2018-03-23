@@ -5,17 +5,21 @@
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$BASE_DIR/scripts/common.sh"
 
-# Update apt sources
-$apt update
-
 # We need git from the git-go
 if ! [ -x "$(command -v git)" ]; then
+  # Update apt sources
+  $apt update
+
   $grab git
+else
+  no_need 'install git'
 fi
 
 # Clone this repo if it doesn't exist
 if [ ! -d ~/cawnfig ]; then
   git clone https://github.com/cfoust/cawnfig.git ~/cawnfig
+else
+  no_need 'clone cawnfig'
 fi
 
 cd ~/cawnfig/scripts
@@ -31,4 +35,6 @@ cd ~/cawnfig/scripts
 if [ ! -d ~/Developer ]; then
   # -p does the if check already but I want to be explicit
   mkdir -p ~/Developer
+else
+  no_need 'create repos directory'
 fi

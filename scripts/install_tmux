@@ -5,7 +5,14 @@
 source common.sh
 
 rm ~/.tmux.conf
-ln -s ~/cawnfig/tmux/main.conf ~/.tmux.conf
+
+if [ ! -L ~/.tmux.conf ]; then
+  ln -s ~/cawnfig/tmux/main.conf ~/.tmux.conf
+fi
+
+if [ ! -L ~/.oakthree.conf ]; then
+  ln -s ~/cawnfig/tmux/oakthree.conf ~/.oakthree.conf
+fi
 
 install_tmux() {
   $APT libevent-dev
