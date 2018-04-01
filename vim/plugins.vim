@@ -72,6 +72,7 @@ call Src('lang/c/plugins.vim')
 call Src('lang/gluon/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/ts/plugins.vim')
+call Src('lang/kotlin/plugins.vim')
 call Src('lang/rust/plugins.vim')
 
 " Initialize Plug plugins
