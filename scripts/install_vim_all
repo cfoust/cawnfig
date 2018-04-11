@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# Installs a tidy vim setup with Plug and YouCompleteMe.
-
-./install_vim
-./install_vim_plug
-./install_vim_ycm

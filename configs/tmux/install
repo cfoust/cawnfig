@@ -2,20 +2,24 @@
 # Installs tmux and sets up its configuration.
 #
 # Caleb Foust
-source common.sh
 
-rm ~/.tmux.conf
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [ ! -L ~/.tmux.conf ]; then
-  ln -s ~/cawnfig/tmux/main.conf ~/.tmux.conf
+TMUX_CONF="$HOME/.tmux.conf"
+OT_CONF="$HOME/.oakthree.conf"
+
+rm "$TMUX_CONF"
+
+if [ ! -L "$TMUX_CONF" ]; then
+  ln -s "$THIS_DIR/main.conf" "$TMUX_CONF"
 fi
 
-if [ ! -L ~/.oakthree.conf ]; then
-  ln -s ~/cawnfig/tmux/oakthree.conf ~/.oakthree.conf
+if [ ! -L "$OT_CONF" ]; then
+  ln -s "$THIS_DIR/oakthree.conf" "$OT_CONF"
 fi
 
 install_tmux() {
-  $APT libevent-dev
+  $grab libevent-dev
 
   # The release for tmux 2.5
   RELEASE_URL="https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"
@@ -28,10 +32,11 @@ install_tmux() {
   sudo make install
 }
 
-if [ ! -d ~/.tmux ]; then
+TMUX_DIR="$HOME/.tmux"
+if [ ! -d "$TMUX_DIR" ]; then
   # Install the TMUX plugin manager.
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  ~/.tmux/plugins/tpm/bin/install_plugins
+  git clone https://github.com/tmux-plugins/tpm "$TMUX_DIR/plugins/tpm"
+  "$TMUX_DIR/plugins/tpm/bin/install_plugins"
 fi
 
 if ! [ -x "$(command -v tmux)" ]; then

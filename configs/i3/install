@@ -1,0 +1,10 @@
+#!/bin/bash
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+I3_DIR="$HOME/.config/i3"
+
+if missing "i3"; then
+  $grab i3
+fi
+
+ensure_link "$THIS_DIR" "$I3_DIR"

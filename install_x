@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Installs everything for my ideal X windows setup including i3 and keynav.
+
+BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$BASE_DIR/common.sh"
+
+mkdir -p ~/Screenshots
+
+install "x"

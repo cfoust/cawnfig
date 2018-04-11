@@ -1,0 +1,75 @@
+#!/bin/bash
+# Installs vim from source configured with Python3 interpolation.
+#
+# Caleb Foust
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Kind of silly to still have this in as it's almost always empty,
+# but here we go
+touch ~/.vimprivate
+
+VIM_DIR="$HOME/.vim"
+
+# Symlink our vim config
+ensure_link "$THIS_DIR" "$VIM_DIR"
+
+mkdir -p "$VIM_DIR/tmp"
+
+install_vim() {
+  VIM_DEPS="libncurses5-dev libgnome2-dev libgnomeui-dev "
+  VIM_DEPS+="libgtk2.0-dev libatk1.0-dev libbonoboui2-dev "
+  VIM_DEPS+="libcairo2-dev libx11-dev libxpm-dev libxt-dev "
+  VIM_DEPS+="python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev "
+  VIM_DEPS+="git"
+
+  # Make sure we have all of vim's dependencies
+  $grab $VIM_DEPS
+
+  cd /tmp
+  git clone https://github.com/vim/vim.git
+  cd vim
+  ./configure --with-features=huge \
+    --enable-multibyte \
+    --enable-rubyinterp=yes \
+    --enable-python3interp=yes \
+    --with-python3-config-dir=/usr/lib/python3.5/config \
+    --enable-perlinterp=yes \
+    --enable-luainterp=yes \
+    --enable-gui=gtk2 --enable-cscope --prefix=/usr
+
+  make VIMRUNTIMEDIR=/usr/share/vim/vim80
+  sudo make install
+}
+
+# Only install if the version is below 8
+# TODO: need vim at all for this to work, check if it's installed
+if missing "vim"; then
+  install_vim
+elif ! vim --version | grep -q "Vi IMproved 8."; then
+  install_vim
+fi
+
+if [ ! -f "$VIM_DIR/autoload/plug.vim" ] ; then
+  $grab curl
+  curl -fLo "$VIM_DIR/autoload/plug.vim" --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Need ag for CtrlP
+if missing "ag"; then
+  $grab silversearcher-ag
+fi
+
+# Install all of our plugins
+vim -c :PlugInstall -c :qa
+
+YCMDIR="$VIM_DIR/addons/YouCompleteMe"
+cd "$YCMDIR"
+
+if [ ! -f "$YCMDIR/third_party/ycmd/ycm_core.so" ]; then
+  $grab build-essential cmake python-dev python3-dev
+  # I'm not a fan of most of the completers as I really just look
+  # to YCM for fuzzy identifier matching.
+  ./install.py --clang-completer
+fi

@@ -1,0 +1,30 @@
+#!/bin/bash
+# Adds our bash config to bashrc if it
+# isn't already included.
+#
+# Caleb Foust
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+DEV_DIR="$HOME/Developer"
+
+mkdir -p "$DEV_DIR/cfoust"
+
+if missing "fzf"; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --key-bindings --completion --update-rc
+fi
+
+DOLLY_DIR="$HOME/.dolly"
+if [ ! -d "$DOLLY_DIR" ]; then
+  git clone git@github.com:cfoust/dolly.git "$DOLLY_DIR"
+fi
+
+ensure_link "$HOME/Developer/cfoust/dolly" "$DOLLY_DIR"
+ensure_link "$HOME/cawnfig" "$DEV_DIR/cfoust/cawnfig"
+
+CF_BASH_CONF="$THIS_DIR/config.sh"
+
+if ! cat ~/.bashrc | grep "$CF_BASH_CONF" > /dev/null 2>&1; then
+  echo "source $CF_BASH_CONF" >> ~/.bashrc
+fi

@@ -108,4 +108,4 @@ call Src('plugrc/youcompleteme.vim')
 """""""""""""""""""""""
 "call Src('plugrc/writing.vim')
 
-silent! colorscheme birds-of-paradise
+silent! colorscheme wuye

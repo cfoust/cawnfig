@@ -86,7 +86,7 @@ bar {
 }
 
 # Enable our rebinding of Caps Lock to Control.
-#exec xmodmap ~/.Xmodmap
+exec xmodmap ~/.Xmodmap
 # Control the mouse with the keyboard.
 exec keynav
 # Restore screen preferences.
