@@ -13,10 +13,8 @@ missing() {
 
 # Ensures that a symlink exists from $2 to $1.
 ensure_link() {
-  if [ ! -L "$2" ] ; then
-    if [ -d "$2" ] || [ -f "$2" ]; then
-      rm -rf "$2"
-    fi
+  if [ ! -L "$2" ] || [ ! "$(readlink $2)" -ef "$1" ]; then
+    rm -rf "$2"
     ln -s "$1" "$2"
   fi
 }

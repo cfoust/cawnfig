@@ -7,6 +7,9 @@ if missing "konsole"; then
   $grab konsole
 fi
 
+ensure_link "$THIS_DIR/share" "$HOME/.local/share/konsole"
+ensure_link "$THIS_DIR/konsolerc" "$HOME/.config/konsolerc"
+
 FONTS_DIR="/usr/local/share/fonts"
 IOSEVKA_ZIP="$THIS_DIR/../../binaries/06-iosevka-term-slab-1.14.1.zip"
 
