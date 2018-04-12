@@ -5,12 +5,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 PS1=' \[\e[0;31m\]▸▸$(basename $(pwd))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
-# If we're in tmux, we don't need to put the basename
-# in the PS1. Just drop it on the tmux window.
-#if [ -n "$TMUX" ]; then
-  #PS1=' \[\e[0;31m\]▸▸$(tmux rename-window $(basename $(pwd)))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
-#fi
-
 #export TERM='xterm-256color'
 
 # Like there's any other editor.
@@ -85,6 +79,14 @@ if [ ! -f "$BASH_PRIVATE" ]; then
 fi
 
 source "$BASH_PRIVATE"
+
+konsole_color() {
+  if [ -n "$TMUX" ]; then
+    printf '\033Ptmux;\033\033]50;%s\007\033\\' "colors=$1"
+  else
+    konsoleprofile "colors=$1"
+  fi
+}
 
 ##################
 # B I N D I N G S

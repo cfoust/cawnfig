@@ -8,15 +8,8 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMUX_CONF="$HOME/.tmux.conf"
 OT_CONF="$HOME/.oakthree.conf"
 
-rm "$TMUX_CONF"
-
-if [ ! -L "$TMUX_CONF" ]; then
-  ln -s "$THIS_DIR/main.conf" "$TMUX_CONF"
-fi
-
-if [ ! -L "$OT_CONF" ]; then
-  ln -s "$THIS_DIR/oakthree.conf" "$OT_CONF"
-fi
+ensure_link "$THIS_DIR/main.conf" "$TMUX_CONF"
+ensure_link "$THIS_DIR/oakthree.conf" "$OT_CONF"
 
 install_tmux() {
   $grab libevent-dev
@@ -39,10 +32,8 @@ if [ ! -d "$TMUX_DIR" ]; then
   "$TMUX_DIR/plugins/tpm/bin/install_plugins"
 fi
 
-if ! [ -x "$(command -v tmux)" ]; then
+if missing "tmux"; then
   install_tmux
-else
-  if ! tmux -V | grep -q "2.5"; then
-    install_tmux
-  fi
+elif ! tmux -V | grep -q "2.5"; then
+  install_tmux
 fi

@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Monokai
+ColorScheme=BirdsOfParadise
 Font=Iosevka Term Slab,18,-1,5,57,0,0,0,0,0
 
 [Cursor Options]
