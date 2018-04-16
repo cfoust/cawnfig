@@ -12,7 +12,7 @@ ensure_link "$THIS_DIR/main.conf" "$TMUX_CONF"
 ensure_link "$THIS_DIR/oakthree.conf" "$OT_CONF"
 
 install_tmux() {
-  $grab libevent-dev
+  $grab libevent-dev libncurses5-dev libncursesw5-dev
 
   # The release for tmux 2.5
   RELEASE_URL="https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"

@@ -6,6 +6,10 @@ dolly="$HOME/.dolly/bin/dolly"
 
 choice=$(bash $dolly)
 
+if [ -z "$choice" ]; then
+  exit 0
+fi
+
 repo=$(echo "$choice" | awk '{ print $1; }')
 repo_dir="$DOLLY_REPO_DIR/$repo"
 clone_url=$(echo "$choice" | awk '{ print $2; }')
