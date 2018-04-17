@@ -11,6 +11,9 @@ PS1=' \[\e[0;31m\]▸▸$(basename $(pwd))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\0
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# Holds all repositories.
+export DEV_DIR="$HOME/Developer"
+
 ################
 # A L I A S E S
 ################
@@ -43,10 +46,10 @@ gl() {
   git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 }
 
-# Quickly clone new git repos to ~/Developer
+# Quickly clone new git repos to $DEV_DIR
 gg() {
   CURRENT=$(pwd)
-  cd ~/Developer
+  cd "$DEV_DIR"
   git clone ${1}
   cd $CURRENT
 }

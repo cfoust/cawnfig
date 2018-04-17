@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Houses all of the cloned-down repositories
+export DEV_DIR="$HOME/Developer"
+
 export apt="sudo apt-get -qq"
 export grab="$apt -y install"
 

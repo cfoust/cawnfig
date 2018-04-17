@@ -39,7 +39,7 @@ if [ ! -d "$TPM_DIR" ]; then
   git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 fi
 
-OAKTHREE_DIR="$HOME/Developer/cfoust/tmux-oakthree"
+OAKTHREE_DIR="$DEV_DIR/cfoust/tmux-oakthree"
 if [ ! -d "$OAKTHREE_DIR" ]; then
   git clone git@github.com:cfoust/tmux-oakthree.git "$OAKTHREE_DIR"
 fi

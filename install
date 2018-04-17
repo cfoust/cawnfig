@@ -18,7 +18,7 @@ if [ ! -d ~/cawnfig ]; then
 fi
 
 # Create our lovely Developer directory
-mkdir -p ~/Developer
+mkdir -p "$DEV_DIR"
 
 # Run installers
 install

@@ -6,8 +6,6 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-DEV_DIR="$HOME/Developer"
-
 mkdir -p "$DEV_DIR/cfoust"
 
 if missing "fzf"; then
@@ -15,12 +13,12 @@ if missing "fzf"; then
   ~/.fzf/install --key-bindings --completion --update-rc
 fi
 
-DOLLY_DIR="$HOME/Developer/cfoust/dolly"
+DOLLY_DIR="$DEV_DIR/cfoust/dolly"
 if [ ! -d "$DOLLY_DIR" ]; then
   git clone git@github.com:cfoust/dolly.git "$DOLLY_DIR"
 fi
 
-ensure_link "$HOME/Developer/cfoust/dolly" "$HOME/.dolly"
+ensure_link "$DEV_DIR/cfoust/dolly" "$HOME/.dolly"
 ensure_link "$HOME/cawnfig" "$DEV_DIR/cfoust/cawnfig"
 
 CF_BASH_CONF="$THIS_DIR/config.sh"
