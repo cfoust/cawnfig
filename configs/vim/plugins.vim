@@ -21,9 +21,6 @@ Plug 'imkmf/ctrlp-branches'
 Plug 'hara/ctrlp-colorscheme'
 " Git integration.
 Plug 'tpope/vim-fugitive'
-" Nice-looking status line
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 " Integration with simplenote.
 " This is life-changing.
 Plug 'mrtazz/simplenote.vim'
@@ -82,7 +79,6 @@ filetype plugin indent on
 " Plugin-specific settings
 """"""""""""""""""""""""""""
 "call Src('plugrc/vim-pencil.vim')
-call Src('plugrc/airline.vim')
 call Src('plugrc/ctrlp-bindings.vim')
 call Src('plugrc/ctrlp-branches.vim')
 call Src('plugrc/ctrlp-colorscheme.vim')
@@ -108,4 +104,4 @@ call Src('plugrc/youcompleteme.vim')
 """""""""""""""""""""""
 "call Src('plugrc/writing.vim')
 
-silent! colorscheme wuye
+silent! colorscheme base16-cupcake

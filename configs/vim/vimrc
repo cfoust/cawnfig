@@ -57,6 +57,9 @@ if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
 
+" No more statusline
+set laststatus=0
+
 "================================================
 
 " Source file that includes all plugins from Vundle and their
