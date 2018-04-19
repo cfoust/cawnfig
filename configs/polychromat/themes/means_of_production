@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # Ok, this is art.
+# Yes, this is a copy of the Communist Manifesto.
+# I speak Russian and English nearly equally well; this is not a perversion
+# of Soviet culture and nor do I identify with communist beliefs.
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

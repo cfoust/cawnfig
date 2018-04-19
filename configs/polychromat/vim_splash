@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+output=$($PCM_VIM_STARTUP)
+echo "$output"
