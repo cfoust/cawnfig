@@ -91,35 +91,31 @@ konsole_color() {
   fi
 }
 
-##################
-# B I N D I N G S
-##################
-# If we have fzf, set up some helpful bindings.
-if command -v fzf > /dev/null; then
-  # use ag for fzf
-  export FZF_DEFAULT_COMMAND='ag -g ""'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# use ag for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-  # all are taken from https://github.com/junegunn/fzf/wiki/examples
+# all are taken from https://github.com/junegunn/fzf/wiki/examples
 
-  # fd - cd to selected directory
-  fd() {
-    local dir
-    dir=$(find ${1:-.} -path '*/\.*' -prune \
-      -o -type d -print 2> /dev/null | fzf +m) &&
-      cd "$dir"
-  }
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+    -o -type d -print 2> /dev/null | fzf +m) &&
+    cd "$dir"
+}
 
-  # fgb - checkout git branch (including remote branches)
-  # Lets you switch git branches via fuzzy search.
-  fgb() {
-    local branches branch
-    branches=$(git branch --all | grep -v HEAD) &&
-      branch=$(echo "$branches" |
+# fgb - checkout git branch (including remote branches)
+# Lets you switch git branches via fuzzy search.
+fgb() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+    branch=$(echo "$branches" |
     fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-      git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-  }
+    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
 
-  source "$HOME/.dolly/source.sh"
-  alias d="dolly"
-fi
+source "$SCRIPT_DIR/../polychromat/pcm.sh"
+
+source "$HOME/.dolly/source.sh"
+alias d="dolly"

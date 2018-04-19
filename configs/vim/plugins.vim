@@ -100,8 +100,4 @@ call Src('plugrc/vim-prettier.vim')
 call Src('plugrc/vimux.vim')
 call Src('plugrc/youcompleteme.vim')
 
-" cross-plugin settings
-"""""""""""""""""""""""
-"call Src('plugrc/writing.vim')
-
-silent! colorscheme base16-cupcake
+execute 'colorscheme ' $PCM_VIM_THEME

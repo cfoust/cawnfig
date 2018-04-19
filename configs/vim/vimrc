@@ -60,10 +60,18 @@ endif
 " No more statusline
 set laststatus=0
 
+" This is like something a superhero named Code Hero would say.
+syntax on
+
+" Necessary for true color support afaik
+set termguicolors
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+
 "================================================
 
-" Source file that includes all plugins from Vundle and their
-" configuration.
+" Source file that includes all plugins from Plug and their
+" configurations.
 call Src('plugins.vim')
 
 "================================================
@@ -77,19 +85,8 @@ set splitright
 "================================================
 "
 "================================================
-" FILE OPEN COMMANDS
+" QUICK FILE OPEN COMMANDS
 "================================================
-" Edit a file in the current file's directory in the current pane
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Edit a file in the current file's directory in a new split
-map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
-
-" Useful `find` wrapper
-call Src('/findfiles.vim')
-
-" `Doc` adds documentation to a keybinding that starts with <leader>.
-" See docstring.vim for more information.
 Doc ve "Open .vimrc"
 nnoremap <leader>ve :e ~/.vim/vimrc <CR>
 Doc vp "Open plugins.vim"
@@ -132,12 +129,6 @@ endif
 "================================================
 
 "================================================
-" GVIM OPTIONS
-"================================================
-set go=i
-"================================================
-
-"================================================
 " MISCELLANEOUS BINDINGS AND SUCH
 "================================================
 " Easy file write
@@ -146,7 +137,7 @@ nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>q :wq<CR>
 nnoremap <silent> <leader>Q :q!<CR>
 
-" Remove all trailing whitespace with Ctrl-/
+" Remove all trailing whitespace
 nnoremap <silent> <leader>t<space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Whenever you replace a word, it is copied, too. Useful for jumping to the
@@ -191,8 +182,6 @@ nnoremap S [{
 vmap s ]}
 vmap S [{
 
-set splitbelow
-set splitright
 " Move between splits with double leader
 nnoremap <leader><leader>h <C-W><C-H>
 nnoremap <leader><leader>j <C-W><C-J>
@@ -220,12 +209,66 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 "================================================
 
-" This is like something a superhero named Code Hero would say.
-syntax on
+"================================================
+" START PAGE
+"================================================
+" This functionality replaces the vim startup screen with
+" something of my own.
+" It was sourced from here:
+" http://klamp.works/2016/01/01/vim-splash.html
+fun! Start()
 
-set termguicolors
-set t_8f=[38;2;%lu;%lu;%lum
-set t_8b=[48;2;%lu;%lu;%lum
+  "Create a new unnamed buffer to display our splash screen inside of.
+  enew
+
+  " Set some options for this buffer to make sure that does not act like a
+  " normal winodw.
+  silent! setlocal
+        \ bufhidden=wipe
+        \ colorcolumn=
+        \ nobuflisted
+        \ nocursorcolumn
+        \ nocursorline
+        \ nolist
+        \ nonumber
+        \ norelativenumber
+        \ nospell
+        \ noswapfile 
+
+  " Hide the cursor but make it so it returns if you leave.
+  augroup start_screen
+    execute "autocmd BufLeave <buffer> set t_ve=" . &t_ve
+    execute "autocmd VimLeave <buffer> set t_ve=" . &t_ve
+  augroup END
+  setlocal t_ve=
+
+  exec ":r !$PCM_VIM_STARTUP"
+
+  " When we are done writing out message set the buffer to readonly.
+  setlocal
+    \ nomodifiable
+    \ nomodified
+
+  " Just like with the default start page, when we switch to insert mode
+  " a new buffer should be opened which we can then later save.
+  nnoremap <buffer><silent> e :enew<CR>
+  nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+endfun
+
+" http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
+" Autocommands are a way of setting handlers for certain events.
+" `VimEnter` is the event we want to handle. http://vimdoc.sourceforge.net/htmldoc/autocmd.html#VimEnter
+" The cleene star (`*`) is a pattern to indicate which filenames this Autocommand will apply too. In this case, star means all files.
+" We will call the `Start` function to handle this event.
+
+" http://vimdoc.sourceforge.net/htmldoc/eval.html#argc%28%29
+" The number of files in the argument list of the current window.
+" If there are 0 then that means this is a new session and we want to display
+" our custom splash screen.
+if argc() == 0
+  autocmd VimEnter * call Start()
+endif
 
 " HAHAHAHA I bet there's silly stuff in here
 source ~/.vimprivate
