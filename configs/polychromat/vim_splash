@@ -1,4 +1,33 @@
 #!/usr/bin/env bash
 
+columns="$1"
+
 output=$($PCM_VIM_STARTUP)
-echo "$output"
+
+# Sometimes I like bash. This is not one of those times.
+# This checks the max length of the line and adds padding if necessary.
+declare -i max
+max=0
+max=$(echo "$output" | ( while read line; do
+  length="${#line}"
+
+  if [ "$length" -gt "$max" ]; then
+    max="$length"
+  fi
+  done
+  echo "$max" ))
+echo "$padding"
+
+# Don't pad if the output is too wide.
+if [ "$max" -gt "$columns" ]; then
+  echo "$output"
+  exit 0
+fi
+
+padding=$(expr $columns - 80)
+padding=$(expr $padding / 2)
+
+padding_str=""
+for ((n=0;n<$padding;n++)); do padding_str+=" "; done
+
+echo "$output" | sed "s/^/$padding_str/"

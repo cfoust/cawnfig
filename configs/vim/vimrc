@@ -95,6 +95,8 @@ Doc vb "Open .bashrc"
 nnoremap <leader>vb :e ~/.bashrc <CR>
 Doc vr "Reload .vimrc"
 nnoremap <leader>vr :source ~/.vim/vimrc <CR>
+Doc me "Make current file executable."
+nnoremap <leader>me :!chmod u+x %
 "================================================
 
 "================================================
@@ -222,7 +224,7 @@ fun! Start()
   enew
 
   " Set some options for this buffer to make sure that does not act like a
-  " normal winodw.
+  " normal window.
   silent! setlocal
         \ bufhidden=wipe
         \ colorcolumn=
@@ -233,6 +235,7 @@ fun! Start()
         \ nonumber
         \ norelativenumber
         \ nospell
+        \ noruler
         \ noswapfile 
 
   " Hide the cursor but make it so it returns if you leave.
@@ -242,7 +245,10 @@ fun! Start()
   augroup END
   setlocal t_ve=
 
-  exec ":r !$PCM_VIM_STARTUP"
+  exec ":r !bash -c '$PCM_VIM_STARTUP_SCRIPT " &columns "'"
+
+  " Hides the "%d more lines" bit
+  normal :<C-c>
 
   " When we are done writing out message set the buffer to readonly.
   setlocal
@@ -254,6 +260,9 @@ fun! Start()
   nnoremap <buffer><silent> e :enew<CR>
   nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
   nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+
+  " Jumps back to the top so we don't see squiggles
+  normal gg
 endfun
 
 " http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
