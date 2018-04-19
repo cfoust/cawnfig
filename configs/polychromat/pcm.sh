@@ -6,5 +6,9 @@
 # everything into one.
 # PCM -- far more curative than TCM.
 
+export PCM_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PCM_VIM_STARTUP="toilet -f future STRENGTH"
 export PCM_VIM_THEME="base16-cupcake"
+
+tmux set-option -g @ot-ui:margin-command \
+  "bash $PCM_DIR/themes/means_of_production"
