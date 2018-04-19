@@ -16,7 +16,6 @@ max=$(echo "$output" | ( while read line; do
   fi
   done
   echo "$max" ))
-echo "$padding"
 
 # Don't pad if the output is too wide.
 if [ "$max" -gt "$columns" ]; then
