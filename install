@@ -20,5 +20,7 @@ fi
 # Create our lovely Developer directory
 mkdir -p "$DEV_DIR"
 
+git submodule update --init
+
 # Run installers
 install

@@ -46,9 +46,6 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'nightsense/vimspectr'
 
-" Has a colorscheme that uses solely terminal colors.
-Plug 'dylanaraps/wal'
-
 " Writing Plugs
 """"""""""""""""""
 " Plug for autowrapping writing

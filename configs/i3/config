@@ -12,14 +12,18 @@ bindsym Ctrl+Return exec konsole
 bindsym Ctrl+Shift+4 --release exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
 
 # Adjust volume with the built-in media keys
-bindcode 121 exec pactl -- set-sink-mute 0 toggle
-bindcode 122 exec pactl -- set-sink-volume 0 -3%
-bindcode 123 exec pactl -- set-sink-volume 0 +3%
+bindsym Shift+F8 exec pactl set-sink-mute 1 toggle
+bindsym Shift+F9 exec pactl set-sink-volume 1 -3%
+bindsym Shift+F10 exec pactl set-sink-volume 1 +3%
 
 # Mess with redshift with the skip forward key.
 bindcode 173 exec redshift -O 3000 # Diminished color mode
-bindsym Shift+F11 exec redshift -O 6500 # Resets to default
-bindsym Shift+F12 exec redshift -O 1000 # Red color mode
+
+bindsym Ctrl+F6 exec redshift -O 6500 # Resets to default
+bindsym Ctrl+F7 exec redshift -O 1000 # Red color mode
+
+bindsym Shift+F6 exec xbacklight -dec 10
+bindsym Shift+F7 exec xbacklight -inc 10
 
 bindsym Ctrl+space mode "vimlike"
 mode "vimlike" {
@@ -55,7 +59,6 @@ mode "vimlike" {
   bindsym s exec dmenu_run; mode "default"
   # Lets you run programs that have .desktop links with Ctrl+S.
   bindsym Ctrl+s exec --no-startup-id i3-dmenu-desktop; mode "default"
-  # Start programs with 1-0
   bindsym a exec chromium-browser --new-window; mode "default"
 
   # enter fullscreen mode for the focused container
@@ -69,7 +72,7 @@ mode "vimlike" {
   # exit i3 (logs you out of your X session)
   bindsym q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; mode "default"
   # Lets you lock the computer
-  bindsym Ctrl+t exec i3lock -i ~/Backgrounds/by_mound.png -p default -d -n
+  bindsym Ctrl+t exec /home/cfoust/cawnfig/bin/lock
 
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
@@ -93,3 +96,7 @@ exec keynav
 #exec ~/.screenlayout/sbs.sh
 # Restore screen wallpapers.
 exec nitrogen --restore
+exec nm-applet
+exec ibus-daemon
+exec xss-lock -- /home/cfoust/cawnfig/bin/lock
+exec synclient PalmDetect=1

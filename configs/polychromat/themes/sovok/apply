@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export PCM_VIM_SPLASH="toilet -f smmono9 Призрак бродит по Европе - призрак коммунизма."
+export PCM_VIM_THEME="base16-cupcake"
+export PCM_KONSOLE_THEME="Belafonte Day"
+
+tmux set-option -g @ot-ui:margin-command \
+  "bash $PCM_THEME_DIR/means_of_production"

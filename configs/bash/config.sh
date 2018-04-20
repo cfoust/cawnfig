@@ -13,6 +13,7 @@ export EDITOR="$VISUAL"
 
 # Holds all repositories.
 export DEV_DIR="$HOME/Developer"
+export CAWNFIG_DIR="$HOME/cawnfig"
 
 ################
 # A L I A S E S
@@ -66,7 +67,7 @@ rs() {
 
 # Jump to dotfiles and start a fuzzy search
 cawn() {
-  cd ~/cawnfig
+  cd "$CAWNFIG_DIR"
   vim -c :CtrlP
 }
 
@@ -89,6 +90,21 @@ konsole_color() {
   else
     konsoleprofile "colors=$1"
   fi
+}
+
+scheme() {
+  local theme
+  theme=$(cat "$CAWNFIG_DIR/configs/konsole/share/themelist" | fzf)
+  konsole_color "$theme"
+}
+
+rscheme() {
+  local theme
+  theme=$(cat "$CAWNFIG_DIR/configs/konsole/share/themelist" | 
+    sort -R |
+    head -n 1)
+  echo "$theme"
+  konsole_color "$theme"
 }
 
 # use ag for fzf
@@ -116,6 +132,7 @@ fgb() {
 }
 
 source "$SCRIPT_DIR/../polychromat/pcm.sh"
+konsole_color "$PCM_KONSOLE_THEME"
 
 source "$HOME/.dolly/source.sh"
 alias d="dolly"

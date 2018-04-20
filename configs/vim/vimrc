@@ -245,7 +245,7 @@ fun! Start()
   augroup END
   setlocal t_ve=
 
-  exec ":r !bash -c '$PCM_VIM_STARTUP_SCRIPT " &columns "'"
+  exec ":r !bash -c '$PCM_VIM_SPLASH'"
 
   " Hides the "%d more lines" bit
   normal :<C-c>

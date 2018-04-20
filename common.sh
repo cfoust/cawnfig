@@ -2,6 +2,7 @@
 
 # Houses all of the cloned-down repositories
 export DEV_DIR="$HOME/Developer"
+export CAWNFIG_DIR="$HOME/cawnfig"
 
 export apt="sudo apt-get -qq"
 export grab="$apt -y install"

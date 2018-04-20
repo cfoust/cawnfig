@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+export PCM_VIM_SPLASH="toilet -f future i am getting too old for this"
+export PCM_VIM_THEME="Monokai"
+export PCM_KONSOLE_THEME="Twilight"
+
+if [ ! -z "$TMUX" ]; then
+  tmux set -g pane-active-border-style fg='#141414',bg='#141414'
+  tmux set -g pane-border-style fg='#141414',bg='#141414'
+
+  tmux set-option -g @ot-ui:margin-command \
+    "bash $PCM_THEME_DIR/bg"
+fi
