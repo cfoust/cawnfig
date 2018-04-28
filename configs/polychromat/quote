@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Grabs a random quote from quotes.txt.
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cat "$SCRIPT_DIR/quotes.txt" | shuf | head -n 1

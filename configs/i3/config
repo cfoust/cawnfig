@@ -72,7 +72,7 @@ mode "vimlike" {
   # exit i3 (logs you out of your X session)
   bindsym q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; mode "default"
   # Lets you lock the computer
-  bindsym Ctrl+t exec /home/cfoust/cawnfig/bin/lock
+  bindsym Ctrl+t exec i3lock
 
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
@@ -100,3 +100,4 @@ exec nm-applet
 exec ibus-daemon
 exec xss-lock -- /home/cfoust/cawnfig/bin/lock
 exec synclient PalmDetect=1
+exec /home/cfoust/Developer/cfoust/jerry/run

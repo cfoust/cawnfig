@@ -5,7 +5,7 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if missing "toilet"; then
   $grab libcaca-dev
   cd /tmp
-  git clone git://git.zoy.org/toilet.git
+  git clone git@github.com:cacalabs/toilet.git
   cd toilet
   ./configure
   sudo make install

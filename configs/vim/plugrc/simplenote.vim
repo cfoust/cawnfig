@@ -17,3 +17,4 @@ endfunction
 nnoremap <leader>io :call SimplenoteRecents() <CR>
 command SNR :call SimplenoteRecents() <CR>
 command SNN :call simplenote#SimplenoteNew()
+nnoremap <leader>td :SimplenoteOpen ddaba340676c2f85f1d2bc9b1d6ffaa6 <CR>

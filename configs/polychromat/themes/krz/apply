@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-export PCM_VIM_SPLASH="toilet -f future i am getting too old for this"
-export PCM_VIM_THEME="Monokai"
+export PCM_VIM_SPLASH="$PCM_THEME_DIR/quote"
+export PCM_VIM_THEME="abra"
 export PCM_KONSOLE_THEME="Twilight"
 
 if [ ! -z "$TMUX" ]; then

@@ -24,8 +24,6 @@ Plug 'tpope/vim-fugitive'
 " Integration with simplenote.
 " This is life-changing.
 Plug 'mrtazz/simplenote.vim'
-" Lets you run commands in adjacent tmux panes.
-Plug 'benmills/vimux'
 " Highlights long lines.
 " This isn't that hard to do manually, but this way
 " we can toggle on and off.
@@ -45,6 +43,8 @@ Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'nightsense/vimspectr'
+
+Plug 'pearofducks/ansible-vim'
 
 " Writing Plugs
 """"""""""""""""""
@@ -97,7 +97,6 @@ call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/vim-lengthmatters.vim')
 call Src('plugrc/vim-prettier.vim')
-call Src('plugrc/vimux.vim')
 call Src('plugrc/youcompleteme.vim')
 
 execute 'colorscheme ' $PCM_VIM_THEME
