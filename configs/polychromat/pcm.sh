@@ -28,7 +28,7 @@ unset PCM_KONSOLE_THEME
 
 #############################################
 
-export PCM_THEME="krz"
+export PCM_THEME="yahtzee"
 
 export PCM_THEME_DIR="$PCM_DIR/themes/$PCM_THEME"
 APPLY="$PCM_THEME_DIR/apply"

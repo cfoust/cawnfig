@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+read -n 1
+$HOME/pipes.sh -t $((RANDOM % 10)) -s 15 -f 5
