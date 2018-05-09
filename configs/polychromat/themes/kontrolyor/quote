@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+$PCM_DIR/quote | toilet -f future

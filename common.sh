@@ -15,6 +15,10 @@ missing() {
   ! [ -x "$(command -v $1)" ]
 }
 
+missing_package() {
+  ! dpkg -l | grep "$1" > /dev/null 2>&1
+}
+
 # Ensures that a symlink exists from $2 to $1.
 ensure_link() {
   if [ ! -L "$2" ] || [ ! "$(readlink $2)" -ef "$1" ]; then

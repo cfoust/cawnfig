@@ -7,4 +7,8 @@ source "$BASE_DIR/common.sh"
 
 mkdir -p ~/Screenshots
 
+if missing_package "fonts-powerline"; then
+  $grab fonts-powerline
+fi
+
 install "x"
