@@ -11,4 +11,8 @@ if missing_package "fonts-powerline"; then
   $grab fonts-powerline
 fi
 
+if missing "xsel"; then
+  $grab xsel
+fi
+
 install "x"

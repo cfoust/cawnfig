@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Red Alert
+ColorScheme=BirdsOfParadise
 Font=Iosevka Term Slab,15,-1,5,57,0,0,0,0,0
 
 [Cursor Options]

@@ -3,7 +3,7 @@ stty -ixon
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-PS1=' \[\e[0;31m\]▸▸$(basename $(pwd))▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
+PS1=' \[\e[0;31m\]▸▸\W▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
 #export TERM='xterm-256color'
 
@@ -136,3 +136,7 @@ konsole_color "$PCM_KONSOLE_THEME"
 
 source "$HOME/.dolly/source.sh"
 alias d="dolly"
+
+copy_ssh() {
+  cat $HOME/.ssh/id_rsa.pub | xsel -b
+}
