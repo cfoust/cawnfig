@@ -45,6 +45,7 @@ Plug 'xolox/vim-colorscheme-switcher'
 Plug 'nightsense/vimspectr'
 
 Plug 'pearofducks/ansible-vim'
+Plug 'dag/vim-fish'
 
 " Writing Plugs
 """"""""""""""""""

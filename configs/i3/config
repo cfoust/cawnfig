@@ -11,6 +11,9 @@ bindsym Ctrl+Return exec konsole
 # Screenshot function
 bindsym Ctrl+Shift+4 --release exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
 
+bindsym Ctrl+Shift+2 --release exec konsole --profile kitten -p LocalTabTitleFormat="kitten" --separate -e '/home/caleb/cawnfig/bin/kitten'
+for_window [title="kitten"] floating enable, resize set 800 400, move position center
+
 # Adjust volume with the built-in media keys
 bindsym Shift+F8 exec pactl set-sink-mute 1 toggle
 bindsym Shift+F9 exec pactl set-sink-volume 1 -3%
@@ -72,7 +75,9 @@ mode "vimlike" {
   # exit i3 (logs you out of your X session)
   bindsym q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; mode "default"
   # Lets you lock the computer
-  bindsym Ctrl+t exec i3lock
+  bindsym Ctrl+t exec i3lock; mode "default"
+
+  bindsym n exec "/home/caleb/cawnfig/bin/kitten-fzf"; mode "default"
 
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
@@ -100,4 +105,4 @@ exec nm-applet
 exec ibus-daemon
 exec xss-lock -- /home/cfoust/cawnfig/bin/lock
 exec synclient PalmDetect=1
-exec /home/cfoust/Developer/cfoust/jerry/run
+exec /home/caleb/Developer/cfoust/jerry/run

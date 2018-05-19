@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+FILE="kittencmd"
+DIR=/tmp
+
+FULL="$DIR/$FILE"
+
+kitten() {
+  i3-msg [title="kitten"] $@ > /dev/null 2&>1
+}
+
+while :; do
+  while read i; do if [ "$i" = "$FILE" ]; then break; fi; done \
+     < <(inotifywait  -e create,open --format '%f' --quiet "$DIR" --monitor)
+
+  kitten move workspace current
+  eval $(cat "$FULL")
+  kitten move workspace 9
+  rm "$FULL"
+done

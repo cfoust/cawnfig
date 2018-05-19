@@ -113,6 +113,7 @@ if has("autocmd")
    "and set indentation at 8 chars to be sure that all indents are tabs:
    autocmd FileType make     set noexpandtab shiftwidth=8
    autocmd FileType automake set noexpandtab shiftwidth=8
+   autocmd FileType sh set formatoptions+=cro
    autocmd BufReadPost *.py  setlocal nosmartindent tabstop=4 shiftwidth=4
    autocmd BufNewFile,BufRead *.jlex set syntax=java
    autocmd BufNewFile,BufRead *.cup set syntax=java

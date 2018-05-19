@@ -1,6 +1,6 @@
 [Appearance]
-ColorScheme=BirdsOfParadise
-Font=Iosevka Term Slab,18,-1,5,57,0,0,0,0,0
+ColorScheme=Red Alert
+Font=Iosevka Term Slab,15,-1,5,57,0,0,0,0,0
 
 [Cursor Options]
 CursorShape=0
@@ -11,3 +11,6 @@ Parent=FALLBACK/
 
 [Scrolling]
 ScrollBarPosition=2
+
+[Terminal Features]
+FlowControlEnabled=false
