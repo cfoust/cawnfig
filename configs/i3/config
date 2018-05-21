@@ -2,6 +2,31 @@
 # enter fullscreen mode for the focused container
 new_window none
 
+## Boilerplate from pywal
+#########################
+exec wal -R
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+gaps outer 120
+gaps inner 20
+smart_borders on
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+#########################
+
 # Use Adobe's nice Source Code font for window titles.
 font pango:Source Code Pro 10
 
@@ -94,6 +119,10 @@ bar {
   mode hide
   status_command i3status
   modifier Mod1
+  colors {
+    background $bg
+    statusline $fg
+  }
 }
 
 # Enable our rebinding of Caps Lock to Control.
@@ -106,7 +135,3 @@ exec nm-applet
 exec ibus-daemon
 exec xss-lock -- /home/cfoust/cawnfig/bin/lock
 exec synclient PalmDetect=1
-
-gaps outer 120
-gaps inner 20
-smart_borders on
