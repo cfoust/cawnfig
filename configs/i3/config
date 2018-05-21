@@ -115,17 +115,8 @@ mode "vimlike" {
   bindsym Ctrl+space mode "default";
 }
 
-bar {
-  mode hide
-  status_command i3status
-  modifier Mod1
-  colors {
-    background $bg
-    statusline $fg
-  }
-}
-
 # Enable our rebinding of Caps Lock to Control.
+exec polybar foo
 exec xmodmap ~/.Xmodmap
 # Control the mouse with the keyboard.
 exec keynav

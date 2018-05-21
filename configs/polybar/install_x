@@ -1,0 +1,16 @@
+#!/bin/bash
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if missing "polybar"; then
+  $grab xcb-proto libxcb-ewmh-dev python-xbcgen
+
+  cd /tmp
+  git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
+  mkdir polybar/build
+  cd polybar/build
+  cmake ..
+  sudo make install
+fi
+
+ensure_link "$THIS_DIR/config" "$HOME/.config/polybar/config"
