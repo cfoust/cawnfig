@@ -3,8 +3,44 @@
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 I3_DIR="$HOME/.config/i3"
 
-if missing "i3"; then
-  $grab i3 nitrogen
+# We want gaps because they're pretty.
+i3_version=$(i3 --version)
+if missing "i3" || [[ $i3_version != *"gaps-next"* ]]; then
+  # Install i3-gaps from source
+  $grab \
+    autoconf \
+    libev-dev \
+    libpango1.0-dev \
+    libstartup-notification0-dev \
+    libxcb-cursor-dev \
+    libxcb-icccm4-dev \
+    libxcb-keysyms1-dev \
+    libxcb-randr0-dev \
+    libxcb-util0-dev \
+    libxcb-xinerama0-dev \
+    libxcb-xkb-dev \
+    libxcb-xrm-dev \
+    libxcb1-dev \
+    libxkbcommon-dev \
+    libxkbcommon-x11-dev \
+    libyajl-dev
+
+  sudo add-apt-repository -y ppa:aguignard/ppa
+  $apt update
+  $grab libxcb-xrm-dev
+
+  cd $HOME/Developer
+  git clone https://www.github.com/Airblader/i3 i3-gaps
+  cd i3-gaps
+
+  # compile & install
+  autoreconf --force --install
+  rm -rf build/
+  mkdir -p build && cd build/
+
+  ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+  make
+  sudo make install
 fi
 
 ensure_link "$THIS_DIR" "$I3_DIR"

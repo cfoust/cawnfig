@@ -73,3 +73,11 @@ function fd
     -o -type d -print 2> /dev/null | fzf +m)
   cd "$dir"
 end
+
+function preexec_test --on-event fish_preexec
+  echo preexec handler: $argv
+end
+
+function postexec_test --on-event fish_postexec
+  echo postexec handler: $argv
+end

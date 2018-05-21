@@ -67,6 +67,9 @@ mode "vimlike" {
   # enter fullscreen mode for the focused container
   bindsym f fullscreen; mode "default";
 
+  # Clear gaps for video watching and such
+  bindsym g gaps inner all set 0; gaps outer all set 0; mode "default";
+
   # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
   bindsym Ctrl+r restart; mode "default"
   # reload the configuration file
@@ -85,8 +88,6 @@ mode "vimlike" {
   bindsym Ctrl+space mode "default";
 }
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
   mode hide
   status_command i3status
@@ -97,12 +98,13 @@ bar {
 exec xmodmap ~/.Xmodmap
 # Control the mouse with the keyboard.
 exec keynav
-# Restore screen preferences.
-#exec ~/.screenlayout/sbs.sh
 # Restore screen wallpapers.
 exec nitrogen --restore
 exec nm-applet
 exec ibus-daemon
 exec xss-lock -- /home/cfoust/cawnfig/bin/lock
 exec synclient PalmDetect=1
-exec /home/caleb/Developer/cfoust/jerry/run
+
+gaps outer 120
+gaps inner 20
+smart_borders on
