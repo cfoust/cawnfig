@@ -11,6 +11,14 @@ if missing_package "fonts-powerline"; then
   $grab fonts-powerline
 fi
 
+BACKGROUND_DIR="$HOME/Backgrounds"
+mkdir -p "$BACKGROUND_DIR"
+
+if [ ! -f "$BACKGROUND_DIR/1 - SjQprDK.jpg" ]; then
+  wget -q https://www.dropbox.com/s/v2hj2pdq7fst3ex/wallpapers.zip?dl=0 -O /tmp/wallpapers.zip
+  unzip -q /tmp/wallpapers.zip -d "$BACKGROUND_DIR"
+fi
+
 if missing "xsel"; then
   $grab xsel
 fi
