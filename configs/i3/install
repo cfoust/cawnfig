@@ -19,7 +19,6 @@ if missing "i3" || [[ $i3_version != *"gaps-next"* ]]; then
     libxcb-util0-dev \
     libxcb-xinerama0-dev \
     libxcb-xkb-dev \
-    libxcb-xrm-dev \
     libxcb1-dev \
     libxkbcommon-dev \
     libxkbcommon-x11-dev \
