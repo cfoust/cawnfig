@@ -134,6 +134,14 @@ fgb() {
 source "$SCRIPT_DIR/../polychromat/pcm.sh"
 konsole_color "$PCM_KONSOLE_THEME"
 
+WAL_THEME_NAME="colors-konsole"
+WAL_THEME="$HOME/.cache/wal/$WAL_THEME_NAME.colorscheme"
+if [ -f "$WAL_THEME" ]; then
+  cp "$WAL_THEME" "$HOME/cawnfig/configs/konsole/share"
+  konsole_color "$WAL_THEME_NAME"
+  set_tmux_pane_border "$WAL_THEME_NAME"
+fi
+
 source "$HOME/.dolly/source.sh"
 alias d="dolly"
 

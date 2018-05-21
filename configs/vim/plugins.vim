@@ -46,6 +46,7 @@ Plug 'nightsense/vimspectr'
 
 Plug 'pearofducks/ansible-vim'
 Plug 'dag/vim-fish'
+Plug 'dylanaraps/wal.vim'
 
 " Writing Plugs
 """"""""""""""""""
@@ -100,4 +101,4 @@ call Src('plugrc/vim-lengthmatters.vim')
 call Src('plugrc/vim-prettier.vim')
 call Src('plugrc/youcompleteme.vim')
 
-execute 'colorscheme ' $PCM_VIM_THEME
+colorscheme wal

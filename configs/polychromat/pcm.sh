@@ -45,8 +45,15 @@ fi
 # iTerm scheme and sets the tmux pane borders to it.
 # This is so we don't see any pane borders.
 set_tmux_pane_border() {
-  theme_file="$PCM_DIR/../../submodules/iTerm2-Color-Schemes/konsole/$PCM_KONSOLE_THEME.colorscheme"
-  color_line=$(sed "7q;d" "$theme_file")
+  local theme=${1:-$PCM_KONSOLE_THEME} line=7
+
+  # Special case for `wal` themes
+  if [ "$theme" == "colors-konsole" ]; then
+    line=2
+  fi
+
+  theme_file="$PCM_DIR/../konsole/share/$theme.colorscheme"
+  color_line=$(sed "${line}q;d" "$theme_file")
   [[ "$color_line" =~ ([0-9]+),([0-9]+),([0-9]+) ]]
   r="${BASH_REMATCH[1]}"
   g="${BASH_REMATCH[2]}"
