@@ -12,6 +12,7 @@ exec wal -R
 # it fails to get colors from Xresources.
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color4 #f0f0f0
+set_from_resource $user echo "$USER"
 
 gaps outer 120
 gaps inner 20
@@ -36,7 +37,7 @@ bindsym Ctrl+Return exec konsole
 # Screenshot function
 bindsym Ctrl+Shift+4 --release exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
 
-bindsym Ctrl+Shift+2 --release exec konsole --profile kitten -p LocalTabTitleFormat="kitten" --separate -e '/home/caleb/cawnfig/bin/kitten'
+bindsym Ctrl+Shift+2 --release exec konsole --profile kitten -p LocalTabTitleFormat="kitten" --separate -e '/home/$USER/cawnfig/bin/kitten'
 for_window [title="kitten"] floating enable, resize set 800 400, move position center
 
 # Adjust volume with the built-in media keys
@@ -105,9 +106,9 @@ mode "vimlike" {
   # exit i3 (logs you out of your X session)
   bindsym q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; mode "default"
   # Lets you lock the computer
-  bindsym Ctrl+t exec i3lock; mode "default"
+  bindsym Ctrl+t exec /home/$USER/cawnfig/bin/lock; mode "default"
 
-  bindsym n exec "/home/caleb/cawnfig/bin/kitten-fzf"; mode "default"
+  bindsym n exec "/home/$USER/cawnfig/bin/kitten-fzf"; mode "default"
 
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"

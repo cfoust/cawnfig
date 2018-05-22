@@ -2,8 +2,6 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if missing "keynav"; then
-  $grab keynav
-fi
+ensure_package "keynav"
 
 ensure_link "$THIS_DIR/keynavrc" "$HOME/.keynavrc"

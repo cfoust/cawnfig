@@ -19,6 +19,12 @@ missing_package() {
   ! dpkg -l | grep "$1" > /dev/null 2>&1
 }
 
+ensure_package() {
+  if missing_package "$1"; then
+    $grab "$1"
+  fi
+}
+
 # Ensures that a symlink exists from $2 to $1.
 ensure_link() {
   if [ ! -L "$2" ] || [ ! "$(readlink $2)" -ef "$1" ]; then

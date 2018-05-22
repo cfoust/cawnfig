@@ -5,12 +5,10 @@
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$BASE_DIR/common.sh"
 
+$apt update
+
 # We need git from the git-go
-if missing "git"; then
-  # Update apt sources
-  $apt update
-  $grab git
-fi
+ensure_package "git"
 
 # Clone this repo if it doesn't exist
 if [ ! -d ~/cawnfig ]; then

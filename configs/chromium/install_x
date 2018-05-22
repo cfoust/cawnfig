@@ -2,6 +2,4 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if missing "chromium-browser"; then
-  $grab chromium-browser
-fi
+ensure_package "chromium_browser"

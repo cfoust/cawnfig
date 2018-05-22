@@ -2,10 +2,7 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if missing "konsole"; then
-  $apt update
-  $grab konsole
-fi
+ensure_package "konsole"
 
 ensure_link "$THIS_DIR/share" "$HOME/.local/share/konsole"
 ensure_link "$THIS_DIR/konsolerc" "$HOME/.config/konsolerc"

@@ -55,6 +55,16 @@ gg() {
   cd $CURRENT
 }
 
+script() {
+  if [ -f "$1" ]; then
+    echo "File $1 already exists."
+    return 1
+  fi
+
+  echo '#!/usr/bin/env bash' > "$1"
+  chmod u+x "$1"
+}
+
 #####################
 # B A S H  T R A S H
 #####################

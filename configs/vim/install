@@ -57,9 +57,7 @@ if [ ! -f "$VIM_DIR/autoload/plug.vim" ] ; then
 fi
 
 # Need ag for CtrlP
-if missing "ag"; then
-  $grab silversearcher-ag
-fi
+ensure_package "silversearcher-ag"
 
 # Install all of our plugins
 vim -c :PlugInstall -c :qa

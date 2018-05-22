@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-i3lock -i $HOME/Backgrounds/out.png -p default -d -n
+# Capture image
+image_path="/tmp/$RANDOM$RANDOM.png"
+
+import -window root "$image_path"
+convert "$image_path" -blur 5x4 "$image_path"
+
+i3lock -i "$image_path" -p default -d -n
