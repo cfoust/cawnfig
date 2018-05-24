@@ -16,11 +16,12 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-# These actually don't correspond to what they say they do but whatever.
-green = ${xrdb:color3:#222}
+red = ${xrdb:color1:#222}
+green = ${xrdb:color2:#222}
+yellow = ${xrdb:color3:#222}
 blue = ${xrdb:color4:#222}
-red = ${xrdb:color5:#222}
-yellow = ${xrdb:color6:#222}
+purple = ${xrdb:color5:#222}
+cyan = ${xrdb:color6:#222}
 
 [bar/foo]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -83,10 +84,10 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-prefix-underline = ${colors.blue}
+format-prefix-underline = ${colors.purple}
 
 label-layout = %layout%
-label-layout-underline = ${colors.red}
+label-layout-underline = ${colors.purple}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -296,14 +297,14 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.yellow}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = ${colors.red}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-underline = ${colors.green}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -324,7 +325,7 @@ warn-temperature = 60
 format = <ramp> <label>
 format-underline = ${colors.green}
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-underline = ${colors.yellow}
 
 label = %temperature%
 label-warn = %temperature%

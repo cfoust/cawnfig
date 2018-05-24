@@ -4,7 +4,6 @@ new_window none
 
 ## Boilerplate from pywal
 #########################
-exec wal -R
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # from the generated scheme.
@@ -108,7 +107,7 @@ mode "vimlike" {
   # Lets you lock the computer
   bindsym Ctrl+t exec /home/$USER/cawnfig/bin/lock; mode "default"
 
-  bindsym n exec "/home/$USER/cawnfig/bin/kitten-fzf"; mode "default"
+  bindsym n exec /home/$USER/cawnfig/bin/kitten-fzf; mode "default"
 
   # vim-like bindings for quitting the binding mode
   bindsym Ctrl+c mode "default"
@@ -122,8 +121,8 @@ exec xmodmap ~/.Xmodmap
 # Control the mouse with the keyboard.
 exec keynav
 # Restore screen wallpapers.
-exec nitrogen --restore
 exec nm-applet
 exec ibus-daemon
 exec xss-lock -- /home/cfoust/cawnfig/bin/lock
 exec synclient PalmDetect=1
+exec wal -R
