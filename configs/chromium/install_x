@@ -2,4 +2,4 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-ensure_package "chromium_browser"
+ensure_package "chromium-browser"

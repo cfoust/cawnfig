@@ -23,7 +23,7 @@ fi
 HASKLIG_URL="https://github.com/i-tu/Hasklig/releases/download/1.1/Hasklig-1.1.zip"
 if [ ! -f "/usr/share/fonts/opentype/Hasklig-Regular.otf" ]; then
   wget -q "$HASKLIG_URL" -O /tmp/hasklig.zip
-  unzip -q /tmp/hasklig.zip -d "/usr/share/fonts/opentype"
+  sudo unzip -q /tmp/hasklig.zip -d "/usr/share/fonts/opentype"
 fi
 
 install "x"
