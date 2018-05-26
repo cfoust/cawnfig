@@ -149,7 +149,10 @@ WAL_THEME="$HOME/.cache/wal/$WAL_THEME_NAME.colorscheme"
 if [ -f "$WAL_THEME" ]; then
   cp "$WAL_THEME" "$HOME/cawnfig/configs/konsole/share"
   konsole_color "$WAL_THEME_NAME"
-  set_tmux_pane_border "$WAL_THEME_NAME"
+
+  if [ ! -z "$TMUX" ]; then
+    set_tmux_pane_border "$WAL_THEME_NAME"
+  fi
 fi
 
 source "$HOME/.dolly/source.sh"
