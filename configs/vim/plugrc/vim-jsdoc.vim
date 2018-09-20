@@ -6,9 +6,6 @@ let g:jsdoc_tags = {
       \   'class':     'class'
       \ }
 
-" Compose the description interactively. Makes things a bit easier.
-let g:jsdoc_allow_input_prompt = 1
-
 " Allow for es6 shorthand functions
 let g:jsdoc_enable_es6 = 1
 

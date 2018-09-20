@@ -24,38 +24,27 @@ Plug 'tpope/vim-fugitive'
 " Integration with simplenote.
 " This is life-changing.
 Plug 'mrtazz/simplenote.vim'
-" Highlights long lines.
-" This isn't that hard to do manually, but this way
-" we can toggle on and off.
-Plug 'whatyouhide/vim-lengthmatters'
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace'
 " Records what you do in projects (but not keystrokes).
 Plug 'wakatime/vim-wakatime'
 " Bridges the gap between terminal and GUI vim by setting the cursor properly.
 Plug 'wincent/terminus'
-" Highlight text according to its indent level.
-Plug 'thiagoalessio/rainbow_levels.vim'
-" Pretty tmux status line that matches your vim-airline
-" scheme.
-"Plug 'edkolev/tmuxline.vim'
 " Cycle through color schemes.
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
-Plug 'nightsense/vimspectr'
-
-Plug 'pearofducks/ansible-vim'
-Plug 'dag/vim-fish'
+" Minimal theme that uses your terminal's colors.
+" I use this in conjunction with pywal.
 Plug 'dylanaraps/wal.vim'
+" For all of your syntax highlighting needs.
+Plug 'sheerun/vim-polyglot'
+" Lints better than a dryer.
+Plug 'sbdchd/neoformat'
 
 " Writing Plugs
 """"""""""""""""""
 " Plug for autowrapping writing
 "Plug 'reedes/vim-pencil'
-" Highlights the section you're working on.
-Plug 'junegunn/limelight.vim'
-" Distraction-free writing
-Plug 'junegunn/goyo.vim'
 
 " Plugs I Wrote That Really Only I Can Use
 " (PIWTROICU)
@@ -85,20 +74,15 @@ call Src('plugrc/ctrlp-bindings.vim')
 call Src('plugrc/ctrlp-branches.vim')
 call Src('plugrc/ctrlp-colorscheme.vim')
 call Src('plugrc/ctrlp.vim')
-call Src('plugrc/goyo.vim')
-call Src('plugrc/limelight.vim')
 call Src('plugrc/plug.vim')
-call Src('plugrc/rainbow_levels.vim')
 call Src('plugrc/simplenote.vim')
 call Src('plugrc/tabular.vim')
-call Src('plugrc/tmuxline.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-colorscheme-switcher.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
-call Src('plugrc/vim-lengthmatters.vim')
-call Src('plugrc/vim-prettier.vim')
 call Src('plugrc/youcompleteme.vim')
+call Src('plugrc/neoformat.vim')
 
-colorscheme wal
+colorscheme Chasing_Logic

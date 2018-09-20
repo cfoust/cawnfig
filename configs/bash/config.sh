@@ -55,6 +55,15 @@ gg() {
   cd $CURRENT
 }
 
+gr() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  git remote update && git reset --hard origin/$branch
+}
+
+gsu() {
+  git submodule update --init
+}
+
 script() {
   if [ -f "$1" ]; then
     echo "File $1 already exists."
@@ -79,6 +88,14 @@ rs() {
 cawn() {
   cd "$CAWNFIG_DIR"
   vim -c :CtrlP
+}
+
+drun() {
+  docker run \
+    --rm -it \
+    --volume "$(pwd):$(pwd)" \
+    --workdir "$(pwd)" \
+    $@
 }
 
 # Convert all .heic images to jpg
@@ -160,4 +177,23 @@ alias d="dolly"
 
 copy_ssh() {
   cat $HOME/.ssh/id_rsa.pub | xsel -b
+}
+
+docker_diff() {
+  local first=$1 second=$2
+  local cmd=$3
+  echo "'$cmd'"
+  local run="docker run --rm -it "
+  bash -c "$run $first $cmd" > first.txt
+  bash -c "$run $second $cmd" > second.txt
+}
+
+docker_audit() {
+  docker history \
+    --format="{{ .Size }} {{ .CreatedBy }}\n" \
+    --no-trunc "$1"
+}
+
+docker_audit_sorted() {
+  docker_audit "$1" | sort -h
 }

@@ -81,6 +81,8 @@ call Src('plugins.vim')
 set splitbelow
 set splitright
 
+set exrc
+
 " Use tmux-like split commands
 "================================================
 "
@@ -136,9 +138,6 @@ endif
 "================================================
 " Easy file write
 nnoremap <silent> <leader>w :w<CR>
-" Easy write quit
-nnoremap <silent> <leader>q :wq<CR>
-nnoremap <silent> <leader>Q :q!<CR>
 
 " Remove all trailing whitespace
 nnoremap <silent> <leader>t<space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
