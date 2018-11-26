@@ -2,6 +2,8 @@
 Doc tjs "JS: Toggle concealing of keywords"
 nnoremap <leader>tjs :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 
+let g:javascript_plugin_flow = 1
+
 " This is kind of cool, taken from this plugin's
 " github page
 let g:javascript_conceal_function             = "ƒ"

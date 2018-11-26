@@ -26,4 +26,12 @@ if [ ! -f "/usr/share/fonts/opentype/Hasklig-Regular.otf" ]; then
   sudo unzip -q /tmp/hasklig.zip -d "/usr/share/fonts/opentype"
 fi
 
+FIRACODE_URL="https://github.com/tonsky/FiraCode/releases/download/1.206/FiraCode_1.206.zip"
+if [ ! -f "/usr/share/fonts/opentype/FiraCode-Regular.otf" ]; then
+  wget -q "$FIRACODE_URL" -O /tmp/firacode.zip
+  mkdir -p /tmp/firacode
+  sudo unzip -q /tmp/firacode.zip -d "/tmp/firacode"
+  sudo cp /tmp/firacode/otf/FiraCode-Regular.otf /usr/share/fonts/opentype
+fi
+
 install "x"

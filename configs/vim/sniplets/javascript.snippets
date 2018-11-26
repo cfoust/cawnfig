@@ -1,132 +1,17 @@
-snippet abmod
-// =================
-//   M O D U L E S
-// =================
-endsnippet
+snippet component
+// @flow
 
-snippet ablib
-// =================
-// L I B R A R I E S
-// =================
-endsnippet
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
-snippet abhelp
-// =================
-//   H E L P E R S
-// =================
-endsnippet
-
-snippet abvalid
-// =================
-// L I B R A R I E S
-// =================
-const ABC         = require('@akitabox/constants');
-const _           = require('underscore');
-const async       = require('async');
-const createError = require('http-errors');
-
-// =================
-//   H E L P E R S
-// =================
-const validate = include('src/utils/validator');
-
-validate.path('')
-    .using()
-    .message('');
-
-module.exports = validate;
-endsnippet
-
-snippet abtor
-validate.path('')
-    .using()
-    .message('');
-endsnippet
-
-snippet abscript
-// =================
-// L I B R A R I E S
-// =================
-const _           = require('underscore');
-const async       = require('async');
-const createError = require('http-errors');
-
-// =================
-//   M O D U L E S
-// =================
-const Staircase   = require('../Staircase');
-
-/**
- * 
- * It expects the `Staircase`'s `data` property to have the following:
- *    * {String} data.field
- *
- * @extends Staircase
- */
-class $1 extends Staircase {
-    // ======================================================================================
-    // S T A T I C  P R O P E R T I E S
-    // ======================================================================================
-    /**
-     * Return a boolean representing whether or not this
-     * class is abstract. Abstract classes do not appear in
-     * the list of Staircases.
-     *
-     * @return {Boolean} Whether or not this class is abstract.
-     */
-    static get abstract() {
-        return false;
-    }
-
-    /**
-     * Return a boolean representing whether or not this Staircase
-     * creates steps that must be processed in order in a FIFO queue.
-     *
-     * @return {Boolean} Whether or not this creates in-order steps.
-     */
-    static get isFifo() {
-        return true;
-    }
-
-    /**
-     * Returns the unique id for the Staircase.
-     *
-     * @return {String} Unique Staircase identifier
-     */
-    static get id() {
-        return 'import-staircase';
-    }
-
-    /**
-     * Return the human-readable name of the Staircase.
-     *
-     * @return {String} Human-readable staircase name.
-     */
-    static get name() {
-        return '';
-    }
-
-    // ======================================================================================
-    // B A S E  M E T H O D S
-    // ======================================================================================
-
-    // ======================================================================================
-    // P R I V A T E  M E T H O D S
-    // ======================================================================================
-    /**
-		 *
-     * Overrides method from Staircase.
-     *
-     * @param {Function} callback Callback with the signature: function(err)
-     */
-    _generate(callback) {
-        const _this         = this;
-        const data          = this.data;
-    }
+type Props = {
 }
 
-// ======================================================================================
-// E X P O R T
-// ======================================================================================
-module.exports = $1;
+class Component extends React.Component<Props> {
+  render() {
+  }
+}
+
+export default Component
 endsnippet

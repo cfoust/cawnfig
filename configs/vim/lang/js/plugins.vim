@@ -8,4 +8,7 @@ Plug 'godlygeek/tabular'
 " Automatic formatting
 Plug 'prettier/vim-prettier', {
       \ 'do': 'npm install',
-      \ 'for': ['javascript', 'typescript', 'markdown'] }
+      \ 'for': ['javascript', 'typescript'] }
+
+Plug 'flowtype/vim-flow', {
+      \ 'for': ['javascript', 'typescript'] }
