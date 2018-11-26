@@ -107,8 +107,8 @@ mode "vimlike" {
   # Lets you lock the computer
   bindsym Ctrl+t exec /home/$USER/cawnfig/bin/lock; mode "default"
 
+  bindsym h exec /home/$USER/cawnfig/bin/desktop-pause.sh -a; mode "default"
   bindsym n exec /home/$USER/cawnfig/bin/kitten-fzf; mode "default"
-
   bindsym Shift+r exec vlc /home/$USER/Music/rain.mp3; mode "default"
 
   # vim-like bindings for quitting the binding mode
