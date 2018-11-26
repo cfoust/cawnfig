@@ -3,10 +3,14 @@
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if missing "toilet"; then
+  ensure_package "build-essential"
+  ensure_package "automake"
+  ensure_package "pkg-config"
   $grab libcaca-dev
   cd /tmp
   git clone git@github.com:cacalabs/toilet.git
   cd toilet
+  ./bootstrap
   ./configure
   sudo make install
 fi
