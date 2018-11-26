@@ -3,3 +3,4 @@ autoload
 bundle
 plugged
 tmp
+.netrwhist
