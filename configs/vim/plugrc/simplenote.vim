@@ -2,6 +2,8 @@
 " notes that have been modified within the
 " past ten days.
 
+let g:org_agenda_files=['~/org/index.org']
+
 function SimplenoteRecents()
   " This is messy as hell but I don't know vimscript so I can't make it
   " cleaner.
@@ -17,4 +19,10 @@ endfunction
 nnoremap <leader>io :call SimplenoteRecents() <CR>
 command SNR :call SimplenoteRecents() <CR>
 command SNN :call simplenote#SimplenoteNew()
-nnoremap <leader>td :SimplenoteOpen ddaba340676c2f85f1d2bc9b1d6ffaa6 <CR>
+
+function OpenTodo()
+  call simplenote#SimplenoteOpen('ddaba340676c2f85f1d2bc9b1d6ffaa6')
+  set filetype=org
+endfunction
+
+nnoremap <leader>td :call OpenTodo()

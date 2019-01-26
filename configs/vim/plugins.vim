@@ -21,9 +21,12 @@ Plug 'imkmf/ctrlp-branches'
 Plug 'hara/ctrlp-colorscheme'
 " Git integration.
 Plug 'tpope/vim-fugitive'
+
 " Integration with simplenote.
-" This is life-changing.
 Plug 'mrtazz/simplenote.vim'
+Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode'
+
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace'
 " Records what you do in projects (but not keystrokes).
@@ -85,4 +88,4 @@ call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/youcompleteme.vim')
 
-colorscheme deveiate
+colorscheme base16-atelier-forest
