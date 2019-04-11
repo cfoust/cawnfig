@@ -13,6 +13,10 @@ set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color4 #f0f0f0
 set_from_resource $user echo "$USER"
 
+gaps outer 120
+gaps inner 20
+smart_borders on
+
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
@@ -31,9 +35,11 @@ bindsym Ctrl+Return exec konsole
 
 # Screenshot function
 bindsym Ctrl+Shift+4 --release exec import ~/Screenshots/`date +%m%d%y-%I%M%S%p`.png
+#bindsym Ctrl+Shift+3 --release exec bash -ic "window_id=`xwininfo | grep "Window id" | sed -e "s@.*Window id: \([0-9a-fA-Fx]*\).*@\1@"` && konsole -e recordmydesktop --workdir /home/caleb/Videos --no-sound --windowid $window_id"
 
 bindsym Ctrl+Shift+2 --release exec konsole --profile kitten -p LocalTabTitleFormat="kitten" --separate -e '/home/$USER/cawnfig/bin/kitten'
-for_window [title="kitten"] floating enable, resize set 800 400, move position center
+for_window [title="kitten"] floating enable, resize set 400 200, move position center
+for_window [title="Peek"] floating enable
 
 # Adjust volume with the built-in media keys
 bindsym Shift+F8 exec pactl set-sink-mute 2 toggle
@@ -48,6 +54,9 @@ bindsym Ctrl+F7 exec redshift -O 1000 # Red color mode
 
 bindsym Shift+F6 exec xbacklight -dec 10
 bindsym Shift+F7 exec xbacklight -inc 10
+
+bindsym --release button8 workspace prev
+bindsym --release button9 workspace next
 
 bindsym Ctrl+space mode "vimlike"
 mode "vimlike" {
@@ -103,8 +112,7 @@ mode "vimlike" {
   # Lets you lock the computer
   bindsym Ctrl+t exec /home/$USER/cawnfig/bin/lock; mode "default"
 
-  bindsym h exec /home/$USER/cawnfig/bin/desktop-pause.sh -a; mode "default"
-  bindsym n exec /home/$USER/cawnfig/bin/kitten-fzf; mode "default"
+  bindsym Shift+h exec /home/$USER/cawnfig/bin/desktop-pause.sh -a; mode "default"
   bindsym Shift+r exec vlc /home/$USER/Music/rain.mp3; mode "default"
 
   # vim-like bindings for quitting the binding mode
