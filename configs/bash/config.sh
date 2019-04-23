@@ -64,6 +64,10 @@ gsu() {
   git submodule update --init
 }
 
+gnb() {
+  git checkout -b caleb/$(date +'%d-%m-%y')/$1
+}
+
 script() {
   if [ -f "$1" ]; then
     echo "File $1 already exists."
@@ -197,3 +201,4 @@ docker_audit() {
 docker_audit_sorted() {
   docker_audit "$1" | sort -h
 }
+

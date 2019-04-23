@@ -88,4 +88,4 @@ call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/youcompleteme.vim')
 
-colorscheme desertedocean
+colorscheme base16-isotope
