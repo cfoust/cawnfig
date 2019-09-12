@@ -14,19 +14,12 @@ Doc gp "Git: push HEAD to origin"
 nnoremap <leader>gp :Gpush origin HEAD<CR>
 Doc gl "Git: previous versions of file in quickfix list"
 nnoremap <leader>gl :Glog<CR>
-Doc grm "Git: delete the file and stage the deletion"
-nnoremap <leader>grm :Gremove<CR>
 
 Doc pr "GitHub: Make a pull request"
 nnoremap <leader>pr :!hub pull-request -ocp <CR>
 
-" Stash manipulation commands
-Doc gS "Git: stash staged changes"
-nnoremap <leader>gS :Git stash<CR>
-Doc gL "Git: list stashes"
-nnoremap <leader>gL :Git stash list<CR>
-Doc gP "Git: pop the most recent stash"
-nnoremap <leader>gP :Git stash pop<CR>
+Doc op "GitHub: Open the current page"
+nnoremap <leader>br :call system('hub browse -- blob/' . trim(system('git rev-parse --abbrev-ref HEAD')) . '/' . expand("%p") . '#L' . line('.')) <CR><CR>
 
 set statusline+=%{fugitive#statusline()}
 
