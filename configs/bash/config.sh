@@ -22,6 +22,7 @@ export CAWNFIG_DIR="$HOME/cawnfig"
 alias ll='ls -alhF --color=auto'
 alias la='ls -A'
 alias l='ll'
+alias ascii2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif -w 80 -h 20 -s 2 -t monokai'
 
 # Easy directory changes.
 alias c='cd .. && pwd && ls'
@@ -68,6 +69,10 @@ gnb() {
   git checkout -b caleb/$(date +'%d-%m-%y')/$1
 }
 
+grb() {
+  git rebase origin/master
+}
+
 script() {
   if [ -f "$1" ]; then
     echo "File $1 already exists."
@@ -86,12 +91,6 @@ alias grab='sudo apt-get install'
 # Re-source bashrc
 rs() {
   source ~/.bashrc
-}
-
-# Jump to dotfiles and start a fuzzy search
-cawn() {
-  cd "$CAWNFIG_DIR"
-  vim -c :CtrlP
 }
 
 drun() {
@@ -147,7 +146,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # fd - cd to selected directory
 fd() {
   local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
+  dir=$(find ${1:-.} -maxdepth 3 -path '*/\.*' -prune \
     -o -type d -print 2> /dev/null | fzf +m) &&
     cd "$dir"
 }
@@ -161,6 +160,9 @@ fgb() {
     fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
     git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+
+bind '"\C-g": "fgb\n"'
+alias hm="fd ~"
 
 source "$SCRIPT_DIR/../polychromat/pcm.sh"
 konsole_color "$PCM_KONSOLE_THEME"

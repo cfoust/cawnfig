@@ -2,14 +2,13 @@ snippet component
 // @flow
 
 import * as React from 'react'
+import * as R from 'ramda'
+import { useEffect, useState, useCallback } from 'react'
 
 type Props = {
 }
 
-class Component extends React.Component<Props> {
-  render() {
-  }
+export default function Component(props: Props) {
+	return <div/>
 }
-
-export default Component
 endsnippet

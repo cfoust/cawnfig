@@ -22,7 +22,6 @@ command SNN :call simplenote#SimplenoteNew()
 
 function OpenTodo()
   call simplenote#SimplenoteOpen('ddaba340676c2f85f1d2bc9b1d6ffaa6')
-  set filetype=org
 endfunction
 
 nnoremap <leader>td :call OpenTodo()

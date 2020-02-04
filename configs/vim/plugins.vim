@@ -24,7 +24,6 @@ Plug 'tpope/vim-fugitive'
 
 " Integration with simplenote.
 Plug 'mrtazz/simplenote.vim'
-Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
 
 " Lets you make codebase-wide changes after a grep.
@@ -60,10 +59,7 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 " Language-specific plugins
 """"""""""""""""""""""""""""
 call Src('lang/c/plugins.vim')
-call Src('lang/gluon/plugins.vim')
 call Src('lang/js/plugins.vim')
-call Src('lang/ts/plugins.vim')
-call Src('lang/kotlin/plugins.vim')
 call Src('lang/rust/plugins.vim')
 
 " Initialize Plug plugins
@@ -88,4 +84,4 @@ call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/youcompleteme.vim')
 
-colorscheme base16-isotope
+colorscheme birds-of-paradise

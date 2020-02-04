@@ -37,6 +37,7 @@ q drag 1
 #ctrl+u cut-right,cut-up
 #ctrl+b cut-left,cut-down
 #ctrl+n cut-right,cut-down
+#ctrl+n cut-right,cut-down
 
 ### History
 a history-back

@@ -198,7 +198,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.red}
-label = %percentage:2%%
+label = CPU %percentage:2%%
 
 [module/memory]
 type = internal/memory
@@ -206,7 +206,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.green}
-label = %percentage_used%%
+label = RAM %percentage_used%%
 
 [module/wlan]
 type = internal/network

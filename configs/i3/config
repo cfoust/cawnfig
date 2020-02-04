@@ -13,7 +13,7 @@ set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color4 #f0f0f0
 set_from_resource $user echo "$USER"
 
-gaps outer 120
+gaps outer 10
 gaps inner 20
 smart_borders on
 

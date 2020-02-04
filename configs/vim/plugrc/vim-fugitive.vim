@@ -18,7 +18,7 @@ nnoremap <leader>gl :Glog<CR>
 Doc pr "GitHub: Make a pull request"
 nnoremap <leader>pr :!hub pull-request -ocp <CR>
 
-Doc op "GitHub: Open the current page"
+Doc br "GitHub: Open the current page"
 nnoremap <leader>br :call system('hub browse -- blob/' . trim(system('git rev-parse --abbrev-ref HEAD')) . '/' . expand("%p") . '#L' . line('.')) <CR><CR>
 
 set statusline+=%{fugitive#statusline()}

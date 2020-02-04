@@ -1,1 +1,0 @@
-Plug 'salpalvv/vim-gluon'
