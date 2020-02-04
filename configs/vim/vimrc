@@ -82,6 +82,7 @@ set splitbelow
 set splitright
 
 set exrc
+set backupcopy=yes
 
 " Use tmux-like split commands
 "================================================
@@ -138,6 +139,8 @@ endif
 "================================================
 " Easy file write
 nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>Q :qa!<CR>
 
 " Remove all trailing whitespace
 nnoremap <silent> <leader>t<space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -169,10 +172,12 @@ vnoremap gs :sort<CR>
 
 " Duplicate and jump to beginning of paste"
 vnoremap <leader>h y`>p
+vnoremap <leader>H :normal <leader>ccgvy`>p
 
 " Yank to and paste from system clipboard
 nnoremap <silent> <leader>C "+p
 vnoremap <leader>C "+y
+nnoremap <leader>N :let @+=expand("%")<CR>
 
 " Remap j and k to scroll up and down
 nnoremap j <C-D>
