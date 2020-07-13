@@ -1,14 +1,33 @@
 snippet component
-// @flow
+// @flow strict-local
 
 import * as React from 'react'
 import * as R from 'ramda'
-import { useEffect, useState, useCallback } from 'react'
+import { createUseStyles } from 'react-jss'
 
-type Props = {
-}
+import Theme from '@embarktrucks/theme'
 
-export default function Component(props: Props) {
-	return <div/>
+const useStyles = createUseStyles({
+  root: {
+  }
+})
+
+type Props = {|
+|}
+
+export default function `!p snip.fn`(props: Props) {
+	const { } = props
+	const classes = useStyles()
+
+	return <div className={classes.root} />
 }
+endsnippet
+
+snippet mountinfo
+React.useEffect(() => {
+	console.log('mounted')
+	return () => {
+		console.log('unmounted')
+	}
+}, [])
 endsnippet

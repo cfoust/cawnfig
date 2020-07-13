@@ -13,7 +13,7 @@ nnoremap <leader>gd :Gdiff<CR>
 Doc gp "Git: push HEAD to origin"
 nnoremap <leader>gp :Gpush origin HEAD<CR>
 Doc gl "Git: previous versions of file in quickfix list"
-nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>gl :0Gclog<CR>
 
 Doc pr "GitHub: Make a pull request"
 nnoremap <leader>pr :!hub pull-request -ocp <CR>

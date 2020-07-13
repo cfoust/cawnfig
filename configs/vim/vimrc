@@ -214,6 +214,9 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
+
+" Grep the codebasse for the identifier under the cursor
+nnoremap K :grep <cword><CR>
 "================================================
 
 "================================================

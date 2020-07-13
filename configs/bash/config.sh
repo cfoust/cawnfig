@@ -14,6 +14,7 @@ export EDITOR="$VISUAL"
 # Holds all repositories.
 export DEV_DIR="$HOME/Developer"
 export CAWNFIG_DIR="$HOME/cawnfig"
+export PATH="$PATH:$CAWNFIG_DIR/bin"
 
 ################
 # A L I A S E S

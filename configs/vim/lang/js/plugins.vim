@@ -12,5 +12,3 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'flowtype/vim-flow', {
       \ 'for': ['javascript', 'typescript'] }
-
-Plug 'vim-syntastic/syntastic'
