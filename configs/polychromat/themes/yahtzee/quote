@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-toilet -f future "YAHTZEE"
+toilet -F border -w 50 -f future "I have measured out my life with coffee spoons"
