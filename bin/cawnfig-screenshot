@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+target="$HOME/Screenshots/$(date +%m%d%y-%I%M%S%p).png"
+
+# Capture a screenshot
+import $target
+# Get its mime type
+file_type=$(file -b --mime-type "$target")
+xclip -selection clipboard -t "$file_type" < "$target"
