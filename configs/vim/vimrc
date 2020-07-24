@@ -122,6 +122,7 @@ if has("autocmd")
    autocmd BufNewFile,BufRead *.cup set syntax=java
    autocmd BufNewFile,BufRead *.hbs set syntax=html
    autocmd BufNewFile,BufRead *.vim set tw=0
+   autocmd BufNewFile,BufRead *.hs setlocal tabstop=2 shiftwidth=2 expandtab
 
    " C family languages
    autocmd BufReadPost *.m,*.h,*.c,*.mm,*.cpp,*.hpp setlocal tabstop=4 shiftwidth=4

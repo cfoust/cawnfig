@@ -15,6 +15,7 @@ let g:neoformat_python_docker = {
       \ }
 
 let g:neoformat_enabled_python = ['docker']
+let g:neoformat_enabled_haskell = ['brittany']
 
 Doc tl "Neoformat: Lint current file"
 map <leader>tl :Neoformat <CR>

@@ -86,5 +86,5 @@ call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/youcompleteme.vim')
 
 "colorscheme boltzmann
-colorscheme solarized8_dark_low
+colorscheme phd
 "colorscheme yeller
