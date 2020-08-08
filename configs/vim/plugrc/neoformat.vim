@@ -5,7 +5,7 @@ let g:neoformat_javascript_docker = {
       \ 'stdin': 1,
       \ }
 
-let g:neoformat_enabled_javascript = ['docker']
+let g:neoformat_enabled_javascript = ['prettier', 'docker']
 
 " Uses black inside docker.
 let g:neoformat_python_docker = {

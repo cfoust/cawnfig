@@ -61,6 +61,7 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/rust/plugins.vim')
+Plug 'neovimhaskell/haskell-vim'
 
 " Initialize Plug plugins
 call plug#end()
