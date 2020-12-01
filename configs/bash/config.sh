@@ -164,6 +164,7 @@ fgb() {
 
 bind '"\C-g": "fgb\n"'
 alias hm="fd ~"
+alias gist="gist-paste -o"
 
 source "$SCRIPT_DIR/../polychromat/pcm.sh"
 konsole_color "$PCM_KONSOLE_THEME"

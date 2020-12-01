@@ -151,18 +151,22 @@ nnoremap <silent> <leader>t<space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Ba
 nnoremap <silent> ciw yiwciw
 " Jump to the next occurrence of the text in register 0. Use in tandem with
 " the command above to make replacements quickly.
+Doc n "Jump to next occurrence"
 nnoremap <silent> <leader>n /<C-r>0<CR>
 
-" Delete line below with <leader>d and above with <leader>D
+Doc d "Delete line below"
 nnoremap <silent> <leader>d :+d <CR>
+Doc D "Delete line above"
 nnoremap <silent> <leader>D :-d <CR>
 
-" Delete the current file
+Doc ~ "Delete the current file"
 nnoremap <silent> <leader>~ :call delete(expand('%')) \| bdelete!<CR>
 
 " Same, but add whitespace with <leader>s
 " Pretty similar to unimpaired.vim's implementation
+Doc s "Add blank line below"
 nnoremap <silent> <leader>s :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
+Doc S "Add blank line above"
 nnoremap <silent> <leader>S :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 
 " Select the last pasted text with gp
@@ -173,7 +177,8 @@ vnoremap gs :sort<CR>
 
 " Duplicate and jump to beginning of paste"
 vnoremap <leader>h y`>p
-vnoremap <leader>H :normal <leader>ccgvy`>p
+" Duplicate selection and comment out original
+vnoremap <leader>H :normal y_ cc`>p<CR>
 
 " Yank to and paste from system clipboard
 nnoremap <silent> <leader>C "+p
