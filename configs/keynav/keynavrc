@@ -20,10 +20,10 @@ shift+b move-left,move-down
 shift+n move-right,move-down
 
 # Left
-space warp,click 1,end
+space warp,click 1,end,grid-nav off
 # Right
-Return warp,click 3,end
-semicolon warp,end
+Return warp,click 3,end,grid-nav off
+semicolon warp,end,grid-nav off
 
 f grid 5x5,grid-nav on
 4 warp,click 4

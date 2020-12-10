@@ -24,7 +24,6 @@ Plug 'tpope/vim-fugitive'
 
 " Integration with simplenote.
 Plug 'mrtazz/simplenote.vim'
-Plug 'jceb/vim-orgmode'
 
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace'
