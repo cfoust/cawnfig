@@ -176,9 +176,9 @@ nnoremap gp `[v`]
 vnoremap gs :sort<CR>
 
 " Duplicate and jump to beginning of paste"
-vnoremap <leader>h y`>p
+vnoremap <leader>h :t'><CR>
 " Duplicate selection and comment out original
-vnoremap <leader>H :normal y_ cc`>p<CR>
+vnoremap <leader>H :t'><CR>gv:call NERDComment('x', 'comment')<CR>'[
 
 " Yank to and paste from system clipboard
 nnoremap <silent> <leader>C "+p
