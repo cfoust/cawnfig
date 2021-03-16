@@ -221,9 +221,15 @@ function! s:Repl()
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
-" Grep the codebasse for the identifier under the cursor
+" Grep the codebase for the identifier under the cursor
 nnoremap K :grep <cword><CR>
 "================================================
+
+" Open a new tmux window in the directory of the current file.
+if exists('$TMUX')
+  Doc fn "Oakthree: New shell in directory of current file"
+  nnoremap <leader>fn :call system("~/.tmux/plugins/tmux-oakthree/bin/new-shell '" . expand("%:p:h") . "'") <CR>
+endif
 
 "================================================
 " START PAGE
