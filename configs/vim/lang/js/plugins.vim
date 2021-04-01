@@ -6,9 +6,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
 
 " Automatic formatting
-Plug 'prettier/vim-prettier', {
-      \ 'do': 'npm install',
-      \ 'for': ['javascript', 'typescript'] }
+"Plug 'prettier/vim-prettier', {
+      "\ 'do': 'npm install',
+      "\ 'for': ['javascript', 'typescript'] }
+Plug 'prettier/vim-prettier', {  'do': 'npm install', }
 
-Plug 'flowtype/vim-flow', {
-      \ 'for': ['javascript', 'typescript'] }
+""Plug 'flowtype/vim-flow', {
+      ""\ 'for': ['javascript', 'typescript'] }
+Plug 'flowtype/vim-flow'
