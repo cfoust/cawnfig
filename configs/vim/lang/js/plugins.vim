@@ -11,6 +11,4 @@ Plug 'godlygeek/tabular'
       "\ 'for': ['javascript', 'typescript'] }
 Plug 'prettier/vim-prettier', {  'do': 'npm install', }
 
-""Plug 'flowtype/vim-flow', {
-      ""\ 'for': ['javascript', 'typescript'] }
-Plug 'flowtype/vim-flow'
+Plug 'dense-analysis/ale'

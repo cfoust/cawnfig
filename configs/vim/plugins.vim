@@ -68,6 +68,7 @@ filetype plugin indent on
 
 " Plugin-specific settings
 """"""""""""""""""""""""""""
+call Src('plugrc/ale.vim')
 call Src('plugrc/ctrlp-bindings.vim')
 call Src('plugrc/ctrlp-branches.vim')
 call Src('plugrc/ctrlp-colorscheme.vim')
@@ -79,10 +80,9 @@ call Src('plugrc/simplenote.vim')
 call Src('plugrc/tabular.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-colorscheme-switcher.vim')
-call Src('plugrc/vim-flow.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/youcompleteme.vim')
 
-colorscheme base16-unikitty-dark
+colorscheme underwater
