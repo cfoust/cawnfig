@@ -76,7 +76,6 @@ call Src('plugrc/ctrlp.vim')
 call Src('plugrc/neoformat.vim')
 call Src('plugrc/plug.vim')
 call Src('plugrc/simplenote.vim')
-"call Src('plugrc/syntastic.vim')
 call Src('plugrc/tabular.vim')
 call Src('plugrc/ultisnips.vim')
 call Src('plugrc/vim-colorscheme-switcher.vim')
@@ -85,4 +84,27 @@ call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
 call Src('plugrc/youcompleteme.vim')
 
-colorscheme brogrammer
+" Color schemes
+""""""""""""""""
+let g:cawnfig_color_schemes = [
+      \  'anotherdark',
+      \  'arcadia',
+      \  'argonaut',
+      \  'asu1dark',
+      \  'base16-greenscreen',
+      \  'base16-mellow-purple',
+      \  'base16-twilight',
+      \  'birds-of-paradise',
+      \  'bluish',
+      \  'boltzmann',
+      \  'brogrammer',
+      \  'bw',
+      \  'camo',
+      \  'candycode',
+      \  'duotone-darklake',
+      \  'eva',
+      \  'flattened_dark',
+      \  'vividchalk',
+      \]
+
+exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
