@@ -162,7 +162,14 @@ fgb() {
     git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+fgb_recent() {
+  local branches=$(git reflog | grep 'moving from .\+' | head -n 30 | perl -n -e '/to ([\/-\w]+)/ && print "$1\n"' | sort -u)
+  local branch=$(echo "$branches" | fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m)
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
 bind '"\C-g": "fgb\n"'
+bind '"\C-h": "fgb_recent\n"'
 alias hm="fd ~"
 alias gist="gist-paste -o"
 
@@ -206,3 +213,4 @@ docker_audit_sorted() {
   docker_audit "$1" | sort -h
 }
 
+eval "$(gh completion -s bash)"

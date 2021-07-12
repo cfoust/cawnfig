@@ -12,3 +12,4 @@ Plug 'godlygeek/tabular'
 Plug 'prettier/vim-prettier', {  'do': 'npm install', }
 
 Plug 'dense-analysis/ale'
+Plug 'leafgarland/typescript-vim'

@@ -13,7 +13,8 @@ set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color4 #f0f0f0
 set_from_resource $user echo "$USER"
 
-gaps outer 10
+gaps vertical 135
+gaps horizontal 700
 gaps inner 20
 smart_borders on
 
@@ -30,7 +31,6 @@ client.background       $bg
 # Use Adobe's nice Source Code font for window titles.
 font pango:Source Code Pro 10
 
-# Start konsole and execute tmux
 bindsym Ctrl+Return exec konsole
 
 # Screenshot function
@@ -41,9 +41,9 @@ for_window [title="kitten"] floating enable, resize set 400 200, move position c
 for_window [title="Peek"] floating enable
 
 # Adjust volume with the built-in media keys
-bindsym Shift+F8 exec pactl set-sink-mute 2 toggle
-bindsym Shift+F9 exec pactl set-sink-volume 2 -3%
-bindsym Shift+F10 exec pactl set-sink-volume 2 +3%
+bindsym Shift+F8 exec pactl set-sink-mute 6 toggle
+bindsym Shift+F9 exec pactl set-sink-volume 6 -3%
+bindsym Shift+F10 exec pactl set-sink-volume 6 +3%
 
 # Mess with redshift with the skip forward key.
 bindcode 173 exec redshift -O 3000 # Diminished color mode
@@ -129,4 +129,5 @@ exec nm-applet
 exec ibus-daemon
 exec xss-lock -- /home/cfoust/cawnfig/bin/lock
 exec synclient PalmDetect=1
+exec /usr/local/bin/urxvtd
 exec wal -R
