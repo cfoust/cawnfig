@@ -37,9 +37,8 @@ bindsym Ctrl+Return exec urxvtc
 bindsym Ctrl+Shift+4 --release exec $HOME/cawnfig/bin/cawnfig-screenshot
 
 # Adjust volume with the built-in media keys
-bindsym Shift+F8 exec pactl set-sink-mute 6 toggle
-bindsym Shift+F9 exec pactl set-sink-volume 6 -3%
-bindsym Shift+F10 exec pactl set-sink-volume 6 +3%
+bindsym --whole-window --border Ctrl+Shift+button4 exec amixer -D pulse sset Master 3%+
+bindsym --whole-window --border Ctrl+Shift+button5 exec amixer -D pulse sset Master 3%-
 
 # Mess with redshift with the skip forward key.
 bindcode 173 exec redshift -O 3000 # Diminished color mode
