@@ -29,5 +29,5 @@ nnoremap <leader>fd :ALEGoToDefinition <CR>
 Doc fd "ALE: Show details for identifiers"
 nnoremap <leader>ft :ALEDetail <CR>
 
-nnoremap [e :ALEPrevious <CR>
-nnoremap ]e :ALENext <CR>
+nnoremap [e :ALEPreviousWrap <CR>
+nnoremap ]e :ALENextWrap <CR>

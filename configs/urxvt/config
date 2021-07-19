@@ -53,6 +53,7 @@ URxvt.colorUL: #ef5350
 ! PERL Extensions
 URxvt.peUURxvt.perl-ext-common: default,matcher
 
+! https://www.tomica.net/blog/2019/01/fixing-urxvt-copy-paste/
 ! Restore Ctrl+Shift+(c|v)
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard

@@ -31,14 +31,10 @@ client.background       $bg
 # Use Adobe's nice Source Code font for window titles.
 font pango:Source Code Pro 10
 
-bindsym Ctrl+Return exec konsole
+bindsym Ctrl+Return exec urxvtc
 
 # Screenshot function
 bindsym Ctrl+Shift+4 --release exec $HOME/cawnfig/bin/cawnfig-screenshot
-
-bindsym Ctrl+Shift+2 --release exec konsole --profile kitten -p LocalTabTitleFormat="kitten" --separate -e '/home/$USER/cawnfig/bin/kitten'
-for_window [title="kitten"] floating enable, resize set 400 200, move position center
-for_window [title="Peek"] floating enable
 
 # Adjust volume with the built-in media keys
 bindsym Shift+F8 exec pactl set-sink-mute 6 toggle

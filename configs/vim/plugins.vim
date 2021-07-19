@@ -107,4 +107,13 @@ let g:cawnfig_color_schemes = [
       \  'vividchalk',
       \]
 
-exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
+" We do have functionality for getting a random scheme from the entire pool,
+" but this just does it from our list.
+function! s:RandomNiceScheme()
+      exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
+endfunction
+
+call s:RandomNiceScheme()
+
+Doc rr "Random nice color scheme"
+nnoremap <leader>rr :call <sid>RandomNiceScheme()<cr>
