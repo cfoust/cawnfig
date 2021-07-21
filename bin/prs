@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+prs=$(gh pr list)
+
+choice=$(echo "$prs" | fzf +s --cycle +m --ansi -d '\\t' --with-nth=2 --preview='gh pr view {1}')
+
+if [ -z "$choice" ]; then
+  exit 0
+fi
+
+choice=$(echo "$choice" | cut -f 1)
+gh pr checkout "$choice"
