@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+SINK=$(pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')
+
+VOLUME=$(pacmd list-sinks | awk '/^\svolume:/{i++} i=='$SINK'{print $5; exit}')
+echo "$VOLUME"

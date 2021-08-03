@@ -26,6 +26,9 @@ nnoremap <leader>fm :make <CR>
 Doc fd "Flow: Jump to definition"
 nnoremap <leader>fd :ALEGoToDefinition <CR>
 
+Doc fr "Flow: Show all references to identifier"
+nnoremap <leader>fr :ALEFindReferences <CR>
+
 Doc fd "ALE: Show details for identifiers"
 nnoremap <leader>ft :ALEDetail <CR>
 

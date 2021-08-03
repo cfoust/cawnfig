@@ -91,7 +91,7 @@ mode "vimlike" {
   # enter fullscreen mode for the focused container
   bindsym f fullscreen; mode "default";
 
-  bindsym b exec wal -i ~/Backgrounds; mode "default";
+  bindsym b exec $HOME/cawnfig/bin/random-desktop; mode "default";
 
   # Clear gaps for video watching and such
   bindsym g gaps inner all set 0; gaps outer all set 0; mode "default";

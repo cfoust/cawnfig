@@ -170,6 +170,7 @@ fgb_recent() {
 
 bind '"\C-g": "fgb\n"'
 bind '"\C-h": "fgb_recent\n"'
+bind '"\C-k": "doc\n"'
 alias hm="fd ~"
 alias gist="gist-paste -o"
 

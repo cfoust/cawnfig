@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Simple script for defining shortcuts with fzf.
+# Sort of like the Doc functionality I have in vim.
+
+# This variable uses tab characters as a delimeter
+read -r -d '' shortcuts << EOM
+prs	GitHub: Check out a pull request
+fgb_recent	Git: Fuzzy-find recent branches and check one out
+git submodule update --init	Git: Update submodules
+EOM
+
+choice=$(echo "$shortcuts" | fzf \
+  +s \
+  --cycle \
+  +m \
+  --ansi \
+  -d '\\t' \
+  --with-nth=2)
+
+if [ -z "$choice" ]; then
+  exit 0
+fi
+
+choice=$(echo "$choice" | cut -f 1)
+$choice
