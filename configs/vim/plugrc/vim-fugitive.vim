@@ -1,15 +1,17 @@
 " Map keybindings to <Leader>g for git.
 """"""""""""""""""""""""""""""""""""""""
 Doc gs "Git: status"
-nnoremap <leader>gs :Gstatus <CR>
+nnoremap <leader>gs :Git <CR>
 Doc gc "Git: commit"
-nnoremap <leader>gc :Gcommit <CR>
+nnoremap <leader>gc :Git commit <CR>
 Doc gb "Git: show git blame for current file"
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Git blame<CR>
 Doc ga "Git: add all files"
 nnoremap <leader>ga :!git add .<CR>
-Doc gd "Git: show diff for current file"
-nnoremap <leader>gd :Gdiff<CR>
+Doc gd "Git: show diff for current file versus HEAD"
+nnoremap <leader>gd :Gvdiffsplit!<CR>
+Doc gd "Git: show diff for current file versus master"
+nnoremap <leader>gm :Gvdiffsplit! origin/master<CR>
 Doc gp "Git: push HEAD to origin"
 nnoremap <leader>gp :Git push origin HEAD<CR>
 Doc gl "Git: previous versions of file in quickfix list"

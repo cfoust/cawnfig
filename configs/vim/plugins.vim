@@ -6,7 +6,7 @@ call plug#begin('~/.vim/addons')
 " Global Plugs
 """"""""""""""""""""""""""""
 " Offers slick autocomplete functionality.
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
@@ -41,6 +41,7 @@ Plug 'dylanaraps/wal.vim'
 Plug 'sheerun/vim-polyglot'
 " Lints better than a dryer.
 Plug 'sbdchd/neoformat'
+Plug 'earthly/earthly.vim', { 'branch': 'main' }
 
 " Writing Plugs
 """"""""""""""""""
@@ -82,7 +83,7 @@ call Src('plugrc/vim-colorscheme-switcher.vim')
 call Src('plugrc/vim-fugitive.vim')
 call Src('plugrc/vim-javascript.vim')
 call Src('plugrc/vim-jsdoc.vim')
-call Src('plugrc/youcompleteme.vim')
+"call Src('plugrc/youcompleteme.vim')
 
 " Color schemes
 """"""""""""""""
@@ -113,7 +114,7 @@ function! s:RandomNiceScheme()
       exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
 endfunction
 
-call s:RandomNiceScheme()
+colors vividchalk
 
 Doc rr "Random nice color scheme"
 nnoremap <leader>rr :call <sid>RandomNiceScheme()<cr>

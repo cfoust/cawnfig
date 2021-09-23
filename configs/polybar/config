@@ -26,10 +26,10 @@ cyan = ${xrdb:color6:#222}
 [bar/foo]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 40
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -47,9 +47,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = CozetteVector:fontformat=truetype:size=18:antialias=true;0
+font-1 = CozetteVector:fontformat=truetype:size=18:antialias=true;0
+font-2 = CozetteVector:pixelsize=18;1
 
 modules-left = bspwm i3
 modules-center = 
@@ -250,7 +250,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = " %m-%d"
 date-alt = " %Y-%m-%d"
 
 time = "%I:%M %p"
@@ -373,7 +373,7 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini

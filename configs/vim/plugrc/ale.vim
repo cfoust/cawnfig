@@ -1,13 +1,9 @@
-" Enables only Flow for JavaScript. See :ALEInfo for a list of other available
-" linters. NOTE: the `flow` linter uses an old API; prefer `flow-language-server`.
-let b:ale_linters = ['flow-language-server']
-
 " Or in ~/.vim/vimrc:
 let g:ale_linters = {
-\   'javascript': ['flow-language-server'],
 \   'typescript': ['tsserver'],
 \   'typescriptreact': ['tsserver'],
 \}
+let g:ale_hover_to_preview = 1
 
 " Flow error output
 " https://flukus.github.io/vim-errorformat-demystified.html
@@ -20,14 +16,17 @@ set errorformat^=%+A\ %#%f\ %#(%l\\\,%c):\ %m,%C%m
 autocmd FileType typescript setlocal makeprg=node_modules/.bin/tsc\ -p\ .\ --noEmit\ --jsx\ react
 autocmd FileType typescriptreact setlocal makeprg=node_modules/.bin/tsc\ -p\ .\ --noEmit\ --jsx\ react
 
-Doc fm "Flow: Check types"
+Doc fm "ALE: Check types"
 nnoremap <leader>fm :make <CR>
 
-Doc fd "Flow: Jump to definition"
+Doc fd "ALE: Jump to definition"
 nnoremap <leader>fd :ALEGoToDefinition <CR>
 
-Doc fr "Flow: Show all references to identifier"
+Doc fr "ALE: Show all references to identifier"
 nnoremap <leader>fr :ALEFindReferences <CR>
+
+Doc fR "ALE: Rename variable"
+nnoremap <leader>fR :ALERename <CR>
 
 Doc fd "ALE: Show details for identifiers"
 nnoremap <leader>ft :ALEDetail <CR>

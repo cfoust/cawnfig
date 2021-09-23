@@ -60,6 +60,7 @@ mode "vimlike" {
 
   # kill focused window
   bindsym x kill; mode "default"
+  bindsym Shift+x exec xmodmap ~/.Xmodmap; mode "default"
 
   # Binds workspaces 1-4 to JKL;
   # Makes rapid window switching effortless.
@@ -86,7 +87,7 @@ mode "vimlike" {
   bindsym s exec dmenu_run; mode "default"
   # Lets you run programs that have .desktop links with Ctrl+S.
   bindsym Ctrl+s exec --no-startup-id i3-dmenu-desktop; mode "default"
-  bindsym a exec chromium-browser --new-window; mode "default"
+  bindsym a exec google-chrome-stable --new-window; mode "default"
 
   # enter fullscreen mode for the focused container
   bindsym f fullscreen; mode "default";
@@ -125,4 +126,5 @@ exec ibus-daemon
 exec xss-lock -- /home/cfoust/cawnfig/bin/lock
 exec synclient PalmDetect=1
 exec /usr/local/bin/urxvtd
+exec cd /home/$USER/.cache/wal && python3 -m http.server 6458
 exec wal -R
