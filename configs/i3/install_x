@@ -4,7 +4,8 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 I3_DIR="$HOME/.config/i3"
 
 # We want gaps because they're pretty.
-if missing "i3"; then
+#if missing "i3"; then
+if true; then
   # Install i3-gaps from source
   $grab \
     autoconf \

@@ -10,6 +10,7 @@ OT_CONF="$HOME/.oakthree.conf"
 
 ensure_link "$THIS_DIR/main.conf" "$TMUX_CONF"
 ensure_link "$THIS_DIR/oakthree.conf" "$OT_CONF"
+ensure_link "$THIS_DIR/snclirc" "$HOME/.snclirc"
 
 install_tmux() {
   $grab libevent-dev libncurses5-dev libncursesw5-dev
@@ -46,3 +47,12 @@ fi
 ensure_link "$OAKTHREE_DIR" "$TMUX_DIR/plugins/tmux-oakthree"
 
 "$TMUX_DIR/plugins/tpm/bin/install_plugins"
+
+if ! missing "pip3" && missing "sncli"; then
+  pip3 install sncli
+fi
+
+SNCLI_FILE="$HOME/.sncli-pass.gpg"
+if [[ ! -f "$SNCLI_FILE" ]]; then
+  error "You must make your .sncli-pass.gpg file. Do so by running make-sncli-pass"
+fi

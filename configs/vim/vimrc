@@ -320,6 +320,3 @@ endfun
 if argc() == 0
   autocmd VimEnter * call Start()
 endif
-
-" HAHAHAHA I bet there's silly stuff in here
-source ~/.vimprivate

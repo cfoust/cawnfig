@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+tab=$(chrome-remote-interface list | jq -r '.[] | select(.title | contains("Slack |")) | .id')
+
+if [ -z "$tab" ]; then
+  exit 1
+fi
+
+chrome-remote-interface activate "$tab"
+i3 workspace 4

@@ -5,10 +5,6 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Kind of silly to still have this in as it's almost always empty,
-# but here we go
-touch ~/.vimprivate
-
 VIM_DIR="$HOME/.vim"
 
 # Symlink our vim config

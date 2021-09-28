@@ -84,10 +84,11 @@ mode "vimlike" {
   bindsym Shift+p move container to workspace 8; mode "default"
 
   # Lets you run programs in the PATH with S
-  bindsym s exec dmenu_run; mode "default"
+  bindsym s exec /home/$USER/cawnfig/bin/open-chrome; mode "default"
+  bindsym Shift+s exec dmenu_run; mode "default"
   # Lets you run programs that have .desktop links with Ctrl+S.
   bindsym Ctrl+s exec --no-startup-id i3-dmenu-desktop; mode "default"
-  bindsym a exec google-chrome-stable --new-window; mode "default"
+  bindsym a exec google-chrome-stable --remote-debugging-port=9222 --new-window; mode "default"
 
   # enter fullscreen mode for the focused container
   bindsym f fullscreen; mode "default";

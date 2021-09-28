@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+temp_file=$(mktemp)
+$EDITOR "$temp_file"
+gpg -c "$temp_file"
+cp "$temp_file.gpg" ~/.sncli-pass.gpg
