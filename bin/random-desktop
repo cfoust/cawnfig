@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source "$SCRIPT_DIR/../configs/bash/config.sh"
+
 # https://gmcgregor.ca/blog/2018-10-20-easy-random-desktop-backgrounds/
 # Download random background / lockscreen wallpapers
 # For GNOME desktop. Tested on Ubuntu 18.04
@@ -25,3 +29,4 @@ downloadRandomImage() {
 
 DESKTOP_IMAGE=$(downloadRandomImage)
 wal -i "$DESKTOP_IMAGE"
+set_tmux_pane_border

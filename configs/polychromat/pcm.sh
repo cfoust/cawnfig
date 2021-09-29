@@ -44,11 +44,10 @@ if [ ! -z "$TMUX" ]; then
   fi
 fi
 
-# Computes the hex version of the background color of the
-# iTerm scheme and sets the tmux pane borders to it.
-# This is so we don't see any pane borders.
+# Computes the hex version of the background color of the Konsole scheme wal
+# generates and sets the tmux pane borders to it. This is so we don't see any
+# pane borders.
 set_tmux_pane_border() {
-  # Set the pane borders to the background color of the konsole theme.
   theme_file="$HOME/.cache/wal/colors-konsole.colorscheme"
 
   if ! [ -f "$theme_file" ]; then
