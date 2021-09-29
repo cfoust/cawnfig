@@ -4,9 +4,10 @@ set -e
 
 tab=$(chrome-remote-interface list | jq -r '.[] | select(.title | contains("Slack |")) | .id')
 
-if [ -z "$tab" ]; then
-  exit 1
-fi
-
-chrome-remote-interface activate "$tab"
 i3 workspace 4
+
+if [ -z "$tab" ]; then
+  chrome-remote-interface new https://app.slack.com/client/T0FTT06UB/D02D52N072L
+else
+  chrome-remote-interface activate "$tab"
+fi

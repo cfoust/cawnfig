@@ -115,29 +115,6 @@ fi
 
 source "$BASH_PRIVATE"
 
-konsole_color() {
-  if [ -n "$TMUX" ]; then
-    printf '\033Ptmux;\033\033]50;%s\007\033\\' "colors=$1"
-  else
-    konsoleprofile "colors=$1"
-  fi
-}
-
-scheme() {
-  local theme
-  theme=$(cat "$CAWNFIG_DIR/configs/konsole/share/themelist" | fzf)
-  konsole_color "$theme"
-}
-
-rscheme() {
-  local theme
-  theme=$(cat "$CAWNFIG_DIR/configs/konsole/share/themelist" | 
-    sort -R |
-    head -n 1)
-  echo "$theme"
-  konsole_color "$theme"
-}
-
 # use ag for fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -175,18 +152,6 @@ alias hm="fd ~"
 alias gist="gist-paste -o"
 
 source "$SCRIPT_DIR/../polychromat/pcm.sh"
-konsole_color "$PCM_KONSOLE_THEME"
-
-WAL_THEME_NAME="colors-konsole"
-WAL_THEME="$HOME/.cache/wal/$WAL_THEME_NAME.colorscheme"
-if [ -f "$WAL_THEME" ]; then
-  cp "$WAL_THEME" "$HOME/cawnfig/configs/konsole/share"
-  konsole_color "$WAL_THEME_NAME"
-
-  if [ ! -z "$TMUX" ]; then
-    set_tmux_pane_border "$WAL_THEME_NAME"
-  fi
-fi
 
 source "$HOME/.dolly/source.sh"
 alias d="dolly"

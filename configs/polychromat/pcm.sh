@@ -43,3 +43,33 @@ if [ ! -z "$TMUX" ]; then
     tmux set-option -g @ot-ui:margin-command "$PCM_THEME_DIR/bg"
   fi
 fi
+
+# Computes the hex version of the background color of the
+# iTerm scheme and sets the tmux pane borders to it.
+# This is so we don't see any pane borders.
+set_tmux_pane_border() {
+  # Set the pane borders to the background color of the konsole theme.
+  theme_file="$HOME/.cache/wal/colors-konsole.colorscheme"
+
+  if ! [ -f "$theme_file" ]; then
+    return 0
+  fi
+
+  color_line=$(sed "8q;d" "$theme_file")
+  [[ "$color_line" =~ ([0-9]+),([0-9]+),([0-9]+) ]]
+  r="${BASH_REMATCH[1]}"
+  g="${BASH_REMATCH[2]}"
+  b="${BASH_REMATCH[3]}"
+  hex=\#$(printf "%02X%02X%02X" $r $g $b)
+  echo "$hex"
+  tmux set -g pane-active-border-style fg="$hex",bg="$hex"
+  tmux set -g pane-border-style fg="$hex",bg="$hex"
+}
+
+if [ ! -z "$TMUX" ]; then
+  set_tmux_pane_border 
+
+  if [ -f "$PCM_THEME_DIR/bg" ]; then
+    tmux set-option -g @ot-ui:margin-command "$PCM_THEME_DIR/bg"
+  fi
+fi
