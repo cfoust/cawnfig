@@ -52,7 +52,7 @@ if ! missing "pip3" && missing "sncli"; then
   pip3 install sncli
 fi
 
-SNCLI_FILE="$HOME/.sncli-pass.gpg"
+SNCLI_FILE="$THIS_DIR/.sncli-pass"
 if [[ ! -f "$SNCLI_FILE" ]]; then
-  error "You must make your .sncli-pass.gpg file. Do so by running make-sncli-pass"
+  error "You must make your .sncli-pass file."
 fi

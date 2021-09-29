@@ -5,6 +5,6 @@ cfg_sn_username = underduck.underall@gmail.com
 # any shell command can be used; its stdout is used for the password
 # trailing newlines are stripped for ease of use
 # note: if both password config are given, cfg_sn_password will be used
-cfg_sn_password_eval = gpg --quiet --for-your-eyes-only --decrypt ~/.sncli-pass.gpg
+cfg_sn_password_eval = cat ~/cawnfig/configs/tmux/.sncli-pass
 
 cfg_editor = vim {fname} +{line}

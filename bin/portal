@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Start ngrok for port 22 (SSH) and save a note with the public URL to
+# Simplenote
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+ngrok tcp 22 &
+"$SCRIPT_DIR/../binaries/wait-for-it.sh" -h localhost -p 4040
+url=$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url')
+
+sncli edit -k 096418088feb43738a195f1d273a99c8
