@@ -60,7 +60,6 @@ set_tmux_pane_border() {
   g="${BASH_REMATCH[2]}"
   b="${BASH_REMATCH[3]}"
   hex=\#$(printf "%02X%02X%02X" $r $g $b)
-  echo "$hex"
   tmux set -g pane-active-border-style fg="$hex",bg="$hex"
   tmux set -g pane-border-style fg="$hex",bg="$hex"
 }
