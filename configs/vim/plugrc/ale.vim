@@ -1,7 +1,7 @@
 " Or in ~/.vim/vimrc:
 let g:ale_linters = {
-\   'typescript': ['tsserver'],
-\   'typescriptreact': ['tsserver'],
+\   'typescript': ['tsserver', 'eslint'],
+\   'typescriptreact': ['tsserver', 'eslint'],
 \}
 let g:ale_hover_to_preview = 1
 
