@@ -285,7 +285,6 @@ fun! Start()
     execute "autocmd BufLeave <buffer> set t_ve=" . &t_ve
     execute "autocmd VimLeave <buffer> set t_ve=" . &t_ve
   augroup END
-  setlocal t_ve=
 
   exec ":r !bash -c '$PCM_VIM_SPLASH'"
 
