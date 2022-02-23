@@ -27,6 +27,10 @@ if [ ! -d ~/cawnfig ]; then
   fi
 fi
 
+if in_gitpod; then
+  cd ~/cawnfig
+fi
+
 # Create our lovely Developer directory
 mkdir -p "$DEV_DIR"
 
