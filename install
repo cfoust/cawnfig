@@ -21,6 +21,7 @@ fi
 if [ ! -d ~/cawnfig ]; then
   if in_gitpod; then
     ln -s ~/.dotfiles ~/cawnfig
+    sudo chown -R gitpod:gitpod ~/.dotfiles
   else
     git clone https://github.com/cfoust/cawnfig.git ~/cawnfig
   fi
