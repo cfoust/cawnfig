@@ -10,6 +10,11 @@ $apt update
 # We need git from the git-go
 ensure_package "git"
 
+if in_gitpod; then
+  # Check everything out over HTTPS because Gitpod doesn't support SSH yet
+  git config --global 'url.https://github.com/.insteadOf' 'git@github.com:'
+fi
+
 # Clone this repo if it doesn't exist
 if [ ! -d ~/cawnfig ]; then
   git clone https://github.com/cfoust/cawnfig.git ~/cawnfig

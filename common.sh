@@ -15,6 +15,10 @@ missing() {
   ! [ -x "$(command -v $1)" ]
 }
 
+in_gitpod() {
+  ! [ -z "$GITPOD_WORKSPACE_ID" ]
+}
+
 missing_package() {
   ! dpkg -l | grep "$1" > /dev/null 2>&1
 }
