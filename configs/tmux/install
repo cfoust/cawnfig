@@ -54,5 +54,5 @@ fi
 
 SNCLI_FILE="$THIS_DIR/.sncli-pass"
 if [[ ! -f "$SNCLI_FILE" ]]; then
-  error "You must make your .sncli-pass file."
+  echo "You must make your .sncli-pass file."
 fi
