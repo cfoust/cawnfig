@@ -47,6 +47,8 @@ install() {
   fi
 
   for item in configs/*; do
+    cd "$CAWNFIG_DIR"
+
     [ -e "$item" ] || [ -d "$item" ] || continue
 
     INSTALLER="$item/$installer_name"
