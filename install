@@ -2,6 +2,8 @@
 #
 # Installs everything necessary for my command-line dev environment.
 
+set -x
+
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$BASE_DIR/common.sh"
 
@@ -17,7 +19,11 @@ fi
 
 # Clone this repo if it doesn't exist
 if [ ! -d ~/cawnfig ]; then
-  git clone https://github.com/cfoust/cawnfig.git ~/cawnfig
+  if in_gitpod; then
+    ln -s ~/.dotfiles ~/cawnfig
+  else
+    git clone https://github.com/cfoust/cawnfig.git ~/cawnfig
+  fi
 fi
 
 # Create our lovely Developer directory
