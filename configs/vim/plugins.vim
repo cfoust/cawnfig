@@ -114,7 +114,10 @@ function! s:RandomNiceScheme()
       exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
 endfunction
 
-colors vividchalk
+try
+  colors vividchalk
+catch /^Vim\%((\a\+)\)\=:E185/
+endtry
 
 Doc rr "Random nice color scheme"
 nnoremap <leader>rr :call <sid>RandomNiceScheme()<cr>
