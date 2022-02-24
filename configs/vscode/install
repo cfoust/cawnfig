@@ -8,6 +8,5 @@ if in_gitpod; then
   cd "$THIS_DIR/autovim"
   yarn install
   yarn vscode:prepublish
-  ensure_link 
   ensure_link "/workspace/.vscode-remote/extensions/undefined.autovim-0.0.1" "$THIS_DIR/autovim"
 fi
