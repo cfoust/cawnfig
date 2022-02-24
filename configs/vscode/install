@@ -8,5 +8,6 @@ if in_gitpod; then
   yarn install
   npm install -g vsce
   vsce package -o autovim.vsix
+  "$THIS_DIR/wait-for-it.sh" 127.0.0.1:23000
   gitpod-code --install-extension "$(pwd)/autovim.vsix"
 fi
