@@ -5,13 +5,16 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
   const {window, commands} = vscode
   let disposable = commands.registerCommand('autovim.cli', () => {
-    window.showInformationMessage('Launching focus mode');
     (async () => {
-      await commands.executeCommand('workbench.action.editorLayoutSingle')
-      await commands.executeCommand('workbench.action.toggleMaximizedPanel')
-      await commands.executeCommand('workbench.action.terminal.createTerminalEditor')
+      await vscode.commands.executeCommand('vscode.setEditorLayout', {
+        orientation : 1,
+        groups : [ {} ],
+      });
       await commands.executeCommand('workbench.action.toggleStatusbarVisibility')
       await commands.executeCommand('workbench.action.toggleActivityBarVisibility')
+      await commands.executeCommand('workbench.action.closePanel')
+      await commands.executeCommand('workbench.action.terminal.createTerminalEditor')
+      await commands.executeCommand('workbench.action.closeOtherEditors')
     })();
   });
 
