@@ -3,7 +3,8 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if in_gitpod; then
+# Cancel this for now, it's not working
+if false; then
   cd "$THIS_DIR/autovim"
   yarn install
   npm install -g vsce
