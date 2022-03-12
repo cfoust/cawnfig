@@ -16,7 +16,7 @@ if in_gitpod; then
 
   # Also set up the WakaTime config
   if ! [ -z "$WAKATIME_KEY" ]; then
-    sed "s/__WAKATIME_KEY__/$WAKATIME_KEY/" configs/wakatime/template.cfg > ~/.wakatime.cfg
+    sed "s/__WAKATIME_KEY__/$WAKATIME_KEY/" "$BASE_DIR/configs/wakatime/template.cfg" > ~/.wakatime.cfg
   fi
 fi
 
