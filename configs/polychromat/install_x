@@ -3,6 +3,6 @@
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if missing "wal"; then
-  $grab nitrogen python3 python3-pip
+  grab nitrogen python3 python3-pip
   pip3 install pywal
 fi

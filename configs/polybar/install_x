@@ -12,7 +12,7 @@ if missing "polybar"; then
   mkdir polybar/build
   cd polybar/build
   cmake ..
-  sudo make install
+  _sudo make install
 fi
 
 mkdir -p "$HOME/.config/polybar"

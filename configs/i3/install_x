@@ -7,7 +7,7 @@ I3_DIR="$HOME/.config/i3"
 #if missing "i3"; then
 if true; then
   # Install i3-gaps from source
-  $grab \
+  grab \
     autoconf \
     libev-dev \
     libpango1.0-dev \
@@ -24,9 +24,9 @@ if true; then
     libxkbcommon-x11-dev \
     libyajl-dev
 
-  sudo add-apt-repository -y ppa:aguignard/ppa
-  $apt update
-  $grab libxcb-xrm-dev
+  _sudo add-apt-repository -y ppa:aguignard/ppa
+  apt update
+  grab libxcb-xrm-dev
 
   cd $HOME/Developer
   git clone https://www.github.com/Airblader/i3 i3-gaps
@@ -39,7 +39,7 @@ if true; then
 
   ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
   make
-  sudo make install
+  _sudo make install
 fi
 
 ensure_link "$THIS_DIR" "$I3_DIR"

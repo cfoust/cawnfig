@@ -5,10 +5,12 @@
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$BASE_DIR/common.sh"
 
-$apt update
+apt update
 
 # We need git from the git-go
 ensure_package "git"
+ensure_package "wget"
+ensure_package "curl"
 
 if in_gitpod; then
   # Check everything out over HTTPS because Gitpod doesn't support SSH yet
@@ -24,7 +26,7 @@ fi
 if [ ! -d ~/cawnfig ]; then
   if in_gitpod; then
     ln -s ~/.dotfiles ~/cawnfig
-    sudo chown -R gitpod:gitpod ~/.dotfiles
+    _sudo chown -R gitpod:gitpod ~/.dotfiles
   else
     git clone https://github.com/cfoust/cawnfig.git ~/cawnfig
   fi

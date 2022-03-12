@@ -13,7 +13,7 @@ ensure_link "$THIS_DIR/oakthree.conf" "$OT_CONF"
 ensure_link "$THIS_DIR/snclirc" "$HOME/.snclirc"
 
 install_tmux() {
-  $grab libevent-dev libncurses5-dev libncursesw5-dev
+  grab libevent-dev libncurses5-dev libncursesw5-dev locales-all
 
   # The release for tmux 2.5
   RELEASE_URL="https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"
@@ -23,7 +23,7 @@ install_tmux() {
   tar xf tmux-2.5.tar.gz
   cd tmux-2.5
   ./configure && make
-  sudo make install
+  _sudo make install
 }
 
 if missing "tmux"; then
@@ -42,7 +42,7 @@ fi
 
 OAKTHREE_DIR="$DEV_DIR/cfoust/tmux-oakthree"
 if [ ! -d "$OAKTHREE_DIR" ]; then
-  git clone git@github.com:cfoust/tmux-oakthree.git "$OAKTHREE_DIR"
+  git clone https://github.com/cfoust/tmux-oakthree.git "$OAKTHREE_DIR"
 fi
 ensure_link "$OAKTHREE_DIR" "$TMUX_DIR/plugins/tmux-oakthree"
 

@@ -6,11 +6,11 @@ if missing "toilet"; then
   ensure_package "build-essential"
   ensure_package "automake"
   ensure_package "pkg-config"
-  $grab libcaca-dev
+  grab libcaca-dev
   cd /tmp
-  git clone git@github.com:cacalabs/toilet.git
+  git clone https://github.com/cacalabs/toilet.git
   cd toilet
   ./bootstrap
   ./configure
-  sudo make install
+  _sudo make install
 fi

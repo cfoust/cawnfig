@@ -4,9 +4,6 @@
 export DEV_DIR="$HOME/Developer"
 export CAWNFIG_DIR="$HOME/cawnfig"
 
-export apt="sudo apt-get -qq"
-export grab="$apt -y install"
-
 no_need() {
   echo "No need to $1."
 }
@@ -15,17 +12,41 @@ missing() {
   ! [ -x "$(command -v $1)" ]
 }
 
+_sudo() {
+  if missing "sudo"; then
+    $@
+  else
+    sudo $@
+  fi
+}
+
+apt() {
+  _sudo apt-get -qq $@
+}
+
+grab() {
+  apt -y install $@
+}
+
+clone() {
+  if [ -z "$SSH_AGENT_PID" ]; then
+    git clone https://github.com/$1.git
+  else
+    git clone git@github.com:$1.git
+  fi
+}
+
 in_gitpod() {
   ! [ -z "$GITPOD_WORKSPACE_ID" ]
 }
 
 missing_package() {
-  ! dpkg -l | grep "$1" > /dev/null 2>&1
+  ! dpkg -l | grep "\s$1\s" > /dev/null 2>&1
 }
 
 ensure_package() {
   if missing_package "$1"; then
-    $grab "$1"
+    grab "$1"
   fi
 }
 

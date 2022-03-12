@@ -11,7 +11,7 @@ if ! [ -x "$URXVT_PATH" ]; then
   cd rxvt-unicode
   ./configure
 
-  $grab curl
+  grab curl
   LIBPTYTTY_VERSION="libptytty-1.8"
   curl -o libptytty.tar.gz "http://dist.schmorp.de/libptytty/$LIBPTYTTY_VERSION.tar.gz"
   tar xvf libptytty.tar.gz
@@ -23,7 +23,7 @@ if ! [ -x "$URXVT_PATH" ]; then
   mv "$LIVEV_VERSION" libev
 
   make
-  sudo make install
+  _sudo make install
 fi
 
 ensure_link "$THIS_DIR/config" "$HOME/.Xdefaults"
