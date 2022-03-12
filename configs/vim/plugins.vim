@@ -8,40 +8,41 @@ call plug#begin('~/.vim/addons')
 " Offers slick autocomplete functionality.
 "Plug 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
-Plug 'scrooloose/nerdcommenter'
-Plug 'SirVer/ultisnips'
+Plug 'scrooloose/nerdcommenter', { 'commit': 'a65465d' }
+Plug 'SirVer/ultisnips', { 'commit': '53e1921' }
 " Snippets for ultisnips
-Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets', { 'commit': 'e081212' }
 " All of the colors of the vimbow.
-Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes', { 'commit': 'fd8f122' }
+Plug 'chriskempson/base16-vim', { 'commit': '7959654' }
 " File opener with fuzzy search.
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'imkmf/ctrlp-branches'
-Plug 'hara/ctrlp-colorscheme'
+Plug 'ctrlpvim/ctrlp.vim', { 'commit': 'f68f4d0' }
+Plug 'imkmf/ctrlp-branches', { 'commit': 'ef2cdbb' }
+Plug 'hara/ctrlp-colorscheme', { 'commit': '13e6698' }
 " Git integration.
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'commit': '2a53d79' }
 
 " Integration with simplenote.
-Plug 'mrtazz/simplenote.vim'
+Plug 'mrtazz/simplenote.vim', { 'commit': '3ad2292' }
 
 " Lets you make codebase-wide changes after a grep.
-Plug 'yegappan/greplace'
+Plug 'yegappan/greplace', { 'commit': '099d7a1' }
 " Records what you do in projects (but not keystrokes).
-Plug 'wakatime/vim-wakatime'
+Plug 'wakatime/vim-wakatime', { 'commit': '1bef11e' }
 " Bridges the gap between terminal and GUI vim by setting the cursor properly.
-Plug 'wincent/terminus'
+Plug 'wincent/terminus', { 'commit': 'e8bc19c' }
 " Cycle through color schemes.
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-misc', { 'commit': '3e6b8fb' }
+Plug 'xolox/vim-colorscheme-switcher', { 'commit': '4d9807a' }
 " Minimal theme that uses your terminal's colors.
 " I use this in conjunction with pywal.
-Plug 'dylanaraps/wal.vim'
+Plug 'dylanaraps/wal.vim', { 'commit': 'c72ba0d' }
 " For all of your syntax highlighting needs.
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', { 'commit': 'ce31cd1d' }
 " Lints better than a dryer.
-Plug 'sbdchd/neoformat'
-Plug 'earthly/earthly.vim', { 'branch': 'main' }
+Plug 'sbdchd/neoformat', { 'commit': '3924dad' }
+Plug 'earthly/earthly.vim', { 'commit': '18c3679' }
+Plug 'neovimhaskell/haskell-vim', { 'commit': 'f35d022' }
 
 " Writing Plugs
 """"""""""""""""""
@@ -61,7 +62,6 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/rust/plugins.vim')
-Plug 'neovimhaskell/haskell-vim'
 
 " Initialize Plug plugins
 call plug#end()
