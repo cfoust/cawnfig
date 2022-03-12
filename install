@@ -13,6 +13,11 @@ ensure_package "git"
 if in_gitpod; then
   # Check everything out over HTTPS because Gitpod doesn't support SSH yet
   git config --global 'url.https://github.com/.insteadOf' 'git@github.com:'
+
+  # Also set up the WakaTime config
+  if ! [ -z "$WAKATIME_KEY" ]; then
+    sed "s/__WAKATIME_KEY__/$WAKATIME_KEY/" configs/wakatime/template.cfg > ~/.wakatime.cfg
+  fi
 fi
 
 # Clone this repo if it doesn't exist
