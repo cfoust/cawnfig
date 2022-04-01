@@ -59,3 +59,7 @@ ensure_package "silversearcher-ag"
 
 # Install all of our plugins
 vim -c :PlugInstall -c :qa
+
+if in_gitpod && ! missing 'npm'; then
+  npm i -g prettier
+fi
