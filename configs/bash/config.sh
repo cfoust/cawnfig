@@ -179,4 +179,6 @@ docker_audit_sorted() {
   docker_audit "$1" | sort -h
 }
 
-eval "$(gh completion -s bash)"
+if [ -x "$(command -v gh)" ]; then
+  eval "$(gh completion -s bash)"
+fi
