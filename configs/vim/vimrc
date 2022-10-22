@@ -138,6 +138,8 @@ if has("autocmd")
 
    " Enforce JS coding style
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
+
+   autocmd BufReadPost *.tex call Src('lang/tex/settings.vim')
 endif
 "================================================
 
