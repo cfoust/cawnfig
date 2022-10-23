@@ -6,7 +6,8 @@ ctrl - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -
 ctrl - space ; vimlike
 
 # kill focused window
-vimlike < x : yabai -m window --close
+vimlike < x : yabai -m window --close && skhd -k 'ctrl - space'
+vimlike < shift - x : yabai -m space --destroy && skhd -k 'ctrl - space'
 
 # Binds workspaces 1-4 to JKL;
 # Makes rapid window switching effortless.
@@ -19,8 +20,12 @@ vimlike < i : yabai -m space --focus 6 && skhd -k 'ctrl - space'
 vimlike < o : yabai -m space --focus 7 && skhd -k 'ctrl - space'
 vimlike < p : yabai -m space --focus 8 && skhd -k 'ctrl - space'
 
-vimlike < f : yabai -m window --toggle native-fullscreen
+vimlike < a : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+
+vimlike < f : yabai -m window --toggle native-fullscreen && skhd -k 'ctrl - space'
+vimlike < r : skhd -r && skhd -k 'ctrl - space'
 
 vimlike < ctrl - space ; default
 vimlike < ctrl - c ; default
 vimlike < escape ; default
+

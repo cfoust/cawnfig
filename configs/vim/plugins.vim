@@ -9,9 +9,9 @@ call plug#begin('~/.vim/addons')
 "Plug 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
 Plug 'scrooloose/nerdcommenter', { 'commit': 'a65465d' }
-Plug 'SirVer/ultisnips', { 'commit': '53e1921' }
+"Plug 'SirVer/ultisnips'
 " Snippets for ultisnips
-Plug 'honza/vim-snippets', { 'commit': 'e081212' }
+"Plug 'honza/vim-snippets', { 'commit': 'e081212' }
 " All of the colors of the vimbow.
 Plug 'flazz/vim-colorschemes', { 'commit': 'fd8f122' }
 Plug 'chriskempson/base16-vim', { 'commit': '7959654' }
@@ -62,6 +62,7 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 call Src('lang/c/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/rust/plugins.vim')
+call Src('lang/tex/plugins.vim')
 
 " Initialize Plug plugins
 call plug#end()
@@ -115,7 +116,7 @@ function! s:RandomNiceScheme()
 endfunction
 
 try
-  colors vividchalk
+  colors birds-of-paradise
 catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
