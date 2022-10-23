@@ -1,9 +1,26 @@
 # vim mode to jump desktops
-:: vim
+:: vimlike
 
-ctrl - space ; vim
-vim < j : yabai -m space --focus 1 && skhd -k 'ctrl - space'
-vim < k : yabai -m space --focus 2 && skhd -k 'ctrl - space'
-vim < l : yabai -m space --focus 3 && skhd -k 'ctrl - space'
-vim < 0x29 : yabai -m space --focus 4 && skhd -k 'ctrl - space'
-vim < ctrl - space ; default
+ctrl - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+ctrl - space ; vimlike
+
+# kill focused window
+vimlike < x : yabai -m window --close
+
+# Binds workspaces 1-4 to JKL;
+# Makes rapid window switching effortless.
+vimlike < j : yabai -m space --focus 1 && skhd -k 'ctrl - space'
+vimlike < k : yabai -m space --focus 2 && skhd -k 'ctrl - space'
+vimlike < l : yabai -m space --focus 3 && skhd -k 'ctrl - space'
+vimlike < 0x29 : yabai -m space --focus 4 && skhd -k 'ctrl - space'
+vimlike < u : yabai -m space --focus 5 && skhd -k 'ctrl - space'
+vimlike < i : yabai -m space --focus 6 && skhd -k 'ctrl - space'
+vimlike < o : yabai -m space --focus 7 && skhd -k 'ctrl - space'
+vimlike < p : yabai -m space --focus 8 && skhd -k 'ctrl - space'
+
+vimlike < f : yabai -m window --toggle native-fullscreen
+
+vimlike < ctrl - space ; default
+vimlike < ctrl - c ; default
+vimlike < escape ; default
