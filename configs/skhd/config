@@ -1,0 +1,9 @@
+# vim mode to jump desktops
+:: vim
+
+ctrl - space ; vim
+vim < j : yabai -m space --focus 1 && skhd -k 'ctrl - space'
+vim < k : yabai -m space --focus 2 && skhd -k 'ctrl - space'
+vim < l : yabai -m space --focus 3 && skhd -k 'ctrl - space'
+vim < 0x29 : yabai -m space --focus 4 && skhd -k 'ctrl - space'
+vim < ctrl - space ; default
