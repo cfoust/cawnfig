@@ -5,7 +5,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 PS1=' \[\e[0;31m\]▸▸\W▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
-#export TERM='xterm-256color'
+export TERM='xterm-256color'
 
 # Like there's any other editor.
 export VISUAL=vim
@@ -181,4 +181,8 @@ docker_audit_sorted() {
 
 if [ -x "$(command -v gh)" ]; then
   eval "$(gh completion -s bash)"
+fi
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+  alias docker='podman'
 fi

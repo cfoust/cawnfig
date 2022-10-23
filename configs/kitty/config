@@ -27,7 +27,7 @@ bold_italic_font auto
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 22.0
+font_size 18.0
 
 #: Font size (in pts)
 
@@ -1347,7 +1347,7 @@ enable_audio_bell no
 #: special value of ask means that kitty will ask before opening the
 #: link when clicked.
 
-# shell_integration enabled
+shell_integration disabled
 
 #: Enable shell integration on supported shells. This enables features
 #: such as jumping to previous prompts, browsing the output of the
@@ -1391,6 +1391,7 @@ enable_audio_bell no
 #: This only source the first valid one in the above order.
 
 # term xterm-kitty
+term xterm-256color
 
 #: The value of the TERM environment variable to set. Changing this
 #: can break many terminal programs, only change it if you know what

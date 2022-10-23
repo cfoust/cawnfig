@@ -67,6 +67,11 @@ set_tmux_pane_border() {
 if [ ! -z "$TMUX" ]; then
   set_tmux_pane_border 
 
+  if [[ $OSTYPE == 'darwin'* ]]; then
+    tmux set -g pane-active-border-style fg="#000000",bg="#000000"
+    tmux set -g pane-border-style fg="#000000",bg="#000000"
+  fi
+
   if [ -f "$PCM_THEME_DIR/bg" ]; then
     tmux set-option -g @ot-ui:margin-command "$PCM_THEME_DIR/bg"
   fi
