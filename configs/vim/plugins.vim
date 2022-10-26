@@ -9,9 +9,9 @@ call plug#begin('~/.vim/addons')
 "Plug 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
 Plug 'scrooloose/nerdcommenter', { 'commit': 'a65465d' }
-"Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Snippets for ultisnips
-"Plug 'honza/vim-snippets', { 'commit': 'e081212' }
+Plug 'honza/vim-snippets', { 'commit': 'e081212' }
 " All of the colors of the vimbow.
 Plug 'flazz/vim-colorschemes', { 'commit': 'fd8f122' }
 Plug 'chriskempson/base16-vim', { 'commit': '7959654' }
@@ -29,8 +29,6 @@ Plug 'mrtazz/simplenote.vim', { 'commit': '3ad2292' }
 Plug 'yegappan/greplace', { 'commit': '099d7a1' }
 " Records what you do in projects (but not keystrokes).
 Plug 'wakatime/vim-wakatime', { 'commit': '1bef11e' }
-" Bridges the gap between terminal and GUI vim by setting the cursor properly.
-Plug 'wincent/terminus', { 'commit': 'e8bc19c' }
 " Cycle through color schemes.
 Plug 'xolox/vim-misc', { 'commit': '3e6b8fb' }
 Plug 'xolox/vim-colorscheme-switcher', { 'commit': '4d9807a' }
