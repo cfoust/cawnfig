@@ -126,10 +126,38 @@ nnoremap <leader>me :!chmod u+x %
 "================================================
 " AUTOCMD COMMANDS FOR SYNTAX AND PROFIT
 "================================================
+
+" Use this for looking up the groups
+" https://stackoverflow.com/questions/9464844/how-to-get-group-name-of-highlighting-under-cursor-in-vim
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+nnoremap <silent> <leader>% :call SynStack()<CR>
+
+function! SetKittyScheme() abort
+   let bg = synIDattr(hlID('Normal'), 'bg#')
+   let fg = synIDattr(hlID('Normal'), 'fg#')
+   if $TERM ==# "xterm-kitty"
+      call system(
+               \ "kitty @ --to unix:/tmp/kitty-" . $KITTY_PID
+               \ . " set-colors -a" .
+               \ " background=" . bg .
+               \ " foreground=" . fg
+      \ )
+      call system("tmux set -g pane-active-border-style fg=\"" . bg . "\",bg=\"" . bg . "\"")
+      call system("tmux set -g pane-border-style fg=\"" . bg . "\",bg=\"" . bg . "\"")
+   endif
+endfunction
+
 " Some of this is taken from a TA of mine's .vimrc that
 " he distributed to my Introduction to Operating systems class back
 " in the fall of 2016.
 if has("autocmd")
+   autocmd ColorScheme * call SetKittyScheme()
+
    " When editing a file, always jump to the last cursor position
    autocmd BufReadPost * if line("'\"") | exe "normal '\"" | endif
 
@@ -295,7 +323,7 @@ fun! Start()
         \ norelativenumber
         \ nospell
         \ noruler
-        \ noswapfile 
+        \ noswapfile
 
   " Hide the cursor but make it so it returns if you leave.
   augroup start_screen
@@ -336,3 +364,5 @@ endfun
 if argc() == 0
   autocmd VimEnter * call Start()
 endif
+
+call SetKittyScheme()
