@@ -120,3 +120,4 @@ endtry
 
 Doc rr "Random nice color scheme"
 nnoremap <leader>rr :call <sid>RandomNiceScheme()<cr>
+nnoremap <leader>rc :RandomColorScheme<CR>

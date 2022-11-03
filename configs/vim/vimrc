@@ -120,7 +120,7 @@ nnoremap <leader>vb :e ~/.bashrc <CR>
 Doc vr "Reload .vimrc"
 nnoremap <leader>vr :source ~/.vim/vimrc <CR>
 Doc me "Make current file executable."
-nnoremap <leader>me :!chmod u+x %
+nnoremap <leader>me :!chmod u+x % <CR>
 "================================================
 
 "================================================

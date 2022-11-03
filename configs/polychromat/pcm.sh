@@ -75,4 +75,9 @@ if [ ! -z "$TMUX" ]; then
   if [ -f "$PCM_THEME_DIR/bg" ]; then
     tmux set-option -g @ot-ui:margin-command "$PCM_THEME_DIR/bg"
   fi
+
+  for letter in {A..Z}; do
+    lower=$(echo "$letter" | tr '[:upper:]' '[:lower:]')
+    tmux bind $letter run-shell "bash $HOME/.tmux/plugins/tmux-oakthree/bin/quick-project $lower"
+  done
 fi
