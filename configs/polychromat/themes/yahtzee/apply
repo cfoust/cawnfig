@@ -3,10 +3,3 @@
 export PCM_VIM_SPLASH="$PCM_THEME_DIR/quote"
 export PCM_VIM_THEME="base16-cupcake"
 export PCM_KONSOLE_THEME="Tango Adapted"
-
-if [ ! -z "$TMUX" ]; then
-  tmux set -g pane-active-border-style fg='#ffffff',bg='#ffffff'
-  tmux set -g pane-border-style fg='#ffffff',bg='#ffffff'
-
-  tmux set-option -g @ot-ui:margin-command "bash $PCM_THEME_DIR/bg"
-fi

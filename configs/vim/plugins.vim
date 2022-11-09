@@ -91,6 +91,7 @@ let g:cawnfig_color_schemes = [
       \  'arcadia',
       \  'argonaut',
       \  'asu1dark',
+      \  'base16-atelier-heath-light',
       \  'base16-greenscreen',
       \  'base16-mellow-purple',
       \  'base16-twilight',
@@ -104,6 +105,7 @@ let g:cawnfig_color_schemes = [
       \  'duotone-darklake',
       \  'eva',
       \  'flattened_dark',
+      \  'sift',
       \  'vividchalk',
       \]
 
@@ -114,7 +116,7 @@ function! s:RandomNiceScheme()
 endfunction
 
 try
-  colors birds-of-paradise
+  colors base16-atelier-heath-light
 catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
