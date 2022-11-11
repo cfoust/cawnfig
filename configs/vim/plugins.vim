@@ -115,8 +115,21 @@ function! s:RandomNiceScheme()
       exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
 endfunction
 
+function! InitializeColorScheme() abort
+      if $TERM ==# "xterm-kitty"
+            let current = trim(system('tmux show-option -gv @pcm:scheme'))
+
+            if len(current) != 0
+                  exec 'colorscheme ' . current
+                  return
+            else
+                  colors base16-atelier-heath-light
+            endif
+      endif
+endfunction
+
 try
-  colors base16-atelier-heath-light
+      call InitializeColorScheme()
 catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
