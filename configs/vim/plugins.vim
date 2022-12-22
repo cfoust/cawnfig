@@ -22,6 +22,8 @@ Plug 'hara/ctrlp-colorscheme', { 'commit': '13e6698' }
 " Git integration.
 Plug 'tpope/vim-fugitive', { 'commit': '2a53d79' }
 
+Plug 'jjo/vim-cue', { 'commit': 'bd1a623' }
+
 " Integration with simplenote.
 Plug 'mrtazz/simplenote.vim', { 'commit': '3ad2292' }
 
