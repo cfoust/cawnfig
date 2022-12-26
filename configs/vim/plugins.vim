@@ -125,7 +125,7 @@ function! InitializeColorScheme() abort
                   exec 'colorscheme ' . current
                   return
             else
-                  colors base16-atelier-heath-light
+                  colors birds-of-paradise
             endif
       endif
 endfunction
