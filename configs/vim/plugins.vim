@@ -127,13 +127,15 @@ function! InitializeColorScheme() abort
             else
                   colors birds-of-paradise
             endif
+      else
+            colors vividchalk
       endif
 endfunction
 
 try
       call InitializeColorScheme()
 catch /^Vim\%((\a\+)\)\=:E185/
-      colors birds-of-paradise
+      colors vividchalk
 endtry
 
 Doc rr "Random nice color scheme"
