@@ -135,7 +135,6 @@ endfunction
 try
       call InitializeColorScheme()
 catch /^Vim\%((\a\+)\)\=:E185/
-      colors vividchalk
 endtry
 
 Doc rr "Random nice color scheme"
