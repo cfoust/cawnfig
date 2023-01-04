@@ -180,9 +180,8 @@ if has("autocmd")
    " Forces 8 space tabs to be consistent with gofmt
    autocmd BufReadPost *.go  setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
-   " Enforce JS coding style
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
-
+   autocmd BufReadPost *.py call Src('lang/python/settings.vim')
    autocmd BufReadPost *.tex call Src('lang/tex/settings.vim')
 endif
 "================================================
