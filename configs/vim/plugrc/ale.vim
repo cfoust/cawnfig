@@ -2,6 +2,7 @@
 let g:ale_linters = {
 \   'typescript': ['tsserver', 'eslint'],
 \   'typescriptreact': ['tsserver', 'eslint'],
+\   'go': ['gopls'],
 \}
 let g:ale_hover_to_preview = 1
 
