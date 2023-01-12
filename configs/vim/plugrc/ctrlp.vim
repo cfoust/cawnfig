@@ -22,4 +22,22 @@ nnoremap <leader>ar :CtrlPMRU <CR>
 Doc vE "CtrlP: Files in .vim"
 nnoremap <leader>vE :CtrlP ~/.vim/<CR>
 
+let s:alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+      \ 'm', 'n', 'o', 'p', 'q', 'r',  's', 't', 'u', 'v', 'w', 'x',
+      \ 'y', 'z' ]
+
+function! g:StoreDir(letter)
+  let l:dir = expand("%:p:h") . "/"
+  execute "let @" . a:letter . " = \"" . l:dir . "\""
+endfunction
+
+function! g:RegDir(letter)
+  execute ":CtrlP " . getreg(a:letter)
+endfunction
+
+for a in s:alphabet
+  execute "nnoremap \\" . toupper(a) . " :call g:StoreDir('" . a . "')<CR><CR>"
+  execute "nnoremap \\" . a . " :call g:RegDir('" . a . "')<CR><CR>"
+endfor
+
 let g:ctrlp_extensions = ['bindings']
