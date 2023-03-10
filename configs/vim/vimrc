@@ -65,8 +65,8 @@ syntax on
 
 " Necessary for true color support afaik
 set termguicolors
-set t_8f=[38;2;%lu;%lu;%lum
-set t_8b=[48;2;%lu;%lu;%lum
+"set t_8f=[38;2;%lu;%lu;%lum
+"set t_8b=[48;2;%lu;%lu;%lum
 
 " Always change the cursor shape and support the mouse
 " 10/24/22: tmux is a bit smarter now and doesn't use the passthrough anymore

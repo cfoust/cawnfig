@@ -28,7 +28,6 @@ install_vim() {
   git checkout 8b530b3158cbd3aee2ad9cad8e7b7964faabb51e
   ./configure --with-features=huge \
     --enable-multibyte \
-    --enable-rubyinterp=yes \
     --enable-python3interp=yes \
     --with-python3-config-dir=/usr/lib/python3.5/config \
     --enable-perlinterp=yes \
@@ -44,7 +43,7 @@ install_vim() {
 # TODO: need vim at all for this to work, check if it's installed
 if missing "vim"; then
   install_vim
-elif ! vim --version | grep -q "Vi IMproved 8."; then
+elif ! vim --version | grep -q "Vi IMproved 9."; then
   install_vim
 fi
 
