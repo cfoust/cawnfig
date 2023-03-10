@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+background="$1"
+foreground="$2"
+
+settings="/workspace/.vscode-remote/data/Machine/settings.json"
+if [ -f "$settings" ]; then
+  cat "$SCRIPT_DIR/vs-config.json" | sed "s/BG/#$background/" | sed "s/FG/#$foreground/" > "$settings"
+fi
