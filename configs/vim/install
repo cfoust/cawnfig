@@ -25,16 +25,14 @@ install_vim() {
   cd /tmp
   git clone https://github.com/vim/vim.git
   cd vim
-  git checkout 8b530b3158cbd3aee2ad9cad8e7b7964faabb51e
+  git checkout 14113fdf9cb3d588c0d1c3a210246b981cf5aad3
   ./configure --with-features=huge \
     --enable-multibyte \
     --enable-python3interp=yes \
-    --with-python3-config-dir=/usr/lib/python3.5/config \
-    --enable-perlinterp=yes \
-    --enable-luainterp=yes \
-    --enable-gui=gtk2 --enable-cscope --prefix=/usr
+    --enable-fail-if-missing \
+    --enable-cscope --prefix=/usr
 
-  make VIMRUNTIMEDIR=/usr/share/vim/vim82
+  make VIMRUNTIMEDIR=/usr/share/vim/vim90
 
   _sudo make install
 }
