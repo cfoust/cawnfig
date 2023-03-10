@@ -147,6 +147,8 @@ function! SetKittyScheme() abort
                \ " background=" . bg .
                \ " foreground=" . fg
       \ )
+   endif
+   if len($TMUX) > 0
       call system("tmux set -g pane-active-border-style fg=\"" . bg . "\",bg=\"" . bg . "\"")
       call system("tmux set -g pane-border-style fg=\"" . bg . "\",bg=\"" . bg . "\"")
       call system("tmux set-option -g @pcm:scheme " . g:colors_name)
