@@ -15,20 +15,19 @@ ensure_link "$THIS_DIR/snclirc" "$HOME/.snclirc"
 install_tmux() {
   grab libevent-dev libncurses5-dev libncursesw5-dev locales-all
 
-  # The release for tmux 2.5
-  RELEASE_URL="https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"
+  RELEASE_URL="https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz"
 
   cd /tmp
   wget $RELEASE_URL
-  tar xf tmux-2.5.tar.gz
-  cd tmux-2.5
+  tar xf tmux-3.3a.tar.gz
+  cd tmux-3.3a
   ./configure && make
   _sudo make install
 }
 
 if missing "tmux"; then
   install_tmux
-elif ! tmux -V | grep -q "2.5"; then
+elif ! tmux -V | grep -q "3.3a"; then
   install_tmux
 fi
 
