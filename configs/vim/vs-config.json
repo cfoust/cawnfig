@@ -1,6 +1,19 @@
 {
   "workbench.colorCustomizations": {
     "terminal.background": "BG",
+    "menu.background": "BG",
+    "menu.foreground": "FG",
+    "activityBar.background": "BG",
+    "activityBar.foreground": "FG",
+    "commandCenter.background": "BG",
+    "commandCenter.foreground": "FG",
+    "statusBar.background": "BG",
+    "statusBar.foreground": "FG",
+    "quickInput.background": "BG",
+    "quickInput.foreground": "FG",
+    "editorGroupHeader.tabsBackground": "BG",
+    "tab.activeForeground": "FG",
+    "tab.activeBackground": "BG",
     "terminal.foreground": "FG"
   }
 }
