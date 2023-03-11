@@ -7,6 +7,7 @@
     "activityBar.foreground": "FG",
     "commandCenter.background": "BG",
     "commandCenter.foreground": "FG",
+    "panel.background": "BG",
     "statusBar.background": "BG",
     "statusBar.foreground": "FG",
     "quickInput.background": "BG",
