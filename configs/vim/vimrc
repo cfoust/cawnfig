@@ -153,7 +153,9 @@ function! SetKittyScheme() abort
       call system("tmux set -g pane-border-style fg=\"" . bg . "\",bg=\"" . bg . "\"")
       call system("tmux set-option -g @pcm:scheme " . g:colors_name)
    endif
-   call system($CAWNFIG_DIR . "/configs/vim/update-colors " . bg[1:] . " " . fg[1:])
+   if len($TERM) > 0
+      call system($CAWNFIG_DIR . "/configs/vim/update-colors " . bg[1:] . " " . fg[1:])
+   endif
 endfunction
 
 " Some of this is taken from a TA of mine's .vimrc that

@@ -13,10 +13,8 @@ ensure_link "$THIS_DIR" "$VIM_DIR"
 mkdir -p "$VIM_DIR/tmp"
 
 install_vim() {
-  VIM_DEPS="libncurses5-dev libgnome2-dev libgnomeui-dev "
-  VIM_DEPS+="libgtk2.0-dev libatk1.0-dev libbonoboui2-dev "
-  VIM_DEPS+="libcairo2-dev libx11-dev libxpm-dev libxt-dev "
-  VIM_DEPS+="python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev "
+  VIM_DEPS="libncurses5-dev libatk1.0-dev libbonoboui2-dev "
+  VIM_DEPS+="libcairo2-dev python3-dev "
   VIM_DEPS+="git"
 
   # Make sure we have all of vim's dependencies
@@ -38,7 +36,6 @@ install_vim() {
 }
 
 # Only install if the version is below 8
-# TODO: need vim at all for this to work, check if it's installed
 if missing "vim"; then
   install_vim
 elif ! vim --version | grep -q "Vi IMproved 9."; then
