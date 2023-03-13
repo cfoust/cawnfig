@@ -18,8 +18,14 @@ install_tmux() {
   RELEASE_URL="https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz"
 
   cd /tmp
-  wget $RELEASE_URL
-  tar xf tmux-3.3a.tar.gz
+
+  if in_gitpod; then
+    wget https://cawnfig.s3.us-west-2.amazonaws.com/tmux.3.3a.tar.gz
+  else
+    wget $RELEASE_URL
+  fi
+
+  tar xf tmux.3.3a.tar.gz
   cd tmux-3.3a
   ./configure && make
   _sudo make install

@@ -21,9 +21,16 @@ install_vim() {
   grab $VIM_DEPS
 
   cd /tmp
-  git clone https://github.com/vim/vim.git
-  cd vim
-  git checkout 14113fdf9cb3d588c0d1c3a210246b981cf5aad3
+  if in_gitpod; then
+    wget https://cawnfig.s3.us-west-2.amazonaws.com/vim-14113fdf9.tar.gz
+    tar xf vim-14113fdf9.tar.gz
+    cd vim
+  else
+    git clone https://github.com/vim/vim.git
+    cd vim
+    git checkout 14113fdf9cb3d588c0d1c3a210246b981cf5aad3
+  fi
+
   ./configure --with-features=huge \
     --enable-multibyte \
     --enable-python3interp=yes \
