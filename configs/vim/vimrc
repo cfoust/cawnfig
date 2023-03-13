@@ -280,20 +280,14 @@ vmap <silent> <expr> p <sid>Repl()
 " Grep the codebase for the identifier under the cursor
 nnoremap K :grep <cword><CR>
 
-" Also allow for grepping the codebase with the visual mode selection
-" Taken from/inspired by https://learnvimscriptthehardway.stevelosh.com/chapters/33.html
-function! s:VisualGrep(type)
-   if a:type ==# 'v'
-      execute "normal! `<v`>y"
-   elseif a:type ==# 'char'
-      execute "normal! `[v`]y"
-   else
-      return
-   endif
-
-   execute "grep '" . shellescape(@@) . "'"
+" Grep, but in the directory of the current file
+function! g:Crep(...)
+  let l:dir = expand("%:p:h") . "/"
+  execute "grep " . join(a:000) . " " . l:dir
 endfunction
-vnoremap K :<c-u>call <sid>VisualGrep(visualmode())<cr>
+command! -nargs=+ Crep call Crep(<f-args>)
+
+nnoremap <C-k> :Crep <cword><CR>
 
 "================================================
 
