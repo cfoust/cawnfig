@@ -128,7 +128,7 @@ function! InitializeColorScheme() abort
                   colors birds-of-paradise
             endif
       else
-            colors candycode
+            colors birds-of-paradise
       endif
 endfunction
 
