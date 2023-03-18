@@ -22,20 +22,26 @@ install_vim() {
 
   cd /tmp
   if in_gitpod; then
-    wget https://cawnfig.s3.us-west-2.amazonaws.com/vim-14113fdf9.tar.gz
-    tar xf vim-14113fdf9.tar.gz
+    wget https://cawnfig.s3.us-west-2.amazonaws.com/vim-14113fdf9-031823.tar.gz
+    tar xf vim-14113fdf9-031823.tar.gz
     cd vim
+    LDFLAGS=-rdynamic ./configure --with-features=huge \
+      --enable-multibyte \
+      --enable-python3interp \
+      --with-python3-command=python3.8 \
+      --with-python3-config-dir=$HOME/.pyenv/versions/3.8.16/lib/python3.8/config-3.8-x86_64-linux-gnu \
+      --enable-fail-if-missing \
+      --enable-cscope --prefix=/usr
   else
     git clone https://github.com/vim/vim.git
     cd vim
     git checkout 14113fdf9cb3d588c0d1c3a210246b981cf5aad3
+    ./configure --with-features=huge \
+      --enable-multibyte \
+      --enable-python3interp=yes \
+      --enable-fail-if-missing \
+      --enable-cscope --prefix=/usr
   fi
-
-  ./configure --with-features=huge \
-    --enable-multibyte \
-    --enable-python3interp=yes \
-    --enable-fail-if-missing \
-    --enable-cscope --prefix=/usr
 
   make VIMRUNTIMEDIR=/usr/share/vim/vim90
 

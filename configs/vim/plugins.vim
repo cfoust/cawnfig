@@ -9,7 +9,7 @@ call plug#begin('~/.vim/addons')
 "Plug 'Valloric/YouCompleteMe'
 " Gives easy keybindings for commenting and uncommenting things.
 Plug 'scrooloose/nerdcommenter', { 'commit': 'a65465d' }
-"Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Snippets for ultisnips
 Plug 'honza/vim-snippets', { 'commit': 'e081212' }
 " All of the colors of the vimbow.
@@ -43,6 +43,7 @@ Plug 'sheerun/vim-polyglot', { 'commit': 'ce31cd1d' }
 Plug 'sbdchd/neoformat', { 'commit': '3924dad' }
 Plug 'earthly/earthly.vim', { 'commit': '18c3679' }
 Plug 'neovimhaskell/haskell-vim', { 'commit': 'f35d022' }
+
 
 " Writing Plugs
 """"""""""""""""""
