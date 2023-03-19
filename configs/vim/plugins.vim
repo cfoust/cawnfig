@@ -126,10 +126,10 @@ function! InitializeColorScheme() abort
                   exec 'colorscheme ' . current
                   return
             else
-                  colors birds-of-paradise
+                  colors brogrammer
             endif
       else
-            colors birds-of-paradise
+            colors brogrammer
       endif
 endfunction
 
