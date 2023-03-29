@@ -25,7 +25,7 @@ Plug 'tpope/vim-fugitive', { 'commit': '2a53d79' }
 Plug 'jjo/vim-cue', { 'commit': 'bd1a623' }
 
 " Integration with simplenote.
-Plug 'mrtazz/simplenote.vim', { 'commit': '3ad2292' }
+Plug 'simplenote-vim/simplenote.vim', { 'commit': '3ad2292' }
 
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace', { 'commit': '099d7a1' }
@@ -104,6 +104,7 @@ let g:cawnfig_color_schemes = [
       \  'bw',
       \  'camo',
       \  'candycode',
+      \  'candycode',
       \  'duotone-darklake',
       \  'eva',
       \  'flattened_dark',
@@ -118,17 +119,13 @@ function! s:RandomNiceScheme()
 endfunction
 
 function! InitializeColorScheme() abort
-      if $TERM ==# "xterm-kitty"
-            let current = trim(system('tmux show-option -gv @pcm:scheme'))
+      let current = trim(system('tmux show-option -gv @pcm:scheme'))
 
-            if len(current) != 0
-                  exec 'colorscheme ' . current
-                  return
-            else
-                  colors birds-of-paradise
-            endif
+      if len(current) != 0
+            exec 'colorscheme ' . current
+            return
       else
-            colors candycode
+            colors symfony
       endif
 endfunction
 
