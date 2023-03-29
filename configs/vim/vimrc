@@ -140,9 +140,9 @@ nnoremap <silent> <leader>% :call SynStack()<CR>
 function! SetKittyScheme() abort
    let bg = synIDattr(hlID('Normal'), 'bg#')
    let fg = synIDattr(hlID('Normal'), 'fg#')
-   if $TERM ==# "xterm-kitty"
+   if $OS ==# "macos"
       call system(
-               \ "kitty @ --to unix:/tmp/kitty-" . $KITTY_PID
+               \ "kitty @ --to " . $KITTY_LISTEN_ON
                \ . " set-colors -a" .
                \ " background=" . bg .
                \ " foreground=" . fg
@@ -365,3 +365,5 @@ if argc() == 0
 endif
 
 call SetKittyScheme()
+
+call Src('private.vim')
