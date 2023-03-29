@@ -21,12 +21,10 @@ Plug 'imkmf/ctrlp-branches', { 'commit': 'ef2cdbb' }
 Plug 'hara/ctrlp-colorscheme', { 'commit': '13e6698' }
 " Git integration.
 Plug 'tpope/vim-fugitive', { 'commit': '2a53d79' }
-
 Plug 'jjo/vim-cue', { 'commit': 'bd1a623' }
-
+Plug 'kaarmu/typst.vim'
 " Integration with simplenote.
 Plug 'simplenote-vim/simplenote.vim', { 'commit': '3ad2292' }
-
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace', { 'commit': '099d7a1' }
 " Records what you do in projects (but not keystrokes).

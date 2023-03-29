@@ -372,4 +372,4 @@ endif
 
 call SetKittyScheme()
 
-call Src('private.vim')
+"call Src('private.vim')
