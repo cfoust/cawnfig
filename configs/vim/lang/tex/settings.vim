@@ -1,4 +1,4 @@
-nnoremap <leader>E :!texcount %<CR>
+nnoremap <leader>E :!texcount -sub=section %<CR>
 
 set spell
 

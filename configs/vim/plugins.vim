@@ -42,7 +42,6 @@ Plug 'sbdchd/neoformat', { 'commit': '3924dad' }
 Plug 'earthly/earthly.vim', { 'commit': '18c3679' }
 Plug 'neovimhaskell/haskell-vim', { 'commit': 'f35d022' }
 
-
 " Writing Plugs
 """"""""""""""""""
 " Plug for autowrapping writing
@@ -59,6 +58,7 @@ set runtimepath^=$HOME/.vim/plugins/ctrlp-bindings
 " Language-specific plugins
 """"""""""""""""""""""""""""
 call Src('lang/c/plugins.vim')
+call Src('lang/janet/plugins.vim')
 call Src('lang/js/plugins.vim')
 call Src('lang/rust/plugins.vim')
 call Src('lang/tex/plugins.vim')
@@ -107,6 +107,7 @@ let g:cawnfig_color_schemes = [
       \  'duotone-darklake',
       \  'eva',
       \  'flattened_dark',
+      \  'quantum',
       \  'sift',
       \  'vividchalk',
       \]
@@ -124,7 +125,7 @@ function! InitializeColorScheme() abort
             exec 'colorscheme ' . current
             return
       else
-            colors symfony
+            colors bw
       endif
 endfunction
 

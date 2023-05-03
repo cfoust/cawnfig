@@ -1,0 +1,1 @@
+Plug 'bakpakin/janet.vim'
