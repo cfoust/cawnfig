@@ -22,14 +22,14 @@ install_vim() {
 
   cd /tmp
   if in_gitpod; then
-    wget https://cawnfig.s3.us-west-2.amazonaws.com/vim-14113fdf9-031823.tar.gz
-    tar xf vim-14113fdf9-031823.tar.gz
+    wget https://cawnfig.s3.us-west-2.amazonaws.com/vim-14113fdf9-061223.tar.gz
+    tar xf vim-14113fdf9-061223.tar.gz
     cd vim
     LDFLAGS=-rdynamic ./configure --with-features=huge \
       --enable-multibyte \
       --enable-python3interp \
-      --with-python3-command=python3.8 \
-      --with-python3-config-dir=$HOME/.pyenv/versions/3.8.16/lib/python3.8/config-3.8-x86_64-linux-gnu \
+      --with-python3-command=python3.11 \
+      --with-python3-config-dir=$HOME/.pyenv/versions/3.11.1/lib/python3.11/config-3.11-x86_64-linux-gnu \
       --enable-fail-if-missing \
       --enable-cscope --prefix=/usr
   else
@@ -49,11 +49,7 @@ install_vim() {
 }
 
 # Only install if the version is below 8
-if missing "vim"; then
   install_vim
-elif ! vim --version | grep -q "Vi IMproved 9."; then
-  install_vim
-fi
 
 if [ ! -f "$VIM_DIR/autoload/plug.vim" ] ; then
   grab curl
