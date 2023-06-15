@@ -5,7 +5,7 @@ let g:ale_linters = {
 \   'go': ['gopls'],
 \}
 let g:ale_hover_to_preview = 1
-let g:ale_go_gopls_executable = '/Users/cfoust/go/bin/gopls'
+"let g:ale_go_gopls_executable = '/Users/cfoust/go/bin/gopls'
 
 " Flow error output
 " https://flukus.github.io/vim-errorformat-demystified.html
