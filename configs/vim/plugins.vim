@@ -94,6 +94,7 @@ let g:cawnfig_color_schemes = [
       \  'asu1dark',
       \  'base16-atelier-heath-light',
       \  'base16-greenscreen',
+      \  'base16-gruvbox-dark-pale',
       \  'base16-mellow-purple',
       \  'base16-twilight',
       \  'birds-of-paradise',
@@ -102,7 +103,6 @@ let g:cawnfig_color_schemes = [
       \  'brogrammer',
       \  'bw',
       \  'camo',
-      \  'candycode',
       \  'candycode',
       \  'duotone-darklake',
       \  'eva',
@@ -125,7 +125,7 @@ function! InitializeColorScheme() abort
             exec 'colorscheme ' . current
             return
       else
-            colors bw
+            colors candycode
       endif
 endfunction
 
