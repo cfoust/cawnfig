@@ -13,6 +13,12 @@ ensure_link "$THIS_DIR" "$VIM_DIR"
 mkdir -p "$VIM_DIR/tmp"
 
 install_vim() {
+  if in_gitpod; then
+    # the vim version in apt is fine
+    grab vim
+    return
+  fi
+
   VIM_DEPS="libncurses5-dev libatk1.0-dev libbonoboui2-dev "
   VIM_DEPS+="libcairo2-dev python3-dev "
   VIM_DEPS+="git"
