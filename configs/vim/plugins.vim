@@ -15,6 +15,7 @@ Plug 'honza/vim-snippets', { 'commit': 'e081212' }
 " All of the colors of the vimbow.
 Plug 'flazz/vim-colorschemes', { 'commit': 'fd8f122' }
 Plug 'chriskempson/base16-vim', { 'commit': '7959654' }
+Plug 'sainnhe/everforest', { 'commit': '83b6664' }
 " File opener with fuzzy search.
 Plug 'ctrlpvim/ctrlp.vim', { 'commit': 'f68f4d0' }
 Plug 'imkmf/ctrlp-branches', { 'commit': 'ef2cdbb' }
@@ -28,7 +29,7 @@ Plug 'simplenote-vim/simplenote.vim', { 'commit': '3ad2292' }
 " Lets you make codebase-wide changes after a grep.
 Plug 'yegappan/greplace', { 'commit': '099d7a1' }
 " Records what you do in projects (but not keystrokes).
-Plug 'wakatime/vim-wakatime', { 'commit': '1bef11e' }
+Plug 'wakatime/vim-wakatime'
 " Cycle through color schemes.
 Plug 'xolox/vim-misc', { 'commit': '3e6b8fb' }
 Plug 'xolox/vim-colorscheme-switcher', { 'commit': '4d9807a' }
@@ -118,15 +119,18 @@ function! s:RandomNiceScheme()
       exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
 endfunction
 
+set background=dark
+let g:everforest_background = 'hard'
 function! InitializeColorScheme() abort
-      let current = trim(system('tmux show-option -gv @pcm:scheme'))
-
-      if len(current) != 0
-            exec 'colorscheme ' . current
-            return
-      else
-            colors candycode
+      if len($TMUX) > 0
+            let current = trim(system('tmux show-option -gv @pcm:scheme'))
+            if len(current) != 0
+                  exec 'colorscheme ' . current
+                  return
+            endif
       endif
+
+      colors everforest
 endfunction
 
 try

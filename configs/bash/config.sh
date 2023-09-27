@@ -72,7 +72,11 @@ gsu() {
 }
 
 gnb() {
-  git checkout -b caleb/$(date +'%d-%m-%y')/$1
+  tag="$1"
+  if [[ $tag == caleb/* ]]; then
+    tag=${tag:6}
+  fi
+  git checkout -b caleb/$(date +'%d-%m-%y')/$tag
 }
 
 grb() {

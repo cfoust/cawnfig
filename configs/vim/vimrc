@@ -4,6 +4,10 @@
 " Sets the directory for swap files
 set directory^=$HOME/.vim/tmp//
 
+" And undo files
+set undodir=$HOME/.vim/tmp/
+set undofile
+
 " The home directory for vim
 let g:CawnHome = $HOME . '/.vim/'
 
