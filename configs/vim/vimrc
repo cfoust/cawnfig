@@ -283,6 +283,7 @@ vmap <silent> <expr> p <sid>Repl()
 
 " Grep the codebase for the identifier under the cursor
 nnoremap K :grep <cword><CR>
+nnoremap <leader>K :Crep <cword><CR>
 
 " Grep, but in the directory of the current file
 function! g:Crep(...)
@@ -370,4 +371,4 @@ endif
 
 call SetKittyScheme()
 
-"call Src('private.vim')
+call Src('private.vim')

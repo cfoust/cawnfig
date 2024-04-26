@@ -3,7 +3,7 @@ stty -ixon
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-PS1=' \[\e[0;31m\]▸▸\W▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
+PS1='\[\033Pcy\033\\\] \[\e[0;31m\]▸▸\W▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

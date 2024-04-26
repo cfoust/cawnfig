@@ -99,6 +99,7 @@ let g:cawnfig_color_schemes = [
       \  'base16-mellow-purple',
       \  'base16-twilight',
       \  'birds-of-paradise',
+      \  'bluechia',
       \  'bluish',
       \  'boltzmann',
       \  'brogrammer',
@@ -130,7 +131,7 @@ function! InitializeColorScheme() abort
             endif
       endif
 
-      colors everforest
+      colors brogrammer
 endfunction
 
 try

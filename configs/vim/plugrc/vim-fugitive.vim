@@ -10,6 +10,8 @@ Doc ga "Git: add all files"
 nnoremap <leader>ga :!git add .<CR>
 Doc gd "Git: show diff for current file versus HEAD"
 nnoremap <leader>gd :Gvdiffsplit!<CR>
+Doc gd "Git: show diff for staged changes versus HEAD"
+nnoremap <leader>gD :Git diff HEAD<CR>
 Doc gd "Git: show diff for current file versus master"
 nnoremap <leader>gm :Gvdiffsplit! origin/main<CR>
 Doc gp "Git: push HEAD to origin"
