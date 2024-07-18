@@ -131,7 +131,7 @@ function! InitializeColorScheme() abort
             endif
       endif
 
-      colors brogrammer
+      colors everforest
 endfunction
 
 try
