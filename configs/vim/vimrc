@@ -192,6 +192,7 @@ if has("autocmd")
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
    autocmd BufReadPost *.py call Src('lang/python/settings.vim')
    autocmd BufReadPost *.tex call Src('lang/tex/settings.vim')
+   autocmd BufReadPost *.md call Src('lang/md/settings.vim')
 endif
 "================================================
 
@@ -296,10 +297,10 @@ nnoremap <C-k> :Crep <cword><CR>
 
 "================================================
 
-" Open a new tmux window in the directory of the current file.
-if exists('$TMUX')
-  Doc fn "Oakthree: New shell in directory of current file"
-  nnoremap <leader>fn :call system("~/.tmux/plugins/tmux-oakthree/bin/new-shell '" . expand("%:p:h") . "'") <CR>
+" Open a new cy shell in the directory of the current file.
+if exists('$CY')
+  Doc fn "cy: New shell in directory of current file"
+  nnoremap <leader>fn :call system("cy exec -c '(shell/attach \"" . expand("%:p:h") . "\")'") <CR>
 endif
 
 "================================================

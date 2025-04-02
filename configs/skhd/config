@@ -20,10 +20,10 @@ vimlike < i : yabai -m space --focus 6 && skhd -k 'ctrl - space'
 vimlike < o : yabai -m space --focus 7 && skhd -k 'ctrl - space'
 vimlike < p : yabai -m space --focus 8 && skhd -k 'ctrl - space'
 
-vimlike < a : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+vimlike < a : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome && skhd -k 'ctrl - space'
 
-#vimlike < f : yabai -m window --toggle native-fullscreen && skhd -k 'ctrl - space'
 vimlike < v : yabai -m space --layout float && skhd -k 'ctrl - space'
+vimlike < b : yabai -m space --layout bsp && skhd -k 'ctrl - space'
 vimlike < r : skhd -r && skhd -k 'ctrl - space'
 
 vimlike < ctrl - space ; default
