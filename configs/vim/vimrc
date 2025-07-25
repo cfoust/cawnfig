@@ -115,6 +115,8 @@ set backupcopy=yes
 "================================================
 " QUICK FILE OPEN COMMANDS
 "================================================
+Doc ve "Explore files in current directory"
+nnoremap <leader>fe :Explore <CR>
 Doc ve "Open .vimrc"
 nnoremap <leader>ve :e ~/.vim/vimrc <CR>
 Doc vp "Open plugins.vim"
@@ -187,7 +189,7 @@ if has("autocmd")
    autocmd BufReadPost *.m,*.h,*.c,*.mm,*.cpp,*.hpp setlocal tabstop=4 shiftwidth=4
 
    " Forces 8 space tabs to be consistent with gofmt
-   autocmd BufReadPost *.go  setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+   autocmd BufReadPost *.go  setlocal formatprg= textwidth=80 tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
    autocmd BufReadPost *.js call Src('lang/js/settings.vim')
    autocmd BufReadPost *.py call Src('lang/python/settings.vim')
