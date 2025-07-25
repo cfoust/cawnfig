@@ -3,3 +3,12 @@ snippet jsdoc
  * $1
  */
 endsnippet
+
+snippet mountinfo
+React.useEffect(() => {
+	console.log('mounted')
+	return () => {
+		console.log('unmounted')
+	}
+}, [])
+endsnippet

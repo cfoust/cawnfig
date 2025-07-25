@@ -118,6 +118,7 @@ let g:cawnfig_color_schemes = [
 " but this just does it from our list.
 function! s:RandomNiceScheme()
       exec 'colorscheme ' . get(g:cawnfig_color_schemes, rand() % len(g:cawnfig_color_schemes))
+      syntax on
 endfunction
 
 set background=dark
@@ -131,7 +132,7 @@ function! InitializeColorScheme() abort
             endif
       endif
 
-      colors everforest
+      colors candycode
 endfunction
 
 try
