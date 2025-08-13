@@ -47,6 +47,8 @@ alias ga='git add'
 alias gn='git checkout -b'
 alias gc='git commit'
 alias gp='git push origin HEAD'
+alias gpp='git push private HEAD'
+alias garb='git absorb --and-rebase'
 alias v='vim'
 
 # Pretty git log

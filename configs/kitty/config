@@ -18,16 +18,22 @@
 #: auto on macOS, the priority of bold fonts is semi-bold, bold,
 #: heavy. Setting them manually is useful for font families that have
 #: many weight variants like Book, Medium, Thick, etc. For example::
-
-font_family      Cozette
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
+# font_family      Cozette
+# bold_font        auto
+# italic_font      auto
+# bold_italic_font auto
 #:     bold_font        Operator Mono Medium
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 18.0
+# BEGIN_KITTY_FONTS
+font_family      family="Maple Mono NF"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
+
+font_size 14.0
 
 #: Font size (in pts)
 
@@ -369,6 +375,7 @@ font_size 18.0
 #: contents of the system clipboard.
 
 # paste_actions quote-urls-at-prompt
+paste_actions replace-dangerous-control-codes
 
 #: A comma separated list of actions to take when pasting text into
 #: the terminal. The supported paste actions are:
@@ -2239,7 +2246,12 @@ shell_integration disabled
 #: Open kitty Website
 
 # map shift+cmd+/ open_url https://sw.kovidgoyal.net/kitty/
+#
+map ctrl+shift+r no_op
+map cmd+r no_op
+map ctrl+shift+t no_op
 
 #: 
 
 #: 
+
