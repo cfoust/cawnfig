@@ -11,5 +11,4 @@ Plug 'godlygeek/tabular', { 'commit': '339091a' }
       "\ 'for': ['javascript', 'typescript'] }
 Plug 'prettier/vim-prettier', { 'commit': '0e61e4a', 'do': 'npm install' }
 
-Plug 'dense-analysis/ale', { 'commit': 'bee8ecc' }
 Plug 'leafgarland/typescript-vim', { 'commit': '67e81e4' }

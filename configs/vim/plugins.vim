@@ -42,6 +42,8 @@ Plug 'sheerun/vim-polyglot', { 'commit': 'ce31cd1d' }
 Plug 'sbdchd/neoformat', { 'commit': '3924dad' }
 Plug 'earthly/earthly.vim', { 'commit': '18c3679' }
 Plug 'neovimhaskell/haskell-vim', { 'commit': 'f35d022' }
+"Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+Plug 'dense-analysis/ale', { 'commit': '8eb4803' }
 
 " Writing Plugs
 """"""""""""""""""
@@ -89,8 +91,11 @@ call Src('plugrc/vim-jsdoc.vim')
 " Color schemes
 """"""""""""""""
 let g:cawnfig_color_schemes = [
+      \  'ztest',
+      \  'testscheme2',
       \  'anotherdark',
       \  'arcadia',
+      \  'breeze',
       \  'argonaut',
       \  'asu1dark',
       \  'base16-atelier-heath-light',
@@ -112,6 +117,7 @@ let g:cawnfig_color_schemes = [
       \  'quantum',
       \  'sift',
       \  'vividchalk',
+      \  'xoria256',
       \]
 
 " We do have functionality for getting a random scheme from the entire pool,
@@ -132,7 +138,7 @@ function! InitializeColorScheme() abort
             endif
       endif
 
-      colors vividchalk
+      colors brogrammer
 endfunction
 
 try
@@ -143,3 +149,6 @@ endtry
 Doc rr "Random nice color scheme"
 nnoremap <leader>rr :call <sid>RandomNiceScheme()<cr>
 nnoremap <leader>rc :RandomColorScheme<CR>
+
+Doc rs "Record current color scheme in list"
+nnoremap <leader>rs :call system('/Users/caleb/cawnfig/bin/add-colorscheme ' . shellescape(g:colors_name))<CR>:echo "Added '" . g:colors_name . "' to color schemes list"<CR>

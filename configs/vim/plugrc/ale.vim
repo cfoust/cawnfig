@@ -7,6 +7,7 @@ let g:ale_linters = {
 \}
 let g:ale_hover_to_preview = 1
 let g:ale_go_gopls_executable = '/Users/cfoust/go/bin/gopls'
+let g:ale_set_quickfix = 1
 
 " Flow error output
 " https://flukus.github.io/vim-errorformat-demystified.html
@@ -16,8 +17,8 @@ set errorformat^=Error\ %.%#\ %f:%l:%c%m
 autocmd FileType javascript setlocal makeprg=node_modules/.bin/flow\ --show-all-errors\ --one-line
 
 set errorformat^=%+A\ %#%f\ %#(%l\\\,%c):\ %m,%C%m
-autocmd FileType typescript setlocal makeprg=yarn\ run\ tsc\ -p\ .\ --noEmit\ --jsx\ react
-autocmd FileType typescriptreact setlocal makeprg=yarn\ run\ tsc\ -p\ .\ --noEmit\ --jsx\ react
+autocmd FileType typescript setlocal makeprg=cd\ frontend-hci\ &&\ tsc\ -p\ .\ --noEmit\ --jsx\ react
+autocmd FileType typescriptreact setlocal makeprg=tsc\ -p\ .\ --noEmit\ --jsx\ react
 
 Doc fm "ALE: Check types"
 nnoremap <leader>fm :make <CR>
@@ -26,7 +27,7 @@ Doc fd "ALE: Jump to definition"
 nnoremap <leader>fd :ALEGoToDefinition <CR>
 
 Doc fr "ALE: Show all references to identifier"
-nnoremap <leader>fr :ALEFindReferences <CR>
+nnoremap <leader>fr :ALEFindReferences -quickfix <CR>
 
 Doc fR "ALE: Rename variable"
 nnoremap <leader>fR :ALERename <CR>
