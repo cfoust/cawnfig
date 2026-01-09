@@ -137,7 +137,8 @@
 (defn claude/attach-next
   ```Attach to the next Claude Code pane (cycle through them).
 
-  Cycles through Claude panes, skipping the current one if it's a Claude pane.
+  If any pane needs permission, jump to it immediately.
+  Otherwise, cycles through Claude panes, skipping the current one if it's a Claude pane.
   If no Claude panes exist, does nothing.
   ```
   []
@@ -146,22 +147,30 @@
   (if (empty? panes)
     (msg/toast :warn "No Claude Code panes found")
     (do
-      (def current (pane/current))
-      (def current-is-claude
-        (try
-          (param/get :claude-status :target current)
-          ([_] nil)))
+      # Check if any pane needs permission
+      (def permission-pane (find |(= ($ :status) "permission") panes))
 
-      (if current-is-claude
+      (if permission-pane
+        # Jump directly to permission pane
+        (pane/attach (permission-pane :id))
+        # Otherwise, cycle through panes
         (do
-          (def current-idx
-            (find-index |(= ($ :id) current) panes))
-          (def next-idx
-            (if current-idx
-              (% (+ current-idx 1) (length panes))
-              0))
-          (pane/attach ((panes next-idx) :id)))
-        (pane/attach ((panes 0) :id))))))
+          (def current (pane/current))
+          (def current-is-claude
+            (try
+              (param/get :claude-status :target current)
+              ([_] nil)))
+
+          (if current-is-claude
+            (do
+              (def current-idx
+                (find-index |(= ($ :id) current) panes))
+              (def next-idx
+                (if current-idx
+                  (% (+ current-idx 1) (length panes))
+                  0))
+              (pane/attach ((panes next-idx) :id)))
+            (pane/attach ((panes 0) :id))))))))
 
 (defn claude/attach-by-status
   ```Attach to the first Claude Code pane with the given status.
@@ -208,8 +217,8 @@
       # Show the fuzzy finder with headers
       (as?-> items _
              (input/find _
-                         :headers ["Path" "Status"]
-                         :prompt "claude code panes")
+                         :headers ["path" "status"]
+                         :prompt "vibe mode")
              (pane/attach _)))))
 
 (key/action
