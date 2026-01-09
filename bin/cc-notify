@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+message=""
+
+case "$1" in
+  "idle")
+    exit 0;;
+
+  "permission")
+    message=$(cat /dev/stdin | jq -r '"\(.cwd): \(.message)"') ;;
+
+  "stop")
+    message="Claude finished working."
+esac
+
+cy exec -c "(msg/toast :info \"${message}\")"
+osascript -e "display notification \"${message}\" with title \"Claude Code\""
