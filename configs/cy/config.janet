@@ -94,7 +94,7 @@
 (key/bind :root [prefix "n"]
           (fn [] (create-project (cmd/path (pane/current)))))
 
-(key/bind :root [prefix [:re "[A-Z]"]] open-project)
+(key/bind :root [prefix [:re "[ABD-OR-Z]"]] open-project)
 
 # Claude Code pane tracking
 (defn claude/get-panes
@@ -178,6 +178,45 @@
     (msg/toast :warn (string/format "No Claude Code panes with status: %s" status))
     (pane/attach ((panes 0) :id))))
 
+(defn claude/find-pane
+  ```Open a fuzzy finder to select and attach to a Claude Code pane.
+
+  Shows a table with the pane path and status, with live pane previews.
+  ```
+  []
+  (def panes (claude/get-panes))
+
+  (if (empty? panes)
+    (msg/toast :warn "No Claude Code panes found")
+    (do
+      # Format each pane as a table row
+      (def items
+        (map
+          (fn [pane]
+            # Style status with red background if idle, otherwise no styling
+            (def styled-status
+              (if (= (pane :status) "idle")
+                (style/text (pane :status) :bg "1")
+                (pane :status)))
+
+            # Return [columns, preview, value]
+            [[(pane :path) styled-status]
+             {:type :node :id (pane :id)}
+             (pane :id)])
+          panes))
+
+      # Show the fuzzy finder with headers
+      (as?-> items _
+             (input/find _
+                         :headers ["Path" "Status"]
+                         :prompt "claude code panes")
+             (pane/attach _)))))
+
+(key/action
+  action/find-claude-pane
+  "Find and attach to a Claude Code pane"
+  (claude/find-pane))
+
 (key/action
   action/next-claude-pane
   "Cycle to the next Claude Code pane"
@@ -188,6 +227,5 @@
   "Attach to a Claude Code pane waiting for permission"
   (claude/attach-by-status "permission"))
 
+(key/bind :root [prefix "C"] action/find-claude-pane)
 (key/bind :root [prefix "c"] action/next-claude-pane)
-(key/bind :root [prefix "P"] action/goto-claude-permission)
->>>>>>> 72d305b (feat: initial claude code integration)
