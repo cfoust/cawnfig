@@ -1,17 +1,41 @@
 #!/usr/bin/env bash
 
 message=""
+status="$1"
 
-case "$1" in
+# Extract pane ID from CY environment variable (format: "client:12" -> 12)
+if [[ -n "$CY" ]]; then
+  pane_id="${CY##*:}"
+else
+  # Fallback to current pane if CY not set
+  pane_id='(pane/current)'
+fi
+
+# Update cy pane status
+case "$status" in
   "idle")
+    cy exec -c "(param/set ${pane_id} :claude-status \"idle\")"
+    exit 0;;
+
+  "working")
+    cy exec -c "(param/set ${pane_id} :claude-status \"working\")"
     exit 0;;
 
   "permission")
+    cy exec -c "(param/set ${pane_id} :claude-status \"permission\")"
     message=$(cat /dev/stdin | jq -r '"\(.cwd): \(.message)"') ;;
 
   "stop")
-    message="Claude finished working."
+    cy exec -c "(param/set ${pane_id} :claude-status \"idle\")"
+    message="Claude finished working.";;
+
+  "clear")
+    cy exec -c "(param/set ${pane_id} :claude-status nil)"
+    exit 0;;
 esac
 
-cy exec -c "(msg/toast :info \"${message}\")"
-osascript -e "display notification \"${message}\" with title \"Claude Code\""
+# Send notifications for permission and stop events
+if [[ -n "$message" ]]; then
+  cy exec -c "(msg/toast :info \"${message}\")"
+  osascript -e "display notification \"${message}\" with title \"Claude Code\""
+fi
