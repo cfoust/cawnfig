@@ -23,7 +23,7 @@ case "$status" in
 
   "permission")
     cy exec -c "(param/set ${pane_id} :claude-status \"permission\")"
-    message=$(cat /dev/stdin | jq -r '"\(.cwd): \(.message)"') ;;
+    message=$(cat /dev/stdin | jq -r '"\(.message)"') ;;
 
   "stop")
     cy exec -c "(param/set ${pane_id} :claude-status \"idle\")"
@@ -36,6 +36,10 @@ esac
 
 # Send notifications for permission and stop events
 if [[ -n "$message" ]]; then
+  # Get the pane path and prefix the message
+  pane_path=$(cy exec -c "(tree/path ${pane_id})")
+  message="${pane_path}: ${message}"
+
   cy exec -c "(msg/toast :info \"${message}\")"
   osascript -e "display notification \"${message}\" with title \"Claude Code\""
 fi
