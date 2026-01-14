@@ -190,7 +190,7 @@
 (defn claude/find-pane
   ```Open a fuzzy finder to select and attach to a Claude Code pane.
 
-  Shows a table with the pane path and status, with live pane previews.
+  Shows a table with the pane path, status, and last prompt, with live pane previews.
   ```
   []
   (def panes (claude/get-panes))
@@ -208,8 +208,28 @@
                 (style/text (pane :status) :bg "1")
                 (pane :status)))
 
+            # Get the Git branch
+            (def branch
+              (or
+                (try
+                  (param/get :claude-branch :target (pane :id))
+                  ([_] nil))
+                ""))
+
+            # Get the last prompt and truncate if needed
+            (def prompt
+              (or
+                (try
+                  (param/get :claude-prompt :target (pane :id))
+                  ([_] nil))
+                ""))
+            (def truncated-prompt
+              (if (and (string? prompt) (> (length prompt) 60))
+                (string (string/slice prompt 0 60) "...")
+                (or prompt "")))
+
             # Return [columns, preview, value]
-            [[(pane :path) styled-status]
+            [[(pane :path) styled-status branch truncated-prompt]
              {:type :node :id (pane :id)}
              (pane :id)])
           panes))
@@ -217,7 +237,8 @@
       # Show the fuzzy finder with headers
       (as?-> items _
              (input/find _
-                         :headers ["path" "status"]
+                         :full true
+                         :headers ["path" "status" "branch" "prompt"]
                          :prompt "vibe mode")
              (pane/attach _)))))
 
@@ -238,3 +259,6 @@
 
 (key/bind :root [prefix "C"] action/find-claude-pane)
 (key/bind :root [prefix "c"] action/next-claude-pane)
+
+
+(pp "hello")
