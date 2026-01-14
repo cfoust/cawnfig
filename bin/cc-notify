@@ -11,6 +11,14 @@ else
   pane_id='(pane/current)'
 fi
 
+# Get and store the current Git branch
+git_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
+if [[ -n "$git_branch" ]]; then
+  # Escape single quotes for Janet string
+  escaped_branch=$(echo "$git_branch" | sed "s/'/''/g")
+  cy exec -c "(param/set ${pane_id} :claude-branch \"${escaped_branch}\")"
+fi
+
 # Update cy pane status
 case "$status" in
   "idle")
@@ -19,6 +27,14 @@ case "$status" in
 
   "working")
     cy exec -c "(param/set ${pane_id} :claude-status \"working\")"
+    exit 0;;
+
+  "prompt")
+    # Store the user's prompt text
+    prompt=$(cat /dev/stdin | jq -r '.prompt // .text // ""')
+    # Escape single quotes for Janet string
+    escaped_prompt=$(echo "$prompt" | sed "s/'/''/g")
+    cy exec -c "(param/set ${pane_id} :claude-prompt \"${escaped_prompt}\")"
     exit 0;;
 
   "permission")
@@ -31,13 +47,14 @@ case "$status" in
 
   "clear")
     cy exec -c "(param/set ${pane_id} :claude-status nil)"
+    cy exec -c "(param/set ${pane_id} :claude-prompt nil)"
     exit 0;;
 esac
 
 # Send notifications for permission and stop events
 if [[ -n "$message" ]]; then
   # Get the pane path and prefix the message
-  pane_path=$(cy exec -c "(tree/path ${pane_id})")
+  pane_path=$(cy exec -c "(yield (tree/path ${pane_id}))")
   message="${pane_path}: ${message}"
 
   cy exec -c "(msg/toast :info \"${message}\")"
