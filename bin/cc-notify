@@ -3,30 +3,22 @@
 message=""
 status="$1"
 
-# Extract pane ID from CY environment variable (format: "client:12" -> 12)
-if [[ -n "$CY" ]]; then
-  pane_id="${CY##*:}"
-else
-  # Fallback to current pane if CY not set
-  pane_id='(pane/current)'
-fi
-
 # Get and store the current Git branch
 git_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
 if [[ -n "$git_branch" ]]; then
   # Escape single quotes for Janet string
   escaped_branch=$(echo "$git_branch" | sed "s/'/''/g")
-  cy exec -c "(param/set ${pane_id} :claude-branch \"${escaped_branch}\")"
+  cy exec -c "(param/set (pane/current) :claude-branch \"${escaped_branch}\")"
 fi
 
 # Update cy pane status
 case "$status" in
   "idle")
-    cy exec -c "(param/set ${pane_id} :claude-status \"idle\")"
+    cy exec -c "(param/set (pane/current) :claude-status \"idle\")"
     exit 0;;
 
   "working")
-    cy exec -c "(param/set ${pane_id} :claude-status \"working\")"
+    cy exec -c "(param/set (pane/current) :claude-status \"working\")"
     exit 0;;
 
   "prompt")
@@ -34,27 +26,27 @@ case "$status" in
     prompt=$(cat /dev/stdin | jq -r '.prompt // .text // ""')
     # Escape single quotes for Janet string
     escaped_prompt=$(echo "$prompt" | sed "s/'/''/g")
-    cy exec -c "(param/set ${pane_id} :claude-prompt \"${escaped_prompt}\")"
+    cy exec -c "(param/set (pane/current) :claude-prompt \"${escaped_prompt}\")"
     exit 0;;
 
   "permission")
-    cy exec -c "(param/set ${pane_id} :claude-status \"permission\")"
+    cy exec -c "(param/set (pane/current) :claude-status \"permission\")"
     message=$(cat /dev/stdin | jq -r '"\(.message)"') ;;
 
   "stop")
-    cy exec -c "(param/set ${pane_id} :claude-status \"idle\")"
+    cy exec -c "(param/set (pane/current) :claude-status \"idle\")"
     message="Claude finished working.";;
 
   "clear")
-    cy exec -c "(param/set ${pane_id} :claude-status nil)"
-    cy exec -c "(param/set ${pane_id} :claude-prompt nil)"
+    cy exec -c "(param/set (pane/current) :claude-status nil)"
+    cy exec -c "(param/set (pane/current) :claude-prompt nil)"
     exit 0;;
 esac
 
 # Send notifications for permission and stop events
 if [[ -n "$message" ]]; then
   # Get the pane path and prefix the message
-  pane_path=$(cy exec -c "(yield (tree/path ${pane_id}))")
+  pane_path=$(cy exec -c "(yield (tree/path (pane/current)))")
   message="${pane_path}: ${message}"
 
   cy exec -c "(msg/toast :info \"${message}\")"
