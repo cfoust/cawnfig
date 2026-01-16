@@ -1,5 +1,7 @@
 # Includes things like my PS2 and simple aliases that I use often.
-stty -ixon
+if [[ $- == *i* ]]; then
+  stty -ixon
+fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -156,9 +158,11 @@ fgb_recent() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-bind '"\C-g": "fgb\n"'
-bind '"\C-h": "fgb_recent\n"'
-bind '"\C-k": "doc\n"'
+if [[ $- == *i* ]]; then
+  bind '"\C-g": "fgb\n"'
+  bind '"\C-h": "fgb_recent\n"'
+  bind '"\C-k": "doc\n"'
+fi
 alias hm="fd ~"
 alias gist="gist-paste -o"
 

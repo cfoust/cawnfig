@@ -1,5 +1,9 @@
 (key/bind :root [prefix "p"] (fn [&] (replay/open (pane/current) :copy true)))
 
+(param/set :root :default-frame "tiles")
+(param/set :root :animation-fps 5)
+(param/set :root :animate true)
+
 (key/action
   action/margins-100
   "Set margins size to 100 columns."
