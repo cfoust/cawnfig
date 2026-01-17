@@ -45,6 +45,12 @@ set gdefault
 " to disk.
 set hidden
 
+" Set the terminal title
+set title
+
+"set keyprotocol=xterm:kitty
+"nnoremap <C-esc> :Explore <CR>
+
 " Fix backspacing to allow backspacing past the point of
 " insert.
 set backspace=start
@@ -168,6 +174,8 @@ endfunction
 " he distributed to my Introduction to Operating systems class back
 " in the fall of 2016.
 if has("autocmd")
+   autocmd BufEnter * let &titlestring = "vim - " . expand("%:t")
+
    autocmd ColorScheme * call SetKittyScheme()
 
    " When editing a file, always jump to the last cursor position

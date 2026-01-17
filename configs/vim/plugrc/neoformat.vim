@@ -16,6 +16,7 @@ let g:neoformat_python_docker = {
 
 let g:neoformat_enabled_python = ['docker']
 let g:neoformat_enabled_haskell = ['brittany']
+let g:neoformat_enabled_go = ['gofmt']
 
 let g:neoformat_janet_janetformat = {
       \ 'exe': 'janet-format',
