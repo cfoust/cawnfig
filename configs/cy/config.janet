@@ -98,7 +98,25 @@
 (key/bind :root [prefix "n"]
           (fn [] (create-project (cmd/path (pane/current)))))
 
-(key/bind :root [prefix [:re "[ABD-OR-Z]"]] open-project)
+(defn find-project
+  "Find and open a project by choosing from all git repos."
+  []
+  (def all-repos
+    (as-> (map get-git-repos project-dirs) _
+          (flatten _)
+          (map |[(path/base $) $] _)))
+
+  (when (empty? all-repos)
+    (msg/toast :warn "No git repositories found")
+    (break))
+
+  (def choice (input/find all-repos :prompt "Select project"))
+  (when choice
+    (create-project choice)))
+
+(key/bind :root [prefix "N"] find-project)
+
+(key/bind :root [prefix [:re "[ABD-MOR-Z]"]] open-project)
 
 # Claude Code pane tracking
 (defn claude/get-panes
