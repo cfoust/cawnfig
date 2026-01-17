@@ -18,13 +18,6 @@
 #: auto on macOS, the priority of bold fonts is semi-bold, bold,
 #: heavy. Setting them manually is useful for font families that have
 #: many weight variants like Book, Medium, Thick, etc. For example::
-# font_family      Cozette
-# bold_font        auto
-# italic_font      auto
-# bold_italic_font auto
-#:     bold_font        Operator Mono Medium
-#:     italic_font      Operator Mono Book Italic
-#:     bold_italic_font Operator Mono Medium Italic
 
 # BEGIN_KITTY_FONTS
 font_family      family="Maple Mono NF"
@@ -1437,7 +1430,7 @@ shell_integration disabled
 #: background_opacity. If you want to use both, you are probably
 #: better off just hiding the titlebar with hide_window_decorations.
 
-# macos_option_as_alt no
+macos_option_as_alt yes
 
 #: Use the Option key as an Alt key on macOS. With this set to no,
 #: kitty will use the macOS native Option+Key to enter Unicode

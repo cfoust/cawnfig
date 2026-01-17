@@ -7,3 +7,4 @@ tmp
 .netrwhist
 .netrwhist
 private.vim
+undodir

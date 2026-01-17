@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-echo "$(date) $(wc -w $1)"
+count=$(<$1 wc -w)
+percent=$(python3 -c "print(\"%.2f%%\"% (($count/75000)*100))")
+echo "$(date) $1 $count words ($percent)"

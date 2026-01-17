@@ -132,7 +132,7 @@ function! InitializeColorScheme() abort
             endif
       endif
 
-      colors candycode
+      colors vividchalk
 endfunction
 
 try
