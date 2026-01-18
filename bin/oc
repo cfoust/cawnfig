@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Wrapper for opencode that clears cy agent status on exit
+
+cleanup() {
+  cy exec -c "(param/set (pane/current) :agent-status nil)" 2>/dev/null
+  cy exec -c "(param/set (pane/current) :agent-prompt nil)" 2>/dev/null
+}
+
+trap cleanup EXIT
+
+opencode "$@"
