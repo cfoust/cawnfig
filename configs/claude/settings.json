@@ -11,7 +11,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify idle"
+            "command": "$HOME/cawnfig/bin/cc-notify idle"
           }
         ]
       }
@@ -21,7 +21,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify prompt"
+            "command": "$HOME/cawnfig/bin/cc-notify prompt"
           }
         ]
       }
@@ -32,7 +32,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify working"
+            "command": "$HOME/cawnfig/bin/cc-notify working"
           }
         ]
       }
@@ -43,7 +43,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify idle"
+            "command": "$HOME/cawnfig/bin/cc-notify idle"
           }
         ]
       }
@@ -54,7 +54,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify permission"
+            "command": "$HOME/cawnfig/bin/cc-notify permission"
           }
         ]
       },
@@ -63,7 +63,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify idle"
+            "command": "$HOME/cawnfig/bin/cc-notify idle"
           }
         ]
       }
@@ -73,7 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify stop"
+            "command": "$HOME/cawnfig/bin/cc-notify stop"
           }
         ]
       }
@@ -83,7 +83,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/caleb/cawnfig/bin/cc-notify clear"
+            "command": "$HOME/cawnfig/bin/cc-notify clear"
           }
         ]
       }
