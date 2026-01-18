@@ -1,5 +1,0 @@
-clear lock
-
-keycode 66 = Control_L
-remove mod4 = Control_L
-add Control = Control_L
