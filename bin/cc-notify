@@ -8,17 +8,17 @@ git_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
 if [[ -n "$git_branch" ]]; then
   # Escape single quotes for Janet string
   escaped_branch=$(echo "$git_branch" | sed "s/'/''/g")
-  cy exec -c "(param/set (pane/current) :claude-branch \"${escaped_branch}\")"
+  cy exec -c "(param/set (pane/current) :agent-branch \"${escaped_branch}\")"
 fi
 
 # Update cy pane status
 case "$status" in
   "idle")
-    cy exec -c "(param/set (pane/current) :claude-status \"idle\")"
+    cy exec -c "(param/set (pane/current) :agent-status \"idle\")"
     exit 0;;
 
   "working")
-    cy exec -c "(param/set (pane/current) :claude-status \"working\")"
+    cy exec -c "(param/set (pane/current) :agent-status \"working\")"
     exit 0;;
 
   "prompt")
@@ -26,20 +26,20 @@ case "$status" in
     prompt=$(cat /dev/stdin | jq -r '.prompt // .text // ""')
     # Escape single quotes for Janet string
     escaped_prompt=$(echo "$prompt" | sed "s/'/''/g")
-    cy exec -c "(param/set (pane/current) :claude-prompt \"${escaped_prompt}\")"
+    cy exec -c "(param/set (pane/current) :agent-prompt \"${escaped_prompt}\")"
     exit 0;;
 
   "permission")
-    cy exec -c "(param/set (pane/current) :claude-status \"permission\")"
+    cy exec -c "(param/set (pane/current) :agent-status \"permission\")"
     message=$(cat /dev/stdin | jq -r '"\(.message)"') ;;
 
   "stop")
-    cy exec -c "(param/set (pane/current) :claude-status \"idle\")"
+    cy exec -c "(param/set (pane/current) :agent-status \"idle\")"
     message="Claude finished working.";;
 
   "clear")
-    cy exec -c "(param/set (pane/current) :claude-status nil)"
-    cy exec -c "(param/set (pane/current) :claude-prompt nil)"
+    cy exec -c "(param/set (pane/current) :agent-status nil)"
+    cy exec -c "(param/set (pane/current) :agent-prompt nil)"
     exit 0;;
 esac
 

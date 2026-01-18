@@ -65,7 +65,7 @@
          (map |(path/join @[path $]) _)
          (filter |(is-dir (path/join @[$ ".git"])) _)))
 
-(def project-dirs @["/Users/caleb/Developer/cfoust"])
+(def project-dirs @["/Users/cfoust/Developer/cfoust"])
 
 (defn open-project [prefix]
   (def lowered (string/ascii-lower prefix))
@@ -118,23 +118,22 @@
 
 (key/bind :root [prefix [:re "[ABD-MOR-Z]"]] open-project)
 
-# Claude Code pane tracking
-(defn claude/get-panes
-  ```Get all cy panes running Claude Code with their statuses.
+(defn agent/get-panes
+  ```Get all cy panes running AI agents with their statuses.
 
   Returns an array of structs with the following keys:
     :id     - NodeID of the pane
     :path   - Full path of the pane in the tree (e.g. "/project/pane-1")
     :name   - Name of the pane node
-    :status - Claude status: "working", "idle", or "permission"
+    :status - Agent status: "working", "idle", or "permission"
   ```
   []
   (def all-panes (group/leaves :root))
 
-  (def claude-panes
+  (def agent-panes
     (seq [pane-id :in all-panes
           :let [status (try
-                         (param/get :claude-status :target pane-id)
+                         (param/get :agent-status :target pane-id)
                          ([_] nil))]
           :when status]
       {:id pane-id
@@ -142,10 +141,10 @@
        :name (tree/name pane-id)
        :status status}))
 
-  claude-panes)
+  agent-panes)
 
-(defn claude/get-by-status
-  ```Get all Claude Code panes filtered by status.
+(defn agent/get-by-status
+  ```Get all agent panes filtered by status.
 
   Args:
     status - One of "working", "idle", or "permission"
@@ -153,21 +152,21 @@
   Returns an array of pane structs matching the status.
   ```
   [status]
-  (def all-claude (claude/get-panes))
-  (filter |(= ($ :status) status) all-claude))
+  (def all-agent (agent/get-panes))
+  (filter |(= ($ :status) status) all-agent))
 
-(defn claude/attach-next
-  ```Attach to the next Claude Code pane (cycle through them).
+(defn agent/attach-next
+  ```Attach to the next AI agent pane (cycle through them).
 
   If any pane needs permission, jump to it immediately.
-  Otherwise, cycles through Claude panes, skipping the current one if it's a Claude pane.
-  If no Claude panes exist, does nothing.
+  Otherwise, cycles through agent panes, skipping the current one if it's an agent pane.
+  If no agent panes exist, does nothing.
   ```
   []
-  (def panes (claude/get-panes))
+  (def panes (agent/get-panes))
 
   (if (empty? panes)
-    (msg/toast :warn "No Claude Code panes found")
+    (msg/toast :warn "No AI agent panes found")
     (do
       # Check if any pane needs permission
       (def permission-pane (find |(= ($ :status) "permission") panes))
@@ -178,12 +177,12 @@
         # Otherwise, cycle through panes
         (do
           (def current (pane/current))
-          (def current-is-claude
+          (def current-is-agent
             (try
-              (param/get :claude-status :target current)
+              (param/get :agent-status :target current)
               ([_] nil)))
 
-          (if current-is-claude
+          (if current-is-agent
             (do
               (def current-idx
                 (find-index |(= ($ :id) current) panes))
@@ -194,8 +193,8 @@
               (pane/attach ((panes next-idx) :id)))
             (pane/attach ((panes 0) :id))))))))
 
-(defn claude/attach-by-status
-  ```Attach to the first Claude Code pane with the given status.
+(defn agent/attach-by-status
+  ```Attach to the first AI agent pane with the given status.
 
   Args:
     status - One of "working", "idle", or "permission"
@@ -203,22 +202,22 @@
   If no pane with that status exists, shows a warning toast.
   ```
   [status]
-  (def panes (claude/get-by-status status))
+  (def panes (agent/get-by-status status))
 
   (if (empty? panes)
-    (msg/toast :warn (string/format "No Claude Code panes with status: %s" status))
+    (msg/toast :warn (string/format "No agent panes with status: %s" status))
     (pane/attach ((panes 0) :id))))
 
-(defn claude/find-pane
-  ```Open a fuzzy finder to select and attach to a Claude Code pane.
+(defn agent/find-pane
+  ```Open a fuzzy finder to select and attach to an AI agent pane.
 
   Shows a table with the pane path, status, and last prompt, with live pane previews.
   ```
   []
-  (def panes (claude/get-panes))
+  (def panes (agent/get-panes))
 
   (if (empty? panes)
-    (msg/toast :warn "No Claude Code panes found")
+    (msg/toast :warn "No AI agent panes found")
     (do
       # Format each pane as a table row
       (def items
@@ -234,7 +233,7 @@
             (def branch
               (or
                 (try
-                  (param/get :claude-branch :target (pane :id))
+                  (param/get :agent-branch :target (pane :id))
                   ([_] nil))
                 ""))
 
@@ -242,7 +241,7 @@
             (def prompt
               (or
                 (try
-                  (param/get :claude-prompt :target (pane :id))
+                  (param/get :agent-prompt :target (pane :id))
                   ([_] nil))
                 ""))
             (def truncated-prompt
@@ -265,22 +264,19 @@
              (pane/attach _)))))
 
 (key/action
-  action/find-claude-pane
-  "Find and attach to a Claude Code pane"
-  (claude/find-pane))
+  action/find-agent-pane
+  "Find and attach to an AI agent pane"
+  (agent/find-pane))
 
 (key/action
-  action/next-claude-pane
-  "Cycle to the next Claude Code pane"
-  (claude/attach-next))
+  action/next-agent-pane
+  "Cycle to the next AI agent pane"
+  (agent/attach-next))
 
 (key/action
-  action/goto-claude-permission
-  "Attach to a Claude Code pane waiting for permission"
-  (claude/attach-by-status "permission"))
+  action/goto-agent-permission
+  "Attach to an AI agent pane waiting for permission"
+  (agent/attach-by-status "permission"))
 
-(key/bind :root [prefix "C"] action/find-claude-pane)
-(key/bind :root [prefix "c"] action/next-claude-pane)
-
-
-(pp "hello")
+(key/bind :root [prefix "C"] action/find-agent-pane)
+(key/bind :root [prefix "c"] action/next-agent-pane)

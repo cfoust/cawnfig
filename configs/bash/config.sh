@@ -1,9 +1,9 @@
-# Includes things like my PS2 and simple aliases that I use often.
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$SCRIPT_DIR/osc133.bash"
+
 if [[ $- == *i* ]]; then
   stty -ixon
 fi
-
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 PS1='\[\033Pcy\033\\\] \[\e[0;31m\]▸▸\W▹\[\e[0m\] \[\e[0;31m\]\[\e[0m\]\[\033[00m\]'
 
@@ -11,8 +11,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export OS="macos"
-
-#export TERM='xterm-256color'
 
 # Like there's any other editor.
 export VISUAL=vim
@@ -30,7 +28,6 @@ export PATH="$PATH:$CAWNFIG_DIR/bin"
 alias ll='ls -alhF --color=auto'
 alias la='ls -A'
 alias l='ll'
-alias ascii2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif -w 80 -h 20 -s 2 -t monokai'
 
 # Easy directory changes.
 alias c='cd .. && pwd && ls'
@@ -83,10 +80,6 @@ gnb() {
   git checkout -b caleb/$(date +'%d-%m-%y')/$tag
 }
 
-grb() {
-  git rebase origin/master
-}
-
 script() {
   if [ -f "$1" ]; then
     echo "File $1 already exists."
@@ -105,19 +98,6 @@ alias grab='sudo apt-get install'
 # Re-source bashrc
 rs() {
   source ~/.bashrc
-}
-
-drun() {
-  docker run \
-    --rm -it \
-    --volume "$(pwd):$(pwd)" \
-    --workdir "$(pwd)" \
-    $@
-}
-
-# Convert all .heic images to jpg
-tifig-transform() {
-  find *.heic -exec tifig -i {} -o {}.jpg \;
 }
 
 BASH_PRIVATE="$HOME/.bash-private"
@@ -163,8 +143,6 @@ if [[ $- == *i* ]]; then
   bind '"\C-h": "fgb_recent\n"'
   bind '"\C-k": "doc\n"'
 fi
-alias hm="fd ~"
-alias gist="gist-paste -o"
 
 source "$SCRIPT_DIR/../polychromat/pcm.sh"
 
@@ -175,25 +153,9 @@ copy_ssh() {
   cat $HOME/.ssh/id_rsa.pub | xsel -b
 }
 
-docker_diff() {
-  local first=$1 second=$2
-  local cmd=$3
-  echo "'$cmd'"
-  local run="docker run --rm -it "
-  bash -c "$run $first $cmd" > first.txt
-  bash -c "$run $second $cmd" > second.txt
-}
-
-docker_audit() {
-  docker history \
-    --format="{{ .Size }} {{ .CreatedBy }}\n" \
-    --no-trunc "$1"
-}
-
-docker_audit_sorted() {
-  docker_audit "$1" | sort -h
-}
-
 if [ -x "$(command -v gh)" ]; then
   eval "$(gh completion -s bash)"
 fi
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$SCRIPT_DIR/bash-preexec.sh"
