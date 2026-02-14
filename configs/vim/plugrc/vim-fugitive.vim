@@ -8,10 +8,23 @@ Doc gb "Git: show git blame for current file"
 nnoremap <leader>gb :Git blame<CR>
 Doc ga "Git: add all files"
 nnoremap <leader>ga :!git add .<CR>
-Doc gd "Git: show diff for current file versus HEAD"
-nnoremap <leader>gd :Gvdiffsplit!<CR>
+function! ToggleGvdiff()
+  if &diff
+    diffoff!
+    for l:i in range(winnr('$'), 1, -1)
+      if bufname(winbufnr(l:i)) =~# '^fugitive://'
+        execute l:i . 'close'
+        break
+      endif
+    endfor
+  else
+    Gvdiffsplit!
+  endif
+endfunction
+Doc gd "Git: toggle diff for current file versus HEAD"
+nnoremap <leader>gd :call ToggleGvdiff()<CR>
 Doc gd "Git: show diff for staged changes versus HEAD"
-nnoremap <leader>gD :Git diff HEAD<CR>
+nnoremap <leader>gD :Git difftool HEAD<CR>
 Doc gd "Git: show diff for current file versus master"
 nnoremap <leader>gm :Gvdiffsplit! origin/main<CR>
 Doc gp "Git: push HEAD to origin"
